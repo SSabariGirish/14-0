@@ -41,21 +41,21 @@ const SLOTS_CONFIG = {
 };
 
 const TEAM_COLORS = {
-  CSK:  { bg: '#FEF9C3', border: '#EAB308', text: '#1E3A8A', glow: 'rgba(234, 179, 8, 0.55)', tag: 'CSK' },
-  MI:   { bg: '#EFF6FF', border: '#2563EB', text: '#1D4ED8', glow: 'rgba(37, 99, 235, 0.55)', tag: 'MI' },
-  RCB:  { bg: '#FEF2F2', border: '#EF4444', text: '#991B1B', glow: 'rgba(239, 68, 68, 0.55)', tag: 'RCB' },
-  KKR:  { bg: '#FAF5FF', border: '#9333EA', text: '#5B21B6', glow: 'rgba(147, 51, 234, 0.55)', tag: 'KKR' },
-  RR:   { bg: '#FDF2F8', border: '#EC4899', text: '#9D174D', glow: 'rgba(236, 72, 153, 0.55)', tag: 'RR' },
-  SRH:  { bg: '#FFF7ED', border: '#F97316', text: '#C2410C', glow: 'rgba(249, 115, 22, 0.55)', tag: 'SRH' },
-  PBKS: { bg: '#FFF1F2', border: '#E11D48', text: '#9F1239', glow: 'rgba(225, 29, 72, 0.55)', tag: 'PBKS' },
-  DC:   { bg: '#F0F9FF', border: '#0284C7', text: '#0369A1', glow: 'rgba(2, 132, 199, 0.55)', tag: 'DC' },
-  GT:   { bg: '#F8FAFC', border: '#475569', text: '#0F172A', glow: 'rgba(71, 85, 105, 0.55)', tag: 'GT' },
-  LSG:  { bg: '#F0FDFA', border: '#0D9488', text: '#115E59', glow: 'rgba(13, 148, 136, 0.55)', tag: 'LSG' },
-  RPSG: { bg: '#FDF4FF', border: '#C026D3', text: '#701A75', glow: 'rgba(192, 38, 211, 0.55)', tag: 'RPSG' },
-  DEC:  { bg: '#F1F5F9', border: '#334155', text: '#1E293B', glow: 'rgba(51, 65, 85, 0.55)', tag: 'DEC' },
-  GL:   { bg: '#FFFBEB', border: '#D97706', text: '#78350F', glow: 'rgba(217, 119, 6, 0.55)', tag: 'GL' },
-  PWI:  { bg: '#FAFAFA', border: '#52525B', text: '#27272A', glow: 'rgba(82, 82, 91, 0.55)', tag: 'PWI' },
-  KTK:  { bg: '#FFF7ED', border: '#C2410C', text: '#7C2D12', glow: 'rgba(194, 65, 12, 0.55)', tag: 'KTK' }
+  CSK:  { bg: '#1E293B', border: '#EAB308', text: '#FACC15', glow: 'rgba(234, 179, 8, 0.45)', tag: 'CSK' },
+  MI:   { bg: '#1E293B', border: '#3B82F6', text: '#60A5FA', glow: 'rgba(59, 130, 246, 0.45)', tag: 'MI' },
+  RCB:  { bg: '#1E293B', border: '#EF4444', text: '#F87171', glow: 'rgba(239, 68, 68, 0.45)', tag: 'RCB' },
+  KKR:  { bg: '#1E293B', border: '#A855F7', text: '#C084FC', glow: 'rgba(168, 85, 247, 0.45)', tag: 'KKR' },
+  RR:   { bg: '#1E293B', border: '#EC4899', text: '#F472B6', glow: 'rgba(236, 72, 153, 0.45)', tag: 'RR' },
+  SRH:  { bg: '#1E293B', border: '#F97316', text: '#FB923C', glow: 'rgba(249, 115, 22, 0.45)', tag: 'SRH' },
+  PBKS: { bg: '#1E293B', border: '#F43F5E', text: '#FB7185', glow: 'rgba(244, 63, 94, 0.45)', tag: 'PBKS' },
+  DC:   { bg: '#1E293B', border: '#0EA5E9', text: '#38BDF8', glow: 'rgba(14, 165, 233, 0.45)', tag: 'DC' },
+  GT:   { bg: '#1E293B', border: '#64748B', text: '#94A3B8', glow: 'rgba(100, 116, 139, 0.45)', tag: 'GT' },
+  LSG:  { bg: '#1E293B', border: '#14B8A6', text: '#2DD4BF', glow: 'rgba(20, 184, 166, 0.45)', tag: 'LSG' },
+  RPSG: { bg: '#1E293B', border: '#D946EF', text: '#E879F9', glow: 'rgba(217, 70, 239, 0.45)', tag: 'RPSG' },
+  DEC:  { bg: '#1E293B', border: '#475569', text: '#94A3B8', glow: 'rgba(71, 85, 105, 0.45)', tag: 'DEC' },
+  GL:   { bg: '#1E293B', border: '#F59E0B', text: '#FBBF24', glow: 'rgba(245, 158, 11, 0.45)', tag: 'GL' },
+  PWI:  { bg: '#1E293B', border: '#71717A', text: '#A1A1AA', glow: 'rgba(113, 113, 122, 0.45)', tag: 'PWI' },
+  KTK:  { bg: '#1E293B', border: '#EA580C', text: '#FB923C', glow: 'rgba(234, 88, 12, 0.45)', tag: 'KTK' }
 };
 
 const FIELD_POSITIONS = [
@@ -72,20 +72,6 @@ const FIELD_POSITIONS = [
   { key: 'bowl4', title: 'BOWL 4', label: 'Deep Long-On', top: '88%', left: '50%', type: 'Bowler' }
 ];
 
-// ==============================================================================
-// 3. TOURNAMENT TIER & GRADING MATRICES
-// ==============================================================================
-const getTournamentTier = (wins) => {
-  if (wins === 14) return { grade: 'S+', title: 'Undisputed Champions', color: '#10B981' };
-  if (wins >= 12)  return { grade: 'S',  title: 'Dynasty Apex Squad', color: '#3B82F6' };
-  if (wins >= 10)  return { grade: 'A',  title: 'Elite Playoff Contender', color: '#6366F1' };
-  if (wins === 9)  return { grade: 'B',  title: 'Solid Mid-Table Core', color: '#8B5CF6' };
-  if (wins === 8)  return { grade: 'C',  title: 'Competitive Challenger', color: '#F59E0B' };
-  if (wins === 7)  return { grade: 'D',  title: 'Balanced Average Camp', color: '#D97706' };
-  if (wins >= 4)   return { grade: 'E',  title: 'Underperforming Unit', color: '#EF4444' };
-  return { grade: 'F',  title: 'Wooden Spoon Rebuild', color: '#991B1B' };
-};
-
 export default function App() {
   const [roster, setRoster] = useState([]);
   const [currentOptions, setCurrentOptions] = useState([]);
@@ -95,7 +81,7 @@ export default function App() {
 
   // Wheel animation states
   const [isSpinning, setIsSpinning] = useState(false);
-  const [displayTeam, setDisplayTeam] = useState('CSK');
+  const [displayTeam, setDisplayTeam] = useState('RCB');
   const [displayEra, setDisplayEra] = useState('2023-2026');
 
   // Filtering states
@@ -228,7 +214,7 @@ export default function App() {
   }, [currentOptions, searchQuery, roleFilter, sortBy]);
 
   // ============================================================================
-  // 4. HARD-MODE PROBABILISTIC TOURNAMENT SIMULATION ENGINE
+  // 3. HARD-MODE PROBABILISTIC TOURNAMENT SIMULATION ENGINE
   // ============================================================================
   const runTournamentSimulation = (squad) => {
     let topBatters = squad
@@ -341,7 +327,7 @@ export default function App() {
     setSeasonResult(null);
     setHasSpun(false);
     setIsSpinning(false);
-    setDisplayTeam('CSK');
+    setDisplayTeam('RCB');
     setDisplayEra('2023-2026');
   };
 
@@ -367,16 +353,33 @@ export default function App() {
     };
   }, [roster]);
 
-  const currentTier = seasonResult ? getTournamentTier(seasonResult.wins) : null;
+  const currentTier = seasonResult ? (
+    seasonResult.wins === 14 ? { grade: 'S+', title: 'Undisputed Champions', color: '#10B981' } :
+    seasonResult.wins >= 12 ? { grade: 'S', title: 'Dynasty Apex Squad', color: '#3B82F6' } :
+    seasonResult.wins >= 10 ? { grade: 'A', title: 'Elite Playoff Contender', color: '#6366F1' } :
+    seasonResult.wins === 9 ? { grade: 'B', title: 'Solid Mid-Table Core', color: '#8B5CF6' } :
+    seasonResult.wins === 8 ? { grade: 'C', title: 'Competitive Challenger', color: '#F59E0B' } :
+    seasonResult.wins === 7 ? { grade: 'D', title: 'Balanced Average Camp', color: '#D97706' } :
+    seasonResult.wins >= 4 ? { grade: 'E', title: 'Underperforming Unit', color: '#EF4444' } :
+    { grade: 'F', title: 'Wooden Spoon Rebuild', color: '#991B1B' }
+  ) : null;
 
   return (
     <div style={styles.appCanvas}>
-      {/* PROCEDURAL BLUEPRINT, BREATHING PULSE, & SLEEK COMPACT STYLES */}
+      {/* SINGLE-VIEWPORT HEIGHT LOCK STYLES */}
       <style>{`
-        ::-webkit-scrollbar { width: 6px; }
+        html, body, #root {
+          background-color: #070B17 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          height: 100vh !important;
+          overflow: hidden !important;
+        }
+        ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
         
         @keyframes spinPulseAnimation {
           0%, 100% {
@@ -397,7 +400,6 @@ export default function App() {
           background-color: #EA580C !important;
         }
         
-        /* 82-0 Style Sleek Compact Embossed Hover State */
         .player-card-interactive {
           transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
                       box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -408,8 +410,8 @@ export default function App() {
         }
         .player-card-interactive:hover {
           transform: translateY(-2px) scale(1.004);
-          filter: brightness(1.01);
-          box-shadow: 0 8px 18px -4px rgba(15, 23, 42, 0.10), 0 3px 6px -1px rgba(15, 23, 42, 0.05);
+          filter: brightness(1.18);
+          box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.6), 0 4px 10px -1px rgba(0, 0, 0, 0.3);
         }
         .player-card-interactive:active {
           transform: translateY(0px) scale(0.999);
@@ -420,7 +422,7 @@ export default function App() {
       <header style={styles.headerBar}>
         <div style={styles.brandTitleGroup}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <GameIcon size={24} style={{ border: '1px solid #E2E8F0', borderRadius: '5px' }} />
+            <GameIcon size={24} style={{ border: '1px solid #334155', borderRadius: '5px' }} />
             <h1 style={styles.brandLogo}>IPL 14-0 ENGINE</h1>
           </div>
           <span style={styles.roundTrackerPill}>
@@ -470,7 +472,7 @@ export default function App() {
         )}
       </header>
 
-      {/* MAIN SPLIT WORKSPACE */}
+      {/* MAIN VIEWPORT-LOCKED WORKSPACE GRID */}
       <div style={styles.mainLayoutGrid}>
         
         {/* LEFT COLUMN: CANDIDATE FEED OR TOURNAMENT SUMMARY */}
@@ -486,7 +488,7 @@ export default function App() {
                     style={{
                       ...styles.roleTabButton,
                       backgroundColor: roleFilter === role ? '#F97316' : 'transparent',
-                      color: roleFilter === role ? '#FFFFFF' : '#475569',
+                      color: roleFilter === role ? '#FFFFFF' : '#94A3B8',
                       fontWeight: roleFilter === role ? '700' : '600'
                     }}
                   >
@@ -525,13 +527,13 @@ export default function App() {
             <div style={styles.playerStreamViewport}>
               {!hasSpun && !isSpinning ? (
                 <div style={styles.emptyPromptState}>
-                  <p style={{ margin: 0, fontWeight: '600', color: '#64748B' }}>
+                  <p style={{ margin: 0, fontWeight: '600', color: '#94A3B8' }}>
                     Press <strong>SPIN</strong> above to generate available franchise candidates.
                   </p>
                 </div>
               ) : (
                 processedOptions.map(player => {
-                  const teamToken = TEAM_COLORS[player.team] || { bg: '#F8FAFC', border: '#E2E8F0', text: '#0F172A' };
+                  const teamToken = TEAM_COLORS[player.team] || { bg: '#131C31', border: '#334155', text: '#F8FAFC' };
 
                   const hasBatStats = player.role !== 'Bowler' && (player.batting_avg > 0 || player.batting_sr > 0);
                   const hasBowlStats = player.role !== 'Batter' && (player.wickets > 0 || player.bowling_econ > 0);
@@ -558,7 +560,7 @@ export default function App() {
                       <div style={styles.playerMetaIdentity}>
                         <div style={{ ...styles.playerNameHeading, color: teamToken.text }}>{player.name}</div>
                         <div style={styles.playerRoleSubTag}>
-                          {player.role.toUpperCase()} · <span style={{ color: '#0F172A', fontWeight: '800' }}>{player.matches || 1}M</span>
+                          {player.role.toUpperCase()} · <span style={{ color: '#F8FAFC', fontWeight: '800' }}>{player.matches || 1}M</span>
                         </div>
                       </div>
 
@@ -590,7 +592,7 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* BALANCED POST-MATCH DASHBOARD WITH NEW CRITERIA TIERS */
+          /* TOURNAMENT SUMMARY DASHBOARD */
           <div style={styles.leftSummaryDashboard}>
             <div style={styles.summaryTopBannerCard}>
               <div style={styles.badgeRowVerdict}>
@@ -625,7 +627,7 @@ export default function App() {
                   <strong style={styles.metricPercentText}>{seasonResult.bowlingRating}/100</strong>
                 </div>
                 <div style={styles.progressTrack}>
-                  <div style={{ ...styles.progressFill, width: `${seasonResult.bowlingRating}%`, backgroundColor: '#2563EB' }} />
+                  <div style={{ ...styles.progressFill, width: `${seasonResult.bowlingRating}%`, backgroundColor: '#3B82F6' }} />
                 </div>
               </div>
 
@@ -647,14 +649,14 @@ export default function App() {
                   key={m.id} 
                   style={{
                     ...styles.matchFixtureCard,
-                    borderColor: m.result === 'W' ? '#86EFAC' : '#FCA5A5',
-                    backgroundColor: m.result === 'W' ? '#F0FDF4' : '#FEF2F2'
+                    borderColor: m.result === 'W' ? '#065F46' : '#991B1B',
+                    backgroundColor: m.result === 'W' ? '#064E3B' : '#7F1D1D'
                   }}
                 >
                   <div style={styles.matchVsText}>M{m.id} vs {m.vs}</div>
                   <div style={{
                     ...styles.matchResultBadge,
-                    color: m.result === 'W' ? '#15803D' : '#B91C1C'
+                    color: m.result === 'W' ? '#34D399' : '#F87171'
                   }}>
                     {m.result}
                   </div>
@@ -715,10 +717,10 @@ export default function App() {
               <div style={{
                 ...styles.impactPlayerCard,
                 backgroundColor: 'rgba(15, 23, 42, 0.95)',
-                borderColor: TEAM_COLORS[impactPlayer.team]?.border || '#E2E8F0',
+                borderColor: TEAM_COLORS[impactPlayer.team]?.border || '#334155',
                 color: '#FFFFFF'
               }}>
-                <span style={{ color: TEAM_COLORS[impactPlayer.team]?.border, fontWeight: '800', marginRight: '0.45rem' }}>
+                <span style={{ color: TEAM_COLORS[impactPlayer.team]?.text, fontWeight: '800', marginRight: '0.45rem' }}>
                   {impactPlayer.team}
                 </span>
                 <strong>{impactPlayer.name}</strong> ({impactPlayer.role})
@@ -735,64 +737,72 @@ export default function App() {
 }
 
 // ==============================================================================
-// 4. STYLES
+// 4. STYLES (SINGLE-VIEWPORT FLEX HEIGHT)
 // ==============================================================================
 const styles = {
   appCanvas: {
-    backgroundColor: '#ECEFF3',
+    backgroundColor: '#070B17',
     backgroundImage: `
-      radial-gradient(at 10% 10%, rgba(249, 115, 22, 0.04) 0px, transparent 45%),
-      radial-gradient(at 90% 90%, rgba(37, 99, 235, 0.04) 0px, transparent 45%),
-      linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px)
+      radial-gradient(at 15% 15%, rgba(16, 185, 129, 0.04) 0px, transparent 50%),
+      radial-gradient(at 85% 85%, rgba(249, 115, 22, 0.04) 0px, transparent 50%),
+      linear-gradient(rgba(30, 41, 59, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 41, 59, 0.08) 1px, transparent 1px)
     `,
-    backgroundSize: '100% 100%, 100% 100%, 24px 24px, 24px 24px',
-    color: '#0F172A',
-    minHeight: '100vh',
-    padding: '1.25rem 2rem',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+    backgroundSize: '100% 100%, 100% 100%, 36px 36px, 36px 36px',
+    color: '#F8FAFC',
+    height: '100vh',
+    width: '100%',
+    margin: 0,
+    padding: '0.85rem 1.5rem',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden'
   },
   headerBar: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    maxWidth: '1280px',
-    margin: '0 auto 1.25rem auto',
-    backgroundColor: '#FFFFFF',
-    padding: '0.85rem 1.5rem',
-    borderRadius: '12px',
-    border: '1px solid #E2E8F0',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+    width: '100%',
+    flexShrink: 0,
+    backgroundColor: '#0D1322',
+    padding: '0.65rem 1.25rem',
+    borderRadius: '10px',
+    border: '1px solid #1E293B',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+    boxSizing: 'border-box',
+    marginBottom: '0.75rem'
   },
   brandTitleGroup: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.25rem'
+    gap: '1rem'
   },
   brandLogo: {
-    fontSize: '1.15rem',
+    fontSize: '1.05rem',
     fontWeight: '900',
     letterSpacing: '0.04em',
-    color: '#0F172A',
+    color: '#F8FAFC',
     margin: 0
   },
   roundTrackerPill: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '700',
-    color: '#64748B',
-    backgroundColor: '#F8FAFC',
-    padding: '0.35rem 0.85rem',
+    color: '#94A3B8',
+    backgroundColor: '#131C31',
+    padding: '0.25rem 0.65rem',
     borderRadius: '20px',
-    border: '1px solid #E2E8F0'
+    border: '1px solid #1E293B'
   },
   spinControlsHub: {
     display: 'flex',
     alignItems: 'center',
-    gap: '1.25rem'
+    gap: '1rem'
   },
   marqueeBadgesCluster: {
     display: 'flex',
-    gap: '0.85rem'
+    gap: '0.75rem'
   },
 
   thickBezelHUDBox: {
@@ -800,26 +810,26 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#0D1322',
-    border: '6px solid',
-    borderRadius: '12px',
-    padding: '0.35rem 0.75rem',
-    width: '150px',
-    minWidth: '150px',
-    height: '68px',
+    backgroundColor: '#070B17',
+    border: '5px solid',
+    borderRadius: '10px',
+    padding: '0.2rem 0.5rem',
+    width: '135px',
+    minWidth: '135px',
+    height: '56px',
     boxSizing: 'border-box',
     transition: 'all 0.15s ease-in-out'
   },
   hudBoxLabel: {
-    fontSize: '0.65rem',
+    fontSize: '0.55rem',
     fontWeight: '900',
     color: '#FF6B00',
     letterSpacing: '0.08em',
     lineHeight: '1.1',
-    marginBottom: '0.15rem'
+    marginBottom: '0.1rem'
   },
   hudBoxValue: {
-    fontSize: '1.15rem',
+    fontSize: '1.05rem',
     fontWeight: '900',
     color: '#FFFFFF',
     letterSpacing: '0.02em',
@@ -828,101 +838,114 @@ const styles = {
   thickSpinButton: {
     backgroundColor: '#F97316',
     color: '#FFFFFF',
-    fontSize: '0.95rem',
+    fontSize: '0.85rem',
     fontWeight: '900',
     border: 'none',
-    padding: '0.85rem 2.25rem',
-    borderRadius: '12px',
+    padding: '0.65rem 1.75rem',
+    borderRadius: '10px',
     letterSpacing: '0.06em',
-    height: '68px',
+    height: '56px',
     boxSizing: 'border-box',
-    boxShadow: '0 4px 18px rgba(249, 115, 22, 0.45)',
+    boxShadow: '0 4px 15px rgba(249, 115, 22, 0.45)',
     transition: 'all 0.15s'
   },
 
   mainLayoutGrid: {
     display: 'flex',
-    gap: '1.75rem',
-    maxWidth: '1280px',
-    margin: '0 auto'
+    gap: '1.25rem',
+    width: '100%',
+    flex: 1,
+    minHeight: 0,
+    boxSizing: 'border-box'
   },
   leftDraftSheet: {
     flex: '1 1 54%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: '12px',
-    border: '1px solid #E2E8F0',
-    padding: '1.25rem',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.04)'
+    backgroundColor: '#0D1322',
+    borderRadius: '10px',
+    border: '1px solid #1E293B',
+    padding: '1rem',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexDirection: 'column',
+    minHeight: 0
   },
   filterActionBar: {
     display: 'flex',
     gap: '0.5rem',
-    marginBottom: '0.75rem',
-    flexWrap: 'wrap'
+    marginBottom: '0.5rem',
+    flexWrap: 'wrap',
+    flexShrink: 0
   },
   roleTabsPillGroup: {
     display: 'flex',
-    backgroundColor: '#F1F5F9',
+    backgroundColor: '#131C31',
     borderRadius: '6px',
-    padding: '0.2rem',
-    border: '1px solid #E2E8F0'
+    padding: '0.15rem',
+    border: '1px solid #1E293B'
   },
   roleTabButton: {
     border: 'none',
-    padding: '0.35rem 0.65rem',
-    fontSize: '0.7rem',
+    padding: '0.3rem 0.55rem',
+    fontSize: '0.65rem',
     borderRadius: '4px',
     cursor: 'pointer'
   },
   searchInputControl: {
     flex: 1,
-    minWidth: '130px',
-    backgroundColor: '#FFFFFF',
-    border: '1px solid #CBD5E1',
+    minWidth: '120px',
+    backgroundColor: '#131C31',
+    border: '1px solid #1E293B',
     borderRadius: '4px',
-    padding: '0.4rem 0.75rem',
-    fontSize: '0.8rem',
+    color: '#F8FAFC',
+    padding: '0.35rem 0.65rem',
+    fontSize: '0.75rem',
     outline: 'none'
   },
   sortDropdownControl: {
-    backgroundColor: '#FFFFFF',
-    border: '1px solid #CBD5E1',
+    backgroundColor: '#131C31',
+    border: '1px solid #1E293B',
     borderRadius: '4px',
-    padding: '0.4rem 0.5rem',
-    fontSize: '0.8rem',
+    color: '#F8FAFC',
+    padding: '0.35rem 0.45rem',
+    fontSize: '0.75rem',
     cursor: 'pointer'
   },
   availableCounterText: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '700',
-    color: '#64748B',
-    marginBottom: '0.75rem',
-    paddingLeft: '0.25rem'
+    color: '#94A3B8',
+    marginBottom: '0.5rem',
+    paddingLeft: '0.2rem',
+    flexShrink: 0
   },
   playerStreamViewport: {
-    maxHeight: '560px',
+    flex: 1,
     overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.45rem',
-    paddingRight: '0.25rem'
+    gap: '0.4rem',
+    paddingRight: '0.2rem',
+    minHeight: 0
   },
   emptyPromptState: {
-    padding: '5rem 2rem',
+    padding: '4rem 2rem',
     textAlign: 'center',
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#131C31',
     borderRadius: '6px',
-    border: '1px dashed #CBD5E1'
+    border: '1px dashed #1E293B'
   },
   playerCardRow: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '0.45rem 0.85rem',
+    padding: '0.4rem 0.75rem',
     borderRadius: '6px',
-    border: '1px solid #E2E8F0',
+    border: '1px solid #1E293B',
     borderLeftWidth: '5px',
-    boxShadow: '0 1px 2px rgba(0,0,0,0.01)'
+    boxShadow: '0 1px 3px rgba(0,0,0,0.3)',
+    boxSizing: 'border-box',
+    flexShrink: 0
   },
   playerMetaIdentity: {
     flex: '1 1 auto',
@@ -934,22 +957,21 @@ const styles = {
     overflow: 'hidden'
   },
   playerNameHeading: {
-    fontSize: '0.9rem',
+    fontSize: '0.85rem',
     fontWeight: '800',
-    color: '#0F172A',
     textAlign: 'left'
   },
   playerRoleSubTag: {
-    fontSize: '0.6rem',
+    fontSize: '0.55rem',
     fontWeight: '700',
-    color: '#64748B',
-    marginTop: '0.05rem',
+    color: '#94A3B8',
+    marginTop: '0.03rem',
     textAlign: 'left'
   },
   metricsClusterRight: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 42px)',
-    gap: '0.35rem',
+    gridTemplateColumns: 'repeat(4, 40px)',
+    gap: '0.3rem',
     alignItems: 'center',
     justifyContent: 'end',
     flexShrink: 0
@@ -959,41 +981,46 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '42px'
+    width: '40px'
   },
   statNumberPrimary: {
-    fontSize: '0.85rem',
+    fontSize: '0.8rem',
     fontWeight: '800',
-    color: '#0F172A',
+    color: '#F8FAFC',
     textAlign: 'center'
   },
   statLabelMuted: {
-    fontSize: '0.5rem',
+    fontSize: '0.45rem',
     fontWeight: '800',
     color: '#94A3B8',
     textAlign: 'center'
   },
   rightFieldContainer: {
     flex: '1 1 46%',
-    backgroundColor: '#0F172A',
-    borderRadius: '12px',
-    padding: '1.25rem',
+    backgroundColor: '#0D1322',
+    borderRadius: '10px',
+    padding: '1rem',
     display: 'flex',
     flexDirection: 'column',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.3)'
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
+    border: '1px solid #1E293B',
+    boxSizing: 'border-box',
+    minHeight: 0
   },
   fieldHeaderCaption: {
-    fontSize: '0.7rem',
+    fontSize: '0.65rem',
     fontWeight: '800',
     color: '#94A3B8',
     letterSpacing: '0.06em',
-    marginBottom: '0.75rem',
-    textAlign: 'center'
+    marginBottom: '0.5rem',
+    textAlign: 'center',
+    flexShrink: 0
   },
   cricketStadiumCanvas: {
     position: 'relative',
-    height: '490px',
-    backgroundColor: '#090E1D',
+    flex: 1,
+    minHeight: 0,
+    backgroundColor: '#070B17',
     borderRadius: '8px',
     overflow: 'hidden',
     border: '1px solid #1E293B'
@@ -1012,113 +1039,118 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '0.2rem 0.4rem',
+    padding: '0.15rem 0.35rem',
     borderRadius: '5px',
-    minWidth: '52px',
+    minWidth: '48px',
     borderWidth: '1.5px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.5)',
     transition: 'all 0.15s'
   },
   nodeRoleTag: {
-    fontSize: '0.5rem',
+    fontSize: '0.45rem',
     fontWeight: '800',
     letterSpacing: '0.04em'
   },
   nodePlayerName: {
-    fontSize: '0.7rem',
+    fontSize: '0.65rem',
     fontWeight: '800',
     color: '#FFFFFF'
   },
   nodePlaceholderLabel: {
-    fontSize: '0.5rem',
+    fontSize: '0.45rem',
     fontWeight: '700',
     color: '#475569'
   },
   impactSubBench: {
-    marginTop: '0.75rem',
-    backgroundColor: '#090E1D',
+    marginTop: '0.5rem',
+    backgroundColor: '#070B17',
     borderRadius: '6px',
-    padding: '0.65rem 0.75rem',
-    border: '1px solid #1E293B'
+    padding: '0.5rem 0.75rem',
+    border: '1px solid #1E293B',
+    flexShrink: 0
   },
   impactSubLabel: {
-    fontSize: '0.65rem',
+    fontSize: '0.6rem',
     fontWeight: '800',
     color: '#F97316',
     letterSpacing: '0.05em',
-    marginBottom: '0.3rem'
+    marginBottom: '0.2rem'
   },
   impactPlayerCard: {
-    padding: '0.4rem 0.75rem',
+    padding: '0.35rem 0.65rem',
     borderRadius: '4px',
     border: '1px solid',
-    fontSize: '0.8rem',
+    fontSize: '0.75rem',
     fontWeight: '600'
   },
   impactSubEmptyState: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     color: '#475569',
     fontStyle: 'italic'
   },
 
+  // STADIUM NIGHT POST-MATCH DASHBOARD
   leftSummaryDashboard: {
     flex: '1 1 54%',
-    backgroundColor: '#FFFFFF',
-    borderRadius: '12px',
-    border: '1px solid #E2E8F0',
-    padding: '1.75rem',
-    boxShadow: '0 1px 3px rgba(0,0,0,0.04)',
+    backgroundColor: '#0D1322',
+    borderRadius: '10px',
+    border: '1px solid #1E293B',
+    padding: '1.25rem',
+    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
     display: 'flex',
     flexDirection: 'column',
-    gap: '1.25rem'
+    gap: '0.85rem',
+    boxSizing: 'border-box',
+    minHeight: 0,
+    overflowY: 'auto'
   },
   summaryTopBannerCard: {
-    borderBottom: '1px solid #E2E8F0',
-    paddingBottom: '1.25rem'
+    borderBottom: '1px solid #1E293B',
+    paddingBottom: '0.85rem'
   },
   badgeRowVerdict: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: '0.75rem'
+    marginBottom: '0.5rem'
   },
   statusPillBadge: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '800',
     color: '#FFFFFF',
-    padding: '0.35rem 0.85rem',
+    padding: '0.3rem 0.75rem',
     borderRadius: '4px',
     letterSpacing: '0.04em'
   },
   squadScoreHeader: {
-    fontSize: '0.85rem',
+    fontSize: '0.8rem',
     fontWeight: '700',
-    color: '#64748B'
+    color: '#94A3B8'
   },
   bigScoreRow: {
     display: 'flex',
     alignItems: 'baseline'
   },
   bigScoreNumbers: {
-    fontSize: '3.5rem',
+    fontSize: '3rem',
     fontWeight: '900',
-    color: '#0F172A',
+    color: '#F8FAFC',
     letterSpacing: '-0.03em',
     lineHeight: '1.1'
   },
   ratingsCardGroup: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '1rem',
-    backgroundColor: '#F8FAFC',
-    padding: '1.25rem',
+    gap: '0.75rem',
+    backgroundColor: '#131C31',
+    padding: '1rem',
     borderRadius: '8px',
-    border: '1px solid #E2E8F0'
+    border: '1px solid #1E293B'
   },
   ratingBarUnit: {
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.35rem'
+    gap: '0.25rem'
   },
   ratingLabelLine: {
     display: 'flex',
@@ -1126,18 +1158,18 @@ const styles = {
     alignItems: 'center'
   },
   metricTitleText: {
-    fontSize: '0.85rem',
-    color: '#334155',
+    fontSize: '0.8rem',
+    color: '#CBD5E1',
     fontWeight: '600'
   },
   metricPercentText: {
-    fontSize: '0.85rem',
-    color: '#0F172A',
+    fontSize: '0.8rem',
+    color: '#F8FAFC',
     fontWeight: '800'
   },
   progressTrack: {
-    height: '8px',
-    backgroundColor: '#E2E8F0',
+    height: '6px',
+    backgroundColor: '#1E293B',
     borderRadius: '6px',
     overflow: 'hidden'
   },
@@ -1147,39 +1179,39 @@ const styles = {
     transition: 'width 0.5s ease-out'
   },
   fixturesSectionHeader: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '800',
-    color: '#64748B',
+    color: '#94A3B8',
     letterSpacing: '0.06em',
     textTransform: 'uppercase',
-    marginTop: '0.25rem'
+    marginTop: '0.1rem'
   },
   fixturesTimelineGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(7, 1fr)',
-    gap: '0.5rem'
+    gap: '0.4rem'
   },
   matchFixtureCard: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '0.45rem 0.2rem',
+    padding: '0.35rem 0.15rem',
     borderRadius: '4px',
     border: '1px solid',
     textAlign: 'center'
   },
   matchVsText: {
-    fontSize: '0.6rem',
+    fontSize: '0.55rem',
     fontWeight: '700',
-    color: '#64748B'
+    color: '#CBD5E1'
   },
   matchResultBadge: {
-    fontSize: '0.95rem',
+    fontSize: '0.85rem',
     fontWeight: '900',
-    margin: '0.1rem 0'
+    margin: '0.05rem 0'
   },
   matchMarginText: {
-    fontSize: '0.55rem',
+    fontSize: '0.5rem',
     fontWeight: '700',
     color: '#94A3B8'
   }

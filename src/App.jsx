@@ -4,7 +4,7 @@ import playersData from './data/players.json';
 // ==============================================================================
 // 1. EMBEDDED GEOMETRIC VECTOR ICON
 // ==============================================================================
-function GameIcon({ size = 26, style, ...props }) {
+function GameIcon({ size = 24, style, ...props }) {
   return (
     <svg
       width={size}
@@ -355,16 +355,33 @@ export default function App() {
 
   return (
     <div style={styles.appCanvas}>
-      {/* PROCEDURAL BLUEPRINT & HOVER EMBOSSING STYLES */}
+      {/* PROCEDURAL BLUEPRINT, BREATHING PULSE, & SLEEK COMPACT STYLES */}
       <style>{`
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
         
-        .spin-btn:hover { background-color: #EA580C !important; transform: translateY(-1px); }
+        @keyframes spinPulseAnimation {
+          0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 4px 18px rgba(249, 115, 22, 0.45);
+          }
+          50% {
+            transform: scale(1.04);
+            box-shadow: 0 6px 26px rgba(249, 115, 22, 0.75);
+          }
+        }
+        .spin-pulse-btn {
+          animation: spinPulseAnimation 2.2s infinite ease-in-out;
+        }
+        .spin-pulse-btn:hover {
+          animation-play-state: paused;
+          transform: scale(1.06) translateY(-1px) !important;
+          background-color: #EA580C !important;
+        }
         
-        /* Interactive Full-Card Embossed Hover State */
+        /* 82-0 Style Sleek Compact Embossed Hover State */
         .player-card-interactive {
           transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
                       box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -374,15 +391,12 @@ export default function App() {
           outline: none;
         }
         .player-card-interactive:hover {
-          transform: translateY(-3px) scale(1.006);
-          filter: brightness(1.02);
-          box-shadow: 0 10px 22px -5px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.06);
+          transform: translateY(-2px) scale(1.004);
+          filter: brightness(1.01);
+          box-shadow: 0 8px 18px -4px rgba(15, 23, 42, 0.10), 0 3px 6px -1px rgba(15, 23, 42, 0.05);
         }
         .player-card-interactive:active {
-          transform: translateY(-1px) scale(0.998);
-        }
-        .player-card-interactive:focus-visible {
-          ring: 2px solid #F97316;
+          transform: translateY(0px) scale(0.999);
         }
       `}</style>
 
@@ -398,11 +412,9 @@ export default function App() {
           </span>
         </div>
 
-        {/* 82-0 STYLE 6PX THICK BEZEL HUD BUTTONS (EXACT 150PX WIDTH) */}
         {!seasonResult ? (
           <div style={styles.spinControlsHub}>
             <div style={styles.marqueeBadgesCluster}>
-              {/* TEAM BEZEL BOX */}
               <div style={{
                 ...styles.thickBezelHUDBox,
                 borderColor: TEAM_COLORS[displayTeam]?.border || '#EF4444',
@@ -412,7 +424,6 @@ export default function App() {
                 <span style={styles.hudBoxValue}>{displayTeam}</span>
               </div>
               
-              {/* ERA BEZEL BOX (EQUAL 150PX FIXED WIDTH & MATCHING BEZEL) */}
               <div style={{
                 ...styles.thickBezelHUDBox,
                 borderColor: '#9333EA',
@@ -426,7 +437,7 @@ export default function App() {
             <button 
               onClick={handleSpin} 
               disabled={isSpinning}
-              className="spin-btn"
+              className={!isSpinning ? "spin-pulse-btn" : ""}
               style={{
                 ...styles.thickSpinButton,
                 opacity: isSpinning ? 0.7 : 1,
@@ -437,7 +448,7 @@ export default function App() {
             </button>
           </div>
         ) : (
-          <button onClick={resetGame} className="spin-btn" style={styles.thickSpinButton}>
+          <button onClick={resetGame} className="spin-pulse-btn" style={styles.thickSpinButton}>
             NEW CAMPAIGN
           </button>
         )}
@@ -506,6 +517,15 @@ export default function App() {
                 processedOptions.map(player => {
                   const teamToken = TEAM_COLORS[player.team] || { bg: '#F8FAFC', border: '#E2E8F0', text: '#0F172A' };
 
+                  // Standardized 4-column metrics resolver
+                  const hasBatStats = player.role !== 'Bowler' && (player.batting_avg > 0 || player.batting_sr > 0);
+                  const hasBowlStats = player.role !== 'Batter' && (player.wickets > 0 || player.bowling_econ > 0);
+
+                  const avgDisplay = hasBatStats ? (player.batting_avg ?? 0).toFixed(1) : '-';
+                  const srDisplay = hasBatStats ? Math.round(player.batting_sr ?? 0) : '-';
+                  const wktDisplay = hasBowlStats ? (player.wickets ?? 0).toFixed(1) : '-';
+                  const ecnDisplay = hasBowlStats ? (player.bowling_econ ?? 0).toFixed(1) : '-';
+
                   return (
                     <div 
                       key={player.id}
@@ -520,40 +540,35 @@ export default function App() {
                         backgroundColor: teamToken.bg
                       }}
                     >
+                      {/* REDUNDANT ERA SUBTEXT REMOVED FOR CLEANER VERTICAL HEIGHT */}
                       <div style={styles.playerMetaIdentity}>
                         <div style={{ ...styles.playerNameHeading, color: teamToken.text }}>{player.name}</div>
                         <div style={styles.playerRoleSubTag}>
                           {player.role.toUpperCase()} · <span style={{ color: '#0F172A', fontWeight: '800' }}>{player.matches || 1}M</span>
                         </div>
-                        <div style={styles.playerFranchiseSubText}>{player.team} · {player.era}</div>
                       </div>
 
-                      {/* STATS COLUMNS DIRECTLY EMBEDDED IN ROW */}
+                      {/* STANDARDIZED 4-COLUMN DATA GRID */}
                       <div style={styles.metricsClusterRight}>
-                        {player.role !== 'Bowler' && (
-                          <div style={styles.statColumnCell}>
-                            <span style={styles.statNumberPrimary}>{(player.batting_avg ?? 0).toFixed(1)}</span>
-                            <span style={styles.statLabelMuted}>AVG</span>
-                          </div>
-                        )}
-                        {player.role !== 'Bowler' && (
-                          <div style={styles.statColumnCell}>
-                            <span style={styles.statNumberPrimary}>{Math.round(player.batting_sr ?? 0)}</span>
-                            <span style={styles.statLabelMuted}>SR</span>
-                          </div>
-                        )}
-                        {player.role !== 'Batter' && player.wickets > 0 && (
-                          <div style={styles.statColumnCell}>
-                            <span style={styles.statNumberPrimary}>{(player.wickets ?? 0).toFixed(1)}</span>
-                            <span style={styles.statLabelMuted}>WKT</span>
-                          </div>
-                        )}
-                        {player.role !== 'Batter' && player.wickets > 0 && (
-                          <div style={styles.statColumnCell}>
-                            <span style={styles.statNumberPrimary}>{(player.bowling_econ ?? 0).toFixed(1)}</span>
-                            <span style={styles.statLabelMuted}>ECN</span>
-                          </div>
-                        )}
+                        <div style={styles.statColumnCell}>
+                          <span style={styles.statNumberPrimary}>{avgDisplay}</span>
+                          <span style={styles.statLabelMuted}>AVG</span>
+                        </div>
+
+                        <div style={styles.statColumnCell}>
+                          <span style={styles.statNumberPrimary}>{srDisplay}</span>
+                          <span style={styles.statLabelMuted}>SR</span>
+                        </div>
+
+                        <div style={styles.statColumnCell}>
+                          <span style={styles.statNumberPrimary}>{wktDisplay}</span>
+                          <span style={styles.statLabelMuted}>WKT</span>
+                        </div>
+
+                        <div style={styles.statColumnCell}>
+                          <span style={styles.statNumberPrimary}>{ecnDisplay}</span>
+                          <span style={styles.statLabelMuted}>ECN</span>
+                        </div>
                       </div>
                     </div>
                   );
@@ -580,7 +595,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* SPACED METRIC PROGRESS CARD */}
             <div style={styles.ratingsCardGroup}>
               <div style={styles.ratingBarUnit}>
                 <div style={styles.ratingLabelLine}>
@@ -613,7 +627,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* 14-MATCH RESULTS FIXTURES LOG */}
             <div style={styles.fixturesSectionHeader}>14-MATCH LEAGUE RESULTS LOG</div>
             <div style={styles.fixturesTimelineGrid}>
               {seasonResult.matchLogs.map(m => (
@@ -709,7 +722,7 @@ export default function App() {
 }
 
 // ==============================================================================
-// 4. STYLES (WITH ATMOSPHERIC BLUEPRINT & 150PX HUD BOXES)
+// 4. STYLES (REDUCED ROW PADDING & REMOVED REDUNDANT ERA SUBTEXT)
 // ==============================================================================
 const styles = {
   appCanvas: {
@@ -769,7 +782,6 @@ const styles = {
     gap: '0.85rem'
   },
 
-  // 82-0 STYLE 6PX THICK BEZEL HUD BOXES (LOCKED 150PX WIDTH)
   thickBezelHUDBox: {
     display: 'flex',
     flexDirection: 'column',
@@ -879,7 +891,7 @@ const styles = {
     overflowY: 'auto',
     display: 'flex',
     flexDirection: 'column',
-    gap: '0.55rem',
+    gap: '0.45rem',
     paddingRight: '0.25rem'
   },
   emptyPromptState: {
@@ -889,55 +901,68 @@ const styles = {
     borderRadius: '6px',
     border: '1px dashed #CBD5E1'
   },
+  
+  // COMPACT CARD ROW PADDING
   playerCardRow: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '0.85rem 1.15rem',
-    borderRadius: '8px',
+    padding: '0.45rem 0.85rem',
+    borderRadius: '6px',
     border: '1px solid #E2E8F0',
     borderLeftWidth: '5px',
-    boxShadow: '0 1px 2px rgba(0,0,0,0.02)'
+    boxShadow: '0 1px 2px rgba(0,0,0,0.01)'
   },
+  
   playerMetaIdentity: {
-    flex: 1,
-    paddingRight: '0.5rem'
+    flex: '1 1 auto',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    textAlign: 'left',
+    paddingRight: '1rem',
+    overflow: 'hidden'
   },
   playerNameHeading: {
-    fontSize: '0.95rem',
+    fontSize: '0.9rem',
     fontWeight: '800',
-    color: '#0F172A'
+    color: '#0F172A',
+    textAlign: 'left'
   },
   playerRoleSubTag: {
-    fontSize: '0.65rem',
+    fontSize: '0.6rem',
     fontWeight: '700',
     color: '#64748B',
-    marginTop: '0.1rem'
+    marginTop: '0.05rem',
+    textAlign: 'left'
   },
-  playerFranchiseSubText: {
-    fontSize: '0.7rem',
-    color: '#94A3B8'
-  },
+
   metricsClusterRight: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 42px)',
+    gap: '0.35rem',
     alignItems: 'center',
-    gap: '1.25rem'
+    justifyContent: 'end',
+    flexShrink: 0
   },
   statColumnCell: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    minWidth: '32px'
+    justifyContent: 'center',
+    width: '42px'
   },
   statNumberPrimary: {
-    fontSize: '0.95rem',
+    fontSize: '0.85rem',
     fontWeight: '800',
-    color: '#0F172A'
+    color: '#0F172A',
+    textAlign: 'center'
   },
   statLabelMuted: {
-    fontSize: '0.55rem',
+    fontSize: '0.5rem',
     fontWeight: '800',
-    color: '#94A3B8'
+    color: '#94A3B8',
+    textAlign: 'center'
   },
   rightFieldContainer: {
     flex: '1 1 46%',
@@ -978,25 +1003,25 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '0.25rem 0.5rem',
-    borderRadius: '6px',
-    minWidth: '56px',
+    padding: '0.2rem 0.4rem',
+    borderRadius: '5px',
+    minWidth: '52px',
     borderWidth: '1.5px',
     boxShadow: '0 2px 5px rgba(0,0,0,0.5)',
     transition: 'all 0.15s'
   },
   nodeRoleTag: {
-    fontSize: '0.55rem',
+    fontSize: '0.5rem',
     fontWeight: '800',
     letterSpacing: '0.04em'
   },
   nodePlayerName: {
-    fontSize: '0.75rem',
+    fontSize: '0.7rem',
     fontWeight: '800',
     color: '#FFFFFF'
   },
   nodePlaceholderLabel: {
-    fontSize: '0.55rem',
+    fontSize: '0.5rem',
     fontWeight: '700',
     color: '#475569'
   },
@@ -1004,7 +1029,7 @@ const styles = {
     marginTop: '0.75rem',
     backgroundColor: '#090E1D',
     borderRadius: '6px',
-    padding: '0.75rem',
+    padding: '0.65rem 0.75rem',
     border: '1px solid #1E293B'
   },
   impactSubLabel: {
@@ -1012,10 +1037,10 @@ const styles = {
     fontWeight: '800',
     color: '#F97316',
     letterSpacing: '0.05em',
-    marginBottom: '0.35rem'
+    marginBottom: '0.3rem'
   },
   impactPlayerCard: {
-    padding: '0.45rem 0.75rem',
+    padding: '0.4rem 0.75rem',
     borderRadius: '4px',
     border: '1px solid',
     fontSize: '0.8rem',

@@ -72,6 +72,20 @@ const FIELD_POSITIONS = [
   { key: 'bowl4', title: 'BOWL 4', label: 'Deep Long-On', top: '88%', left: '50%', type: 'Bowler' }
 ];
 
+// ==============================================================================
+// 3. TOURNAMENT TIER & GRADING MATRICES
+// ==============================================================================
+const getTournamentTier = (wins) => {
+  if (wins === 14) return { grade: 'S+', title: 'Undisputed Champions', color: '#10B981' };
+  if (wins >= 12)  return { grade: 'S',  title: 'Dynasty Apex Squad', color: '#3B82F6' };
+  if (wins >= 10)  return { grade: 'A',  title: 'Elite Playoff Contender', color: '#6366F1' };
+  if (wins === 9)  return { grade: 'B',  title: 'Solid Mid-Table Core', color: '#8B5CF6' };
+  if (wins === 8)  return { grade: 'C',  title: 'Competitive Challenger', color: '#F59E0B' };
+  if (wins === 7)  return { grade: 'D',  title: 'Balanced Average Camp', color: '#D97706' };
+  if (wins >= 4)   return { grade: 'E',  title: 'Underperforming Unit', color: '#EF4444' };
+  return { grade: 'F',  title: 'Wooden Spoon Rebuild', color: '#991B1B' };
+};
+
 export default function App() {
   const [roster, setRoster] = useState([]);
   const [currentOptions, setCurrentOptions] = useState([]);
@@ -81,7 +95,7 @@ export default function App() {
 
   // Wheel animation states
   const [isSpinning, setIsSpinning] = useState(false);
-  const [displayTeam, setDisplayTeam] = useState('RCB');
+  const [displayTeam, setDisplayTeam] = useState('CSK');
   const [displayEra, setDisplayEra] = useState('2023-2026');
 
   // Filtering states
@@ -214,7 +228,7 @@ export default function App() {
   }, [currentOptions, searchQuery, roleFilter, sortBy]);
 
   // ============================================================================
-  // 3. HARD-MODE PROBABILISTIC TOURNAMENT SIMULATION ENGINE
+  // 4. HARD-MODE PROBABILISTIC TOURNAMENT SIMULATION ENGINE
   // ============================================================================
   const runTournamentSimulation = (squad) => {
     let topBatters = squad
@@ -327,7 +341,7 @@ export default function App() {
     setSeasonResult(null);
     setHasSpun(false);
     setIsSpinning(false);
-    setDisplayTeam('RCB');
+    setDisplayTeam('CSK');
     setDisplayEra('2023-2026');
   };
 
@@ -352,6 +366,8 @@ export default function App() {
       impactPlayer: unassigned[0] || null
     };
   }, [roster]);
+
+  const currentTier = seasonResult ? getTournamentTier(seasonResult.wins) : null;
 
   return (
     <div style={styles.appCanvas}>
@@ -517,7 +533,6 @@ export default function App() {
                 processedOptions.map(player => {
                   const teamToken = TEAM_COLORS[player.team] || { bg: '#F8FAFC', border: '#E2E8F0', text: '#0F172A' };
 
-                  // Standardized 4-column metrics resolver
                   const hasBatStats = player.role !== 'Bowler' && (player.batting_avg > 0 || player.batting_sr > 0);
                   const hasBowlStats = player.role !== 'Batter' && (player.wickets > 0 || player.bowling_econ > 0);
 
@@ -540,7 +555,6 @@ export default function App() {
                         backgroundColor: teamToken.bg
                       }}
                     >
-                      {/* REDUNDANT ERA SUBTEXT REMOVED FOR CLEANER VERTICAL HEIGHT */}
                       <div style={styles.playerMetaIdentity}>
                         <div style={{ ...styles.playerNameHeading, color: teamToken.text }}>{player.name}</div>
                         <div style={styles.playerRoleSubTag}>
@@ -548,7 +562,6 @@ export default function App() {
                         </div>
                       </div>
 
-                      {/* STANDARDIZED 4-COLUMN DATA GRID */}
                       <div style={styles.metricsClusterRight}>
                         <div style={styles.statColumnCell}>
                           <span style={styles.statNumberPrimary}>{avgDisplay}</span>
@@ -577,15 +590,15 @@ export default function App() {
             </div>
           </div>
         ) : (
-          /* BALANCED POST-MATCH DASHBOARD */
+          /* BALANCED POST-MATCH DASHBOARD WITH NEW CRITERIA TIERS */
           <div style={styles.leftSummaryDashboard}>
             <div style={styles.summaryTopBannerCard}>
               <div style={styles.badgeRowVerdict}>
                 <span style={{
                   ...styles.statusPillBadge,
-                  backgroundColor: seasonResult.wins === 14 ? '#10B981' : seasonResult.wins >= 10 ? '#2563EB' : '#F59E0B'
+                  backgroundColor: currentTier.color
                 }}>
-                  {seasonResult.wins === 14 ? '👑 INVINCIBLE 14-0' : seasonResult.wins >= 10 ? '🏆 PLAYOFF QUALIFIER' : 'GROUP STAGE EXIT'}
+                  {currentTier.grade} - {currentTier.title}
                 </span>
                 <span style={styles.squadScoreHeader}>Tournament Index: {seasonResult.overallSquadPower}/100</span>
               </div>
@@ -722,7 +735,7 @@ export default function App() {
 }
 
 // ==============================================================================
-// 4. STYLES (REDUCED ROW PADDING & REMOVED REDUNDANT ERA SUBTEXT)
+// 4. STYLES
 // ==============================================================================
 const styles = {
   appCanvas: {
@@ -901,8 +914,6 @@ const styles = {
     borderRadius: '6px',
     border: '1px dashed #CBD5E1'
   },
-  
-  // COMPACT CARD ROW PADDING
   playerCardRow: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -913,7 +924,6 @@ const styles = {
     borderLeftWidth: '5px',
     boxShadow: '0 1px 2px rgba(0,0,0,0.01)'
   },
-  
   playerMetaIdentity: {
     flex: '1 1 auto',
     display: 'flex',
@@ -936,7 +946,6 @@ const styles = {
     marginTop: '0.05rem',
     textAlign: 'left'
   },
-
   metricsClusterRight: {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 42px)',
@@ -1052,7 +1061,6 @@ const styles = {
     fontStyle: 'italic'
   },
 
-  // POST-MATCH DASHBOARD WITH PROPORTIONAL SPACING
   leftSummaryDashboard: {
     flex: '1 1 54%',
     backgroundColor: '#FFFFFF',

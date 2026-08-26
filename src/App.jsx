@@ -90,16 +90,13 @@ export default function App() {
   const [seasonResult, setSeasonResult] = useState(null);
   const [hasSpun, setHasSpun] = useState(false);
 
-  // Wheel animation states
   const [isSpinning, setIsSpinning] = useState(false);
   const [displayTeam, setDisplayTeam] = useState('RCB');
   const [displayEra, setDisplayEra] = useState('2023-2026');
 
-  // Single Re-Roll Quotas (1 allowed per campaign)
   const [teamRerollAvailable, setTeamRerollAvailable] = useState(true);
   const [eraRerollAvailable, setEraRerollAvailable] = useState(true);
 
-  // Filtering states
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState('All');
   const [sortBy, setSortBy] = useState('matches');
@@ -118,6 +115,10 @@ export default function App() {
       if (counts[p.role] !== undefined) counts[p.role] += 1;
     });
     return counts;
+  }, [roster]);
+
+  const overseasCount = useMemo(() => {
+    return roster.filter(p => p.is_overseas).length;
   }, [roster]);
 
   const isRoleAllowed = (role, counts, rosterLength) => {
@@ -202,7 +203,6 @@ export default function App() {
     }, 70);
   };
 
-  // Re-roll Team only
   const handleRerollTeam = () => {
     if (!teamRerollAvailable || isSpinning || !hasSpun) return;
     setTeamRerollAvailable(false);
@@ -233,7 +233,6 @@ export default function App() {
     }
   };
 
-  // Re-roll Era only
   const handleRerollEra = () => {
     if (!eraRerollAvailable || isSpinning || !hasSpun) return;
     setEraRerollAvailable(false);
@@ -294,9 +293,6 @@ export default function App() {
     return list;
   }, [currentOptions, searchQuery, roleFilter, sortBy]);
 
-  // ============================================================================
-  // 4. BALANCED TOURNAMENT SIMULATION ENGINE (FIXED 98/100 SKEW)
-  // ============================================================================
   const runTournamentSimulation = (squad) => {
     let topBatters = squad
       .filter(p => p.role === 'Batter' || p.role === 'Wicketkeeper' || p.role === 'All-Rounder')
@@ -308,7 +304,6 @@ export default function App() {
       })
       .sort((a, b) => b - a);
 
-    // Top 5 batters carry the primary scoring load
     const top5BattingScore = topBatters.slice(0, 5).reduce((acc, val) => acc + val, 0);
     const battingRating = Math.max(20, Math.min(99, Math.round((top5BattingScore / 240) * 100)));
 
@@ -330,7 +325,6 @@ export default function App() {
     const balancePenalty = unprovenCount * 5.0;
     const balanceRating = Math.max(15, Math.min(99, Math.round(((battingRating + bowlingRating) / 2) - balancePenalty)));
 
-    // Overall squad power index (Strict scaling so 98/100 squads reliably win 13-1 or 14-0)
     const overallSquadPower = (battingRating * 0.40) + (bowlingRating * 0.40) + (balanceRating * 0.20);
 
     const fixtures = [
@@ -354,7 +348,6 @@ export default function App() {
     let matchLogs = [];
 
     fixtures.forEach((match) => {
-      // Adjusted exponent divisor (35 instead of 28) to give 95+ teams rightful dominance
       const exponent = (match.diff - overallSquadPower) / 35;
       const winProbability = 1 / (1 + Math.pow(10, exponent));
       const roll = Math.random();
@@ -506,16 +499,30 @@ export default function App() {
             <GameIcon size={24} style={{ border: '1px solid #334155', borderRadius: '5px' }} />
             <h1 style={styles.brandLogo}>IPL 14-0 ENGINE</h1>
           </div>
+          
           <span style={styles.roundTrackerPill}>
             {seasonResult ? 'CAMPAIGN CONCLUDED' : `Round ${Math.min(12, roster.length + 1)} / 12`}
           </span>
+
+          {/* DYNAMIC OVERSEAS TRACKER PILL (SHADED GREEN -> RED WARNING) */}
+          {!seasonResult && (
+            <span style={{
+              ...styles.overseasTrackerPill,
+              ...(overseasCount >= 4 ? {
+                color: '#FCA5A5',
+                backgroundColor: 'rgba(239, 68, 68, 0.15)',
+                borderColor: 'rgba(239, 68, 68, 0.3)'
+              } : {})
+            }}>
+              ✈️ Overseas: {overseasCount} / 4
+            </span>
+          )}
         </div>
 
         {!seasonResult ? (
           <div style={styles.spinControlsHub}>
             <div style={styles.marqueeBadgesCluster}>
               
-              {/* TEAM HUD BOX + RE-ROLL BUTTON */}
               <div style={styles.hudWrapperWithReroll}>
                 <div style={{
                   ...styles.thickBezelHUDBox,
@@ -542,7 +549,6 @@ export default function App() {
                 )}
               </div>
               
-              {/* ERA HUD BOX + RE-ROLL BUTTON */}
               <div style={styles.hudWrapperWithReroll}>
                 <div style={{
                   ...styles.thickBezelHUDBox,
@@ -662,22 +668,34 @@ export default function App() {
                   const wktDisplay = hasBowlStats ? (player.wickets ?? 0).toFixed(1) : '-';
                   const ecnDisplay = hasBowlStats ? (player.bowling_econ ?? 0).toFixed(1) : '-';
 
+                  // OVERSEAS QUOTA LOGIC
+                  const isOverseasLimitReached = player.is_overseas && overseasCount >= 4;
+
                   return (
                     <div 
                       key={player.id}
                       role="button"
                       tabIndex={0}
-                      onClick={() => handleDraft(player)}
-                      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleDraft(player); }}
-                      className="player-card-interactive"
+                      onClick={() => {
+                        if (!isOverseasLimitReached) handleDraft(player);
+                      }}
+                      onKeyDown={(e) => { 
+                        if ((e.key === 'Enter' || e.key === ' ') && !isOverseasLimitReached) handleDraft(player); 
+                      }}
+                      className={!isOverseasLimitReached ? "player-card-interactive" : ""}
                       style={{
                         ...styles.playerCardRow,
                         borderLeftColor: teamToken.border,
-                        backgroundColor: teamToken.bg
+                        backgroundColor: teamToken.bg,
+                        opacity: isOverseasLimitReached ? 0.35 : 1,
+                        cursor: isOverseasLimitReached ? 'not-allowed' : 'pointer'
                       }}
+                      title={isOverseasLimitReached ? "Max 4 Overseas Players Reached" : ""}
                     >
                       <div style={styles.playerMetaIdentity}>
-                        <div style={{ ...styles.playerNameHeading, color: teamToken.text }}>{player.name}</div>
+                        <div style={{ ...styles.playerNameHeading, color: teamToken.text }}>
+                          {player.name} {player.is_overseas && "✈️"}
+                        </div>
                         <div style={styles.playerRoleSubTag}>
                           {player.role.toUpperCase()} · <span style={{ color: '#F8FAFC', fontWeight: '800' }}>{player.matches || 1}M</span>
                         </div>
@@ -909,6 +927,20 @@ const styles = {
     padding: '0.25rem 0.65rem',
     borderRadius: '20px',
     border: '1px solid #1E293B'
+  },
+  overseasTrackerPill: {
+    fontSize: '0.7rem',
+    fontWeight: '800',
+    color: '#6EE7B7',
+    backgroundColor: 'rgba(16, 185, 129, 0.15)',
+    padding: '0.25rem 0.65rem',
+    borderRadius: '20px',
+    border: '1px solid rgba(16, 185, 129, 0.3)',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.35rem',
+    letterSpacing: '0.02em',
+    transition: 'all 0.3s ease'
   },
   spinControlsHub: {
     display: 'flex',
@@ -1192,7 +1224,7 @@ const styles = {
   nodePlaceholderLabel: {
     fontSize: '0.45rem',
     fontWeight: '700',
-    color: '#94A3B8'
+    color: '#475569'
   },
   impactSubBench: {
     marginTop: '0.5rem',
@@ -1222,7 +1254,6 @@ const styles = {
     fontStyle: 'italic'
   },
 
-  // TOURNAMENT SUMMARY DASHBOARD
   leftSummaryDashboard: {
     flex: '1 1 54%',
     backgroundColor: '#0D1322',

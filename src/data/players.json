@@ -693,7 +693,7 @@
     "id": "sunil_narine_kkr_2013_2017",
     "playerId": "sunil_narine",
     "name": "Sunil Narine",
-    "role": "Bowler",
+    "role": "All-Rounder",
     "team": "KKR",
     "era": "2013-2017",
     "matches": 67,
@@ -1392,7 +1392,7 @@
     "bowling_econ": 7.41,
     "wickets": 1.31,
     "dismissals": 0.09,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "robin_uthappa_kkr_2013_2017",
@@ -1482,7 +1482,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.7,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "varun_aaron_pbks_2013_2017",
@@ -1587,7 +1587,7 @@
     "bowling_econ": 7.15,
     "wickets": 1,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "umesh_yadav_kkr_2013_2017",
@@ -1662,7 +1662,7 @@
     "bowling_econ": 7.52,
     "wickets": 1.29,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_tye_gl_2013_2017",
@@ -1827,7 +1827,7 @@
     "bowling_econ": 9.83,
     "wickets": 0.8,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jaydev_unadkat_rpsg_2013_2017",
@@ -1872,7 +1872,7 @@
     "bowling_econ": 8.63,
     "wickets": 0.5,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mohammed_shami_dc_2013_2017",
@@ -1902,7 +1902,7 @@
     "bowling_econ": 5.27,
     "wickets": 0.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "barinder_sran_srh_2013_2017",
@@ -1992,7 +1992,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.28,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "james_faulkner_gl_2013_2017",
@@ -2007,7 +2007,7 @@
     "bowling_econ": 9.87,
     "wickets": 0.67,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shakib_al_hasan_kkr_2013_2017",
@@ -2022,7 +2022,7 @@
     "bowling_econ": 7.46,
     "wickets": 0.71,
     "dismissals": 0.21,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kagiso_rabada_dc_2013_2017",
@@ -2142,7 +2142,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ankit_soni_gl_2013_2017",
@@ -2217,7 +2217,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.86,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "irfan_pathan_gl_2013_2017",
@@ -2382,7 +2382,7 @@
     "bowling_econ": 9,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ishank_jaggi_kkr_2013_2017",
@@ -2532,7 +2532,7 @@
     "bowling_econ": 12.25,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "imran_tahir_csk_2018_2022",
@@ -2562,7 +2562,7 @@
     "bowling_econ": 8.74,
     "wickets": 1.11,
     "dismissals": 0.31,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "hardik_pandya_mi_2018_2022",
@@ -2637,7 +2637,7 @@
     "bowling_econ": 8.36,
     "wickets": 1,
     "dismissals": 0.14,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jasprit_bumrah_mi_2018_2022",
@@ -3138,7 +3138,7 @@
     "id": "sunil_narine_kkr_2018_2022",
     "playerId": "sunil_narine",
     "name": "Sunil Narine",
-    "role": "Bowler",
+    "role": "All-Rounder",
     "team": "KKR",
     "era": "2018-2022",
     "matches": 66,
@@ -3177,7 +3177,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.69,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andre_russell_kkr_2018_2022",
@@ -3257,7 +3257,7 @@
   {
     "id": "ys_chahal_rcb_2018_2022",
     "playerId": "ys_chahal",
-    "name": "YS Chahal",
+    "name": "Yuzvendra Chahal",
     "role": "Bowler",
     "team": "RCB",
     "era": "2018-2022",
@@ -3462,7 +3462,7 @@
     "bowling_econ": 8.12,
     "wickets": 0.8,
     "dismissals": 0.1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "siddharth_kaul_srh_2018_2022",
@@ -4017,7 +4017,7 @@
     "bowling_econ": 7.75,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "stuart_binny_rr_2018_2022",
@@ -4047,7 +4047,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1.75,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kv_sharma_csk_2018_2022",
@@ -4152,7 +4152,7 @@
     "bowling_econ": 7.13,
     "wickets": 1.31,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "avesh_khan_dc_2018_2022",
@@ -4182,7 +4182,7 @@
     "bowling_econ": 9,
     "wickets": 0.57,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "prithvi_shaw_dc_2018_2022",
@@ -4212,7 +4212,7 @@
     "bowling_econ": 7.58,
     "wickets": 0.79,
     "dismissals": 0.79,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "basil_thampi_srh_2018_2022",
@@ -4377,7 +4377,7 @@
     "bowling_econ": 12,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "parthiv_patel_rcb_2018_2022",
@@ -4407,7 +4407,7 @@
     "bowling_econ": 9.5,
     "wickets": 0.67,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dhruv_shorey_csk_2018_2022",
@@ -4482,7 +4482,7 @@
     "bowling_econ": 7.14,
     "wickets": 0.53,
     "dismissals": 0.21,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "akshdeep_nath_pbks_2018_2022",
@@ -4572,7 +4572,7 @@
     "bowling_econ": 8.34,
     "wickets": 1.44,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "junior_dala_dc_2018_2022",
@@ -4647,7 +4647,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shivam_dube_rcb_2018_2022",
@@ -4667,7 +4667,7 @@
   {
     "id": "na_saini_rcb_2018_2022",
     "playerId": "na_saini",
-    "name": "NA Saini",
+    "name": "Navdeep Saini",
     "role": "Bowler",
     "team": "RCB",
     "era": "2018-2022",
@@ -4707,7 +4707,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.79,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "lockie_ferguson_kkr_2018_2022",
@@ -4787,7 +4787,7 @@
   {
     "id": "kma_paul_dc_2018_2022",
     "playerId": "kma_paul",
-    "name": "KMA Paul",
+    "name": "Kemo Paul",
     "role": "Bowler",
     "team": "DC",
     "era": "2018-2022",
@@ -4892,7 +4892,7 @@
   {
     "id": "n_pooran_pbks_2018_2022",
     "playerId": "n_pooran",
-    "name": "N Pooran",
+    "name": "Nicholas Pooran",
     "role": "Wicketkeeper",
     "team": "PBKS",
     "era": "2018-2022",
@@ -4902,7 +4902,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mandeep_singh_pbks_2018_2022",
@@ -4932,7 +4932,7 @@
     "bowling_econ": 9.79,
     "wickets": 1.11,
     "dismissals": 0.22,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mohammed_shami_pbks_2018_2022",
@@ -5007,7 +5007,7 @@
     "bowling_econ": 9.77,
     "wickets": 1.33,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shahbaz_nadeem_srh_2018_2022",
@@ -5097,7 +5097,7 @@
     "bowling_econ": 6.92,
     "wickets": 0.83,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "varun_aaron_rr_2018_2022",
@@ -5177,7 +5177,7 @@
   {
     "id": "sc_kuggeleijn_csk_2018_2022",
     "playerId": "sc_kuggeleijn",
-    "name": "SC Kuggeleijn",
+    "name": "Scott Kuggeleijn",
     "role": "Bowler",
     "team": "CSK",
     "era": "2018-2022",
@@ -5232,7 +5232,7 @@
     "bowling_econ": 8.81,
     "wickets": 0.88,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sudhesan_midhun_rr_2018_2022",
@@ -5292,7 +5292,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "carlos_brathwaite_kkr_2018_2022",
@@ -5367,7 +5367,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jayant_yadav_mi_2018_2022",
@@ -5397,7 +5397,7 @@
     "bowling_econ": 10.27,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sherfane_rutherford_dc_2018_2022",
@@ -5412,7 +5412,7 @@
     "bowling_econ": 8.63,
     "wickets": 0.14,
     "dismissals": 0.57,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harpreet_brar_pbks_2018_2022",
@@ -5502,7 +5502,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gurkeerat_singh_mann_rcb_2018_2022",
@@ -5592,7 +5592,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sam_curran_csk_2018_2022",
@@ -5607,7 +5607,7 @@
     "bowling_econ": 8.96,
     "wickets": 0.96,
     "dismissals": 0.3,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "piyush_chawla_csk_2018_2022",
@@ -5652,7 +5652,7 @@
     "bowling_econ": 9.01,
     "wickets": 1.1,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "trent_boult_mi_2018_2022",
@@ -5682,7 +5682,7 @@
     "bowling_econ": 8.8,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shimron_hetmyer_dc_2018_2022",
@@ -5697,7 +5697,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.42,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_jordan_pbks_2018_2022",
@@ -5712,7 +5712,7 @@
     "bowling_econ": 9.24,
     "wickets": 1,
     "dismissals": 0.31,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "krishnappa_gowtham_pbks_2018_2022",
@@ -5787,7 +5787,7 @@
     "bowling_econ": 8.06,
     "wickets": 1.43,
     "dismissals": 0.23,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mohit_sharma_dc_2018_2022",
@@ -5862,7 +5862,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "eoin_morgan_kkr_2018_2022",
@@ -6017,7 +6017,7 @@
   {
     "id": "ybk_jaiswal_rr_2018_2022",
     "playerId": "ybk_jaiswal",
-    "name": "YBK Jaiswal",
+    "name": "Yashasvi Jaiswal",
     "role": "Batter",
     "team": "RR",
     "era": "2018-2022",
@@ -6192,7 +6192,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kartik_tyagi_rr_2018_2022",
@@ -6237,7 +6237,7 @@
     "bowling_econ": 9.87,
     "wickets": 0.4,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ankit_rajpoot_rr_2018_2022",
@@ -6257,7 +6257,7 @@
   {
     "id": "dr_sams_dc_2018_2022",
     "playerId": "dr_sams",
-    "name": "DR Sams",
+    "name": "Daniel Sams",
     "role": "Bowler",
     "team": "DC",
     "era": "2018-2022",
@@ -6267,7 +6267,7 @@
     "bowling_econ": 9.5,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shahbaz_ahmed_rcb_2018_2022",
@@ -6297,7 +6297,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "adam_zampa_rcb_2018_2022",
@@ -6372,7 +6372,7 @@
     "bowling_econ": 9,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "pravin_dubey_dc_2018_2022",
@@ -6467,7 +6467,7 @@
   {
     "id": "m_jansen_mi_2018_2022",
     "playerId": "m_jansen",
-    "name": "M Jansen",
+    "name": "Marco Jansen",
     "role": "Bowler",
     "team": "MI",
     "era": "2018-2022",
@@ -6537,7 +6537,7 @@
     "bowling_econ": 6.49,
     "wickets": 0.56,
     "dismissals": 0.44,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tom_curran_dc_2018_2022",
@@ -6567,7 +6567,7 @@
     "bowling_econ": 7.19,
     "wickets": 0.5,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harbhajan_singh_kkr_2018_2022",
@@ -6612,7 +6612,7 @@
     "bowling_econ": 8.41,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_morris_rr_2018_2022",
@@ -6762,7 +6762,7 @@
     "bowling_econ": 9.36,
     "wickets": 0.75,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "virat_singh_srh_2018_2022",
@@ -6857,7 +6857,7 @@
   {
     "id": "kw_richardson_rcb_2018_2022",
     "playerId": "kw_richardson",
-    "name": "KW Richardson",
+    "name": "Kane Richardson",
     "role": "Bowler",
     "team": "RCB",
     "era": "2018-2022",
@@ -6867,7 +6867,7 @@
     "bowling_econ": 9.67,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "j_suchith_srh_2018_2022",
@@ -6902,7 +6902,7 @@
   {
     "id": "dr_sams_rcb_2018_2022",
     "playerId": "dr_sams",
-    "name": "DR Sams",
+    "name": "Daniel Sams",
     "role": "Bowler",
     "team": "RCB",
     "era": "2018-2022",
@@ -6912,7 +6912,7 @@
     "bowling_econ": 6.5,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "james_neesham_mi_2018_2022",
@@ -6927,7 +6927,7 @@
     "bowling_econ": 7.33,
     "wickets": 1.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dawid_malan_pbks_2018_2022",
@@ -6987,7 +6987,7 @@
     "bowling_econ": 7.78,
     "wickets": 1.44,
     "dismissals": 0.06,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "venkatesh_iyer_kkr_2018_2022",
@@ -7122,7 +7122,7 @@
     "bowling_econ": 5.75,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "george_garton_rcb_2018_2022",
@@ -7137,7 +7137,7 @@
     "bowling_econ": 9,
     "wickets": 0.6,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tim_southee_kkr_2018_2022",
@@ -7197,7 +7197,7 @@
     "bowling_econ": 8.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nathan_ellis_pbks_2018_2022",
@@ -7212,7 +7212,7 @@
     "bowling_econ": 8.53,
     "wickets": 0.8,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rv_patel_dc_2018_2022",
@@ -7242,7 +7242,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "anmolpreet_singh_mi_2018_2022",
@@ -7302,7 +7302,7 @@
     "bowling_econ": 11.67,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tim_david_rcb_2018_2022",
@@ -7317,7 +7317,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "umesh_yadav_kkr_2018_2022",
@@ -7347,7 +7347,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shivam_dube_csk_2018_2022",
@@ -7407,7 +7407,7 @@
     "bowling_econ": 7.6,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shreyas_iyer_kkr_2018_2022",
@@ -7542,12 +7542,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.75,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dr_sams_mi_2018_2022",
     "playerId": "dr_sams",
-    "name": "DR Sams",
+    "name": "Daniel Sams",
     "role": "Bowler",
     "team": "MI",
     "era": "2018-2022",
@@ -7557,7 +7557,7 @@
     "bowling_econ": 8.81,
     "wickets": 1.18,
     "dismissals": 0.64,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tim_seifert_dc_2018_2022",
@@ -7572,7 +7572,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "basil_thampi_mi_2018_2022",
@@ -7647,7 +7647,7 @@
     "bowling_econ": 17,
     "wickets": 0,
     "dismissals": 0.64,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "faf_du_plessis_rcb_2018_2022",
@@ -7707,7 +7707,7 @@
     "bowling_econ": 11.87,
     "wickets": 1,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rahul_chahar_pbks_2018_2022",
@@ -7767,7 +7767,7 @@
     "bowling_econ": 6.55,
     "wickets": 0.25,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shikhar_dhawan_pbks_2018_2022",
@@ -7802,7 +7802,7 @@
   {
     "id": "pbb_rajapaksa_pbks_2018_2022",
     "playerId": "pbb_rajapaksa",
-    "name": "PBB Rajapaksa",
+    "name": "Bhanuka Rajapaksa",
     "role": "Wicketkeeper",
     "team": "PBKS",
     "era": "2018-2022",
@@ -7812,7 +7812,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.44,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "raj_bawa_pbks_2018_2022",
@@ -8217,7 +8217,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nathan_coulter-nile_rr_2018_2022",
@@ -8282,7 +8282,7 @@
   {
     "id": "n_pooran_srh_2018_2022",
     "playerId": "n_pooran",
-    "name": "N Pooran",
+    "name": "Nicholas Pooran",
     "role": "Wicketkeeper",
     "team": "SRH",
     "era": "2018-2022",
@@ -8292,7 +8292,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aiden_markram_srh_2018_2022",
@@ -8307,7 +8307,7 @@
     "bowling_econ": 10.67,
     "wickets": 0.07,
     "dismissals": 0.36,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ravichandran_ashwin_rr_2018_2022",
@@ -8327,7 +8327,7 @@
   {
     "id": "ys_chahal_rr_2018_2022",
     "playerId": "ys_chahal",
-    "name": "YS Chahal",
+    "name": "Yuzvendra Chahal",
     "role": "Bowler",
     "team": "RR",
     "era": "2018-2022",
@@ -8352,7 +8352,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_tye_lsg_2018_2022",
@@ -8417,7 +8417,7 @@
   {
     "id": "na_saini_rr_2018_2022",
     "playerId": "na_saini",
-    "name": "NA Saini",
+    "name": "Navdeep Saini",
     "role": "Bowler",
     "team": "RR",
     "era": "2018-2022",
@@ -8442,7 +8442,7 @@
     "bowling_econ": 7.62,
     "wickets": 1,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_jordan_csk_2018_2022",
@@ -8457,7 +8457,7 @@
     "bowling_econ": 10.52,
     "wickets": 0.5,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jitesh_sharma_pbks_2018_2022",
@@ -8532,7 +8532,7 @@
     "bowling_econ": 16,
     "wickets": 0.14,
     "dismissals": 0.43,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "david_warner_dc_2018_2022",
@@ -8592,7 +8592,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.18,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "darshan_nalkande_gt_2018_2022",
@@ -8627,7 +8627,7 @@
   {
     "id": "m_jansen_srh_2018_2022",
     "playerId": "m_jansen",
-    "name": "M Jansen",
+    "name": "Marco Jansen",
     "role": "Bowler",
     "team": "SRH",
     "era": "2018-2022",
@@ -8642,7 +8642,7 @@
   {
     "id": "m_theekshana_csk_2018_2022",
     "playerId": "m_theekshana",
-    "name": "M Theekshana",
+    "name": "Maheesh Theekshana",
     "role": "Bowler",
     "team": "CSK",
     "era": "2018-2022",
@@ -8697,7 +8697,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kuldeep_sen_rr_2018_2022",
@@ -8772,7 +8772,7 @@
     "bowling_econ": 9.67,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yash_dayal_gt_2018_2022",
@@ -8862,7 +8862,7 @@
     "bowling_econ": 8.5,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "alzarri_joseph_gt_2018_2022",
@@ -8912,7 +8912,7 @@
   {
     "id": "oc_mccoy_rr_2018_2022",
     "playerId": "oc_mccoy",
-    "name": "OC McCoy",
+    "name": "Obed McCoy",
     "role": "Bowler",
     "team": "RR",
     "era": "2018-2022",
@@ -8922,7 +8922,7 @@
     "bowling_econ": 9.17,
     "wickets": 1.57,
     "dismissals": 0.14,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "hrithik_shokeen_mi_2018_2022",
@@ -8982,7 +8982,7 @@
     "bowling_econ": 13.5,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chetan_sakariya_dc_2018_2022",
@@ -9117,7 +9117,7 @@
     "bowling_econ": 11.75,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kartik_tyagi_srh_2018_2022",
@@ -9342,7 +9342,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.36,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mohammed_shami_gt_2023_2026",
@@ -9402,7 +9402,7 @@
     "bowling_econ": 7.82,
     "wickets": 0.48,
     "dismissals": 0.22,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "josh_little_gt_2023_2026",
@@ -9552,7 +9552,7 @@
     "bowling_econ": 6.9,
     "wickets": 0.83,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "wriddhiman_saha_gt_2023_2026",
@@ -9737,7 +9737,7 @@
   {
     "id": "pbb_rajapaksa_pbks_2023_2026",
     "playerId": "pbb_rajapaksa",
-    "name": "PBB Rajapaksa",
+    "name": "Bhanuka Rajapaksa",
     "role": "Batter",
     "team": "PBKS",
     "era": "2023-2026",
@@ -9747,7 +9747,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sunil_narine_kkr_2023_2026",
@@ -9822,7 +9822,7 @@
     "bowling_econ": 10.07,
     "wickets": 0.33,
     "dismissals": 0.56,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sam_curran_pbks_2023_2026",
@@ -9837,7 +9837,7 @@
     "bowling_econ": 10.19,
     "wickets": 0.96,
     "dismissals": 0.44,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shahrukh_khan_pbks_2023_2026",
@@ -9882,7 +9882,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.89,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "arshdeep_singh_pbks_2023_2026",
@@ -9942,7 +9942,7 @@
     "bowling_econ": 8.64,
     "wickets": 1.27,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nitish_rana_kkr_2023_2026",
@@ -10187,7 +10187,7 @@
   {
     "id": "n_pooran_lsg_2023_2026",
     "playerId": "n_pooran",
-    "name": "N Pooran",
+    "name": "Nicholas Pooran",
     "role": "Wicketkeeper",
     "team": "LSG",
     "era": "2023-2026",
@@ -10197,7 +10197,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.51,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ayush_badoni_lsg_2023_2026",
@@ -10302,7 +10302,7 @@
     "bowling_econ": 8.12,
     "wickets": 2.75,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mitchell_marsh_dc_2023_2026",
@@ -10317,7 +10317,7 @@
     "bowling_econ": 9.69,
     "wickets": 1,
     "dismissals": 0.23,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sarfaraz_khan_dc_2023_2026",
@@ -10377,7 +10377,7 @@
     "bowling_econ": 9,
     "wickets": 0.33,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aman_hakim_khan_dc_2023_2026",
@@ -10397,7 +10397,7 @@
   {
     "id": "ybk_jaiswal_rr_2023_2026",
     "playerId": "ybk_jaiswal",
-    "name": "YBK Jaiswal",
+    "name": "Yashasvi Jaiswal",
     "role": "Batter",
     "team": "RR",
     "era": "2023-2026",
@@ -10512,7 +10512,7 @@
     "bowling_econ": 8,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "umran_malik_srh_2023_2026",
@@ -10572,7 +10572,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.69,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ravichandran_ashwin_rr_2023_2026",
@@ -10697,7 +10697,7 @@
   {
     "id": "ys_chahal_rr_2023_2026",
     "playerId": "ys_chahal",
-    "name": "YS Chahal",
+    "name": "Yuzvendra Chahal",
     "role": "Bowler",
     "team": "RR",
     "era": "2023-2026",
@@ -10742,7 +10742,7 @@
   {
     "id": "na_saini_rr_2023_2026",
     "playerId": "na_saini",
-    "name": "NA Saini",
+    "name": "Navdeep Saini",
     "role": "Bowler",
     "team": "RR",
     "era": "2023-2026",
@@ -10802,7 +10802,7 @@
   {
     "id": "rjw_topley_rcb_2023_2026",
     "playerId": "rjw_topley",
-    "name": "RJW Topley",
+    "name": "Reece Topley",
     "role": "Bowler",
     "team": "RCB",
     "era": "2023-2026",
@@ -10962,7 +10962,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.55,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "hrithik_shokeen_mi_2023_2026",
@@ -11052,7 +11052,7 @@
     "bowling_econ": 9.5,
     "wickets": 0.4,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "piyush_chawla_mi_2023_2026",
@@ -11127,7 +11127,7 @@
     "bowling_econ": 10.61,
     "wickets": 1.06,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "david_miller_gt_2023_2026",
@@ -11172,7 +11172,7 @@
     "bowling_econ": 7,
     "wickets": 0.75,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shahbaz_ahmed_rcb_2023_2026",
@@ -11247,7 +11247,7 @@
     "bowling_econ": 8.36,
     "wickets": 0.04,
     "dismissals": 0.62,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "amit_mishra_lsg_2023_2026",
@@ -11477,8 +11477,8 @@
   {
     "id": "m_jansen_srh_2023_2026",
     "playerId": "m_jansen",
-    "name": "M Jansen",
-    "role": "Bowler",
+    "name": "Marco Jansen",
+    "role": "All-Rounder",
     "team": "SRH",
     "era": "2023-2026",
     "matches": 11,
@@ -11522,7 +11522,7 @@
   {
     "id": "wd_parnell_rcb_2023_2026",
     "playerId": "wd_parnell",
-    "name": "WD Parnell",
+    "name": "Wayne Parnell",
     "role": "Bowler",
     "team": "RCB",
     "era": "2023-2026",
@@ -11577,7 +11577,7 @@
     "bowling_econ": 9.22,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "akash_singh_csk_2023_2026",
@@ -11597,7 +11597,7 @@
   {
     "id": "m_theekshana_csk_2023_2026",
     "playerId": "m_theekshana",
-    "name": "M Theekshana",
+    "name": "Maheesh Theekshana",
     "role": "Bowler",
     "team": "CSK",
     "era": "2023-2026",
@@ -11682,7 +11682,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mahipal_lomror_rcb_2023_2026",
@@ -11727,7 +11727,7 @@
     "bowling_econ": 8.9,
     "wickets": 1.12,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yudhvir_singh_lsg_2023_2026",
@@ -11862,7 +11862,7 @@
     "bowling_econ": 9.16,
     "wickets": 1.39,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "liam_livingstone_pbks_2023_2026",
@@ -11922,7 +11922,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "k_khejroliya_kkr_2023_2026",
@@ -11942,7 +11942,7 @@
   {
     "id": "pd_salt_dc_2023_2026",
     "playerId": "pd_salt",
-    "name": "PD Salt",
+    "name": "Phil Salt",
     "role": "Wicketkeeper",
     "team": "DC",
     "era": "2023-2026",
@@ -11952,7 +11952,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.56,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mayank_dagar_srh_2023_2026",
@@ -12272,7 +12272,7 @@
   {
     "id": "oc_mccoy_rr_2023_2026",
     "playerId": "oc_mccoy",
-    "name": "OC McCoy",
+    "name": "Obed McCoy",
     "role": "Batter",
     "team": "RR",
     "era": "2023-2026",
@@ -12282,7 +12282,7 @@
     "bowling_econ": 13,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_jordan_mi_2023_2026",
@@ -12297,7 +12297,7 @@
     "bowling_econ": 10.77,
     "wickets": 0.5,
     "dismissals": 0.17,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kedar_jadhav_rcb_2023_2026",
@@ -12327,7 +12327,7 @@
     "bowling_econ": 7,
     "wickets": 0,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vishnu_vinod_mi_2023_2026",
@@ -12462,7 +12462,7 @@
     "bowling_econ": 9.26,
     "wickets": 1.56,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rajat_patidar_rcb_2023_2026",
@@ -12507,7 +12507,7 @@
     "bowling_econ": 3.5,
     "wickets": 0,
     "dismissals": 0.44,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yash_dayal_rcb_2023_2026",
@@ -12567,7 +12567,7 @@
     "bowling_econ": 11.67,
     "wickets": 0.08,
     "dismissals": 0.69,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shai_hope_dc_2023_2026",
@@ -12672,7 +12672,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.64,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shashank_singh_pbks_2023_2026",
@@ -12692,7 +12692,7 @@
   {
     "id": "pd_salt_kkr_2023_2026",
     "playerId": "pd_salt",
-    "name": "PD Salt",
+    "name": "Phil Salt",
     "role": "Wicketkeeper",
     "team": "KKR",
     "era": "2023-2026",
@@ -12702,7 +12702,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shreyas_iyer_kkr_2023_2026",
@@ -12777,7 +12777,7 @@
     "bowling_econ": 10.61,
     "wickets": 1.31,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "devdutt_padikkal_lsg_2023_2026",
@@ -12897,7 +12897,7 @@
     "bowling_econ": 8.86,
     "wickets": 0.57,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "naman_dhir_mi_2023_2026",
@@ -12957,7 +12957,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ravisrinivasan_sai_kishore_gt_2023_2026",
@@ -13017,7 +13017,7 @@
     "bowling_econ": 14.83,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "travis_head_srh_2023_2026",
@@ -13227,7 +13227,7 @@
     "bowling_econ": 8.84,
     "wickets": 0.29,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kumar_kushagra_dc_2023_2026",
@@ -13287,7 +13287,7 @@
     "bowling_econ": 6.5,
     "wickets": 1,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "matthew_wade_gt_2023_2026",
@@ -13322,8 +13322,8 @@
   {
     "id": "wg_jacks_rcb_2023_2026",
     "playerId": "wg_jacks",
-    "name": "WG Jacks",
-    "role": "Batter",
+    "name": "Will Jacks",
+    "role": "All-Rounder",
     "team": "RCB",
     "era": "2023-2026",
     "matches": 8,
@@ -13407,7 +13407,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.78,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shamar_joseph_lsg_2023_2026",
@@ -13487,7 +13487,7 @@
   {
     "id": "n_thushara_mi_2023_2026",
     "playerId": "n_thushara",
-    "name": "N Thushara",
+    "name": "Nuwan Thushara",
     "role": "Bowler",
     "team": "MI",
     "era": "2023-2026",
@@ -13532,7 +13532,7 @@
   {
     "id": "lb_williams_dc_2023_2026",
     "playerId": "lb_williams",
-    "name": "LB Williams",
+    "name": "Lizaad Williams",
     "role": "Bowler",
     "team": "DC",
     "era": "2023-2026",
@@ -13572,12 +13572,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rj_gleeson_csk_2023_2026",
     "playerId": "rj_gleeson",
-    "name": "RJ Gleeson",
+    "name": "Richard Gleeson",
     "role": "Bowler",
     "team": "CSK",
     "era": "2023-2026",
@@ -13587,7 +13587,7 @@
     "bowling_econ": 9.06,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manish_pandey_kkr_2023_2026",
@@ -13677,7 +13677,7 @@
     "bowling_econ": 13.67,
     "wickets": 0.06,
     "dismissals": 0.76,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vijayakanth_viyaskanth_srh_2023_2026",
@@ -13727,8 +13727,8 @@
   {
     "id": "t_kohler-cadmore_rr_2023_2026",
     "playerId": "t_kohler-cadmore",
-    "name": "T Kohler-Cadmore",
-    "role": "Wicketkeeper",
+    "name": "Tom Kohler-Cadmore",
+    "role": "Batter",
     "team": "RR",
     "era": "2023-2026",
     "matches": 3,
@@ -13737,7 +13737,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shivam_singh_pbks_2023_2026",
@@ -13862,7 +13862,7 @@
   {
     "id": "pd_salt_rcb_2023_2026",
     "playerId": "pd_salt",
-    "name": "PD Salt",
+    "name": "Phil Salt",
     "role": "Wicketkeeper",
     "team": "RCB",
     "era": "2023-2026",
@@ -13872,7 +13872,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.79,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "devdutt_padikkal_rcb_2023_2026",
@@ -13907,7 +13907,7 @@
   {
     "id": "m_theekshana_rr_2023_2026",
     "playerId": "m_theekshana",
-    "name": "M Theekshana",
+    "name": "Maheesh Theekshana",
     "role": "Bowler",
     "team": "RR",
     "era": "2023-2026",
@@ -13947,7 +13947,7 @@
     "bowling_econ": 9.38,
     "wickets": 1.29,
     "dismissals": 0.32,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nitish_rana_rr_2023_2026",
@@ -14087,8 +14087,8 @@
   {
     "id": "wg_jacks_mi_2023_2026",
     "playerId": "wg_jacks",
-    "name": "WG Jacks",
-    "role": "Batter",
+    "name": "Will Jacks",
+    "role": "All-Rounder",
     "team": "MI",
     "era": "2023-2026",
     "matches": 20,
@@ -14112,7 +14112,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.96,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sam_curran_csk_2023_2026",
@@ -14127,7 +14127,7 @@
     "bowling_econ": 11.08,
     "wickets": 0.2,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nathan_ellis_csk_2023_2026",
@@ -14142,7 +14142,7 @@
     "bowling_econ": 9.5,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ravichandran_ashwin_csk_2023_2026",
@@ -14202,7 +14202,7 @@
     "bowling_econ": 8.19,
     "wickets": 0.88,
     "dismissals": 0.47,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "deepak_chahar_mi_2023_2026",
@@ -14247,7 +14247,7 @@
     "bowling_econ": 13.25,
     "wickets": 0.5,
     "dismissals": 0.5,
-    "is_overseas": true
+    "is_overseas": false
   },
   {
     "id": "rahul_tripathi_csk_2023_2026",
@@ -14307,7 +14307,7 @@
     "bowling_econ": 10.88,
     "wickets": 0.16,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mitchell_starc_dc_2023_2026",
@@ -14322,7 +14322,7 @@
     "bowling_econ": 10.26,
     "wickets": 1.39,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mitchell_marsh_lsg_2023_2026",
@@ -14337,7 +14337,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.19,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "varun_nigam_dc_2023_2026",
@@ -14592,7 +14592,7 @@
     "bowling_econ": 10.05,
     "wickets": 0.85,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "prasidh_krishna_gt_2023_2026",
@@ -14642,8 +14642,8 @@
   {
     "id": "m_jansen_pbks_2023_2026",
     "playerId": "m_jansen",
-    "name": "M Jansen",
-    "role": "Bowler",
+    "name": "Marco Jansen",
+    "role": "All-Rounder",
     "team": "PBKS",
     "era": "2023-2026",
     "matches": 28,
@@ -14672,7 +14672,7 @@
   {
     "id": "ys_chahal_pbks_2023_2026",
     "playerId": "ys_chahal",
-    "name": "YS Chahal",
+    "name": "Yuzvendra Chahal",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2023-2026",
@@ -14697,7 +14697,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.08,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vijaykumar_vyshak_pbks_2023_2026",
@@ -14727,7 +14727,7 @@
     "bowling_econ": 8.5,
     "wickets": 1,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "wanindu_hasaranga_rr_2023_2026",
@@ -14742,7 +14742,7 @@
     "bowling_econ": 9.05,
     "wickets": 1,
     "dismissals": 0.18,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "abdul_samad_lsg_2023_2026",
@@ -14787,7 +14787,7 @@
     "bowling_econ": 18,
     "wickets": 0,
     "dismissals": 0.36,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "bhuvneshwar_kumar_rcb_2023_2026",
@@ -14837,7 +14837,7 @@
   {
     "id": "pwa_mulder_srh_2023_2026",
     "playerId": "pwa_mulder",
-    "name": "PWA Mulder",
+    "name": "Wiaan Mulder",
     "role": "Batter",
     "team": "SRH",
     "era": "2023-2026",
@@ -14982,7 +14982,7 @@
     "bowling_econ": 8.57,
     "wickets": 0.4,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "akash_deep_lsg_2023_2026",
@@ -15162,7 +15162,7 @@
     "bowling_econ": 11.86,
     "wickets": 0.5,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "josh_inglis_pbks_2023_2026",
@@ -15177,12 +15177,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.83,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "xc_bartlett_pbks_2023_2026",
     "playerId": "xc_bartlett",
-    "name": "XC Bartlett",
+    "name": "Xavier Bartlett",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2023-2026",
@@ -15237,7 +15237,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vaibhav_suryavanshi_rr_2023_2026",
@@ -15312,7 +15312,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1.06,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chetan_sakariya_kkr_2023_2026",
@@ -15387,7 +15387,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.46,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "akash_madhwal_rr_2023_2026",
@@ -15537,7 +15537,7 @@
     "bowling_econ": 10.8,
     "wickets": 0.5,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harsh_dubey_srh_2023_2026",
@@ -15617,7 +15617,7 @@
   {
     "id": "n_thushara_rcb_2023_2026",
     "playerId": "n_thushara",
-    "name": "N Thushara",
+    "name": "Nuwan Thushara",
     "role": "Bowler",
     "team": "RCB",
     "era": "2023-2026",
@@ -15672,7 +15672,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kusal_mendis_gt_2023_2026",
@@ -15687,12 +15687,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rj_gleeson_mi_2023_2026",
     "playerId": "rj_gleeson",
-    "name": "RJ Gleeson",
+    "name": "Richard Gleeson",
     "role": "Bowler",
     "team": "MI",
     "era": "2023-2026",
@@ -15702,7 +15702,7 @@
     "bowling_econ": 11.14,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "raj_bawa_mi_2023_2026",
@@ -15722,7 +15722,7 @@
   {
     "id": "rjw_topley_mi_2023_2026",
     "playerId": "rjw_topley",
-    "name": "RJW Topley",
+    "name": "Reece Topley",
     "role": "Bowler",
     "team": "MI",
     "era": "2023-2026",
@@ -15777,7 +15777,7 @@
     "bowling_econ": 10.96,
     "wickets": 1.5,
     "dismissals": 0.17,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "abhinandan_singh_rcb_2023_2026",
@@ -15825,8 +15825,8 @@
     "is_overseas": true
   },
   {
-    "id": "fabian_allen_kkr_2023_2026",
-    "playerId": "fabian_allen",
+    "id": "finn_allen_kkr_2023_2026",
+    "playerId": "finn_allen",
     "name": "Finn Allen",
     "role": "Batter",
     "team": "KKR",
@@ -15837,7 +15837,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.09,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "allah_ghazanfar_mi_2023_2026",
@@ -16152,7 +16152,7 @@
     "bowling_econ": 9.75,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nitish_rana_dc_2023_2026",
@@ -16182,7 +16182,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shivang_kumar_srh_2023_2026",
@@ -16242,7 +16242,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "david_miller_dc_2023_2026",
@@ -16292,7 +16292,7 @@
   {
     "id": "na_saini_kkr_2023_2026",
     "playerId": "na_saini",
-    "name": "NA Saini",
+    "name": "Navdeep Saini",
     "role": "Batter",
     "team": "KKR",
     "era": "2023-2026",
@@ -16452,7 +16452,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yash_raj_punja_rr_2023_2026",
@@ -16647,7 +16647,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "akshat_raghuwanshi_lsg_2023_2026",
@@ -16692,7 +16692,7 @@
     "bowling_econ": 12.75,
     "wickets": 1,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sr_dubey_kkr_2023_2026",
@@ -16797,7 +16797,7 @@
     "bowling_econ": 12.3,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ss_mishra_rr_2023_2026",
@@ -17112,7 +17112,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.59,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "balachandra_akhil_rcb_2008_2012",
@@ -17172,7 +17172,7 @@
     "bowling_econ": 7.37,
     "wickets": 0.69,
     "dismissals": 0.31,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "matthew_hayden_csk_2008_2012",
@@ -17217,7 +17217,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.41,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "james_hopes_pbks_2008_2012",
@@ -17232,7 +17232,7 @@
     "bowling_econ": 9.86,
     "wickets": 0.64,
     "dismissals": 0.18,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "irfan_pathan_pbks_2008_2012",
@@ -17327,8 +17327,8 @@
   {
     "id": "jdp_oram_csk_2008_2012",
     "playerId": "jdp_oram",
-    "name": "JDP Oram",
-    "role": "Bowler",
+    "name": "Jacob Oram",
+    "role": "All-Rounder",
     "team": "CSK",
     "era": "2008-2012",
     "matches": 15,
@@ -17382,7 +17382,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.59,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "muttiah_muralitharan_csk_2008_2012",
@@ -17537,7 +17537,7 @@
   {
     "id": "m_kaif_rr_2008_2012",
     "playerId": "m_kaif",
-    "name": "M Kaif",
+    "name": "Mohammad Kaif",
     "role": "Batter",
     "team": "RR",
     "era": "2008-2012",
@@ -17562,7 +17562,7 @@
     "bowling_econ": 7.43,
     "wickets": 1.35,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rajat_bhatia_dc_2008_2012",
@@ -17892,7 +17892,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ashish_nehra_mi_2008_2012",
@@ -17937,7 +17937,7 @@
     "bowling_econ": 13,
     "wickets": 0,
     "dismissals": 0.32,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "adam_gilchrist_dec_2008_2012",
@@ -17952,7 +17952,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.83,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "venugopal_rao_dec_2008_2012",
@@ -17997,7 +17997,7 @@
     "bowling_econ": 7.55,
     "wickets": 0.68,
     "dismissals": 0.54,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "muralisadharan_kartik_kkr_2008_2012",
@@ -18042,7 +18042,7 @@
     "bowling_econ": 7.51,
     "wickets": 0.8,
     "dismissals": 0.1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "arjun_yadav_dec_2008_2012",
@@ -18087,7 +18087,7 @@
     "bowling_econ": 7.55,
     "wickets": 1.38,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rudra_pratap_singh_dec_2008_2012",
@@ -18147,7 +18147,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.47,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "pankaj_singh_rr_2008_2012",
@@ -18192,7 +18192,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1.17,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mohammad_asif_dc_2008_2012",
@@ -18207,7 +18207,7 @@
     "bowling_econ": 9.25,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yo_mahesh_dc_2008_2012",
@@ -18237,7 +18237,7 @@
     "bowling_econ": 7.5,
     "wickets": 0.9,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dwayne_bravo_mi_2008_2012",
@@ -18252,7 +18252,7 @@
     "bowling_econ": 8.19,
     "wickets": 0.87,
     "dismissals": 0.43,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vikrant_yeligati_mi_2008_2012",
@@ -18297,7 +18297,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.24,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "doddapaneni_kalyankrishna_dec_2008_2012",
@@ -18327,7 +18327,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vrv_singh_pbks_2008_2012",
@@ -18372,7 +18372,7 @@
     "bowling_econ": 6.46,
     "wickets": 2,
     "dismissals": 0.36,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_kumble_rcb_2008_2012",
@@ -18392,7 +18392,7 @@
   {
     "id": "dnt_zoysa_dec_2008_2012",
     "playerId": "dnt_zoysa",
-    "name": "DNT Zoysa",
+    "name": "Nuwan Zoysa",
     "role": "Bowler",
     "team": "DEC",
     "era": "2008-2012",
@@ -18402,7 +18402,7 @@
     "bowling_econ": 9,
     "wickets": 0.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ajinkya_rahane_mi_2008_2012",
@@ -18447,7 +18447,7 @@
     "bowling_econ": 10,
     "wickets": 0.29,
     "dismissals": 0.57,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manoj_tiwary_dc_2008_2012",
@@ -18507,7 +18507,7 @@
     "bowling_econ": 6.79,
     "wickets": 0.96,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "b_chipli_rcb_2008_2012",
@@ -18567,7 +18567,7 @@
     "bowling_econ": 7.64,
     "wickets": 1.7,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manish_pandey_mi_2008_2012",
@@ -18597,7 +18597,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gagandeep_singh_pbks_2008_2012",
@@ -18627,7 +18627,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "swapnil_asnodkar_rr_2008_2012",
@@ -18657,7 +18657,7 @@
     "bowling_econ": 8.18,
     "wickets": 2,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "salman_butt_kkr_2008_2012",
@@ -18672,7 +18672,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "brad_hodge_kkr_2008_2012",
@@ -18687,7 +18687,7 @@
     "bowling_econ": 8.08,
     "wickets": 0.47,
     "dismissals": 0.32,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "stephen_fleming_csk_2008_2012",
@@ -18702,7 +18702,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_vidyut_csk_2008_2012",
@@ -18737,7 +18737,7 @@
   {
     "id": "m_ntini_csk_2008_2012",
     "playerId": "m_ntini",
-    "name": "M Ntini",
+    "name": "Makhaya Ntini",
     "role": "Bowler",
     "team": "CSK",
     "era": "2008-2012",
@@ -18747,7 +18747,7 @@
     "bowling_econ": 6.91,
     "wickets": 0.78,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ab_de_villiers_dc_2008_2012",
@@ -18762,7 +18762,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.79,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "lpc_silva_dec_2008_2012",
@@ -18807,7 +18807,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "doddapaneni_vijaykumar_dec_2008_2012",
@@ -18902,7 +18902,7 @@
   {
     "id": "ck_kapugedera_csk_2008_2012",
     "playerId": "ck_kapugedera",
-    "name": "CK Kapugedera",
+    "name": "Chamara Kapugedera",
     "role": "Batter",
     "team": "CSK",
     "era": "2008-2012",
@@ -18912,7 +18912,7 @@
     "bowling_econ": 17.29,
     "wickets": 0,
     "dismissals": 0.8,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_chopra_kkr_2008_2012",
@@ -18932,7 +18932,7 @@
   {
     "id": "t_taibu_kkr_2008_2012",
     "playerId": "t_taibu",
-    "name": "T Taibu",
+    "name": "Tatenda Taibu",
     "role": "Batter",
     "team": "KKR",
     "era": "2008-2012",
@@ -18942,7 +18942,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "j_arunkumar_rcb_2008_2012",
@@ -19032,7 +19032,7 @@
     "bowling_econ": 7.21,
     "wickets": 1.5,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tillakaratne_dilshan_dc_2008_2012",
@@ -19047,7 +19047,7 @@
     "bowling_econ": 6.79,
     "wickets": 0.15,
     "dismissals": 0.48,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "amit_mishra_dc_2008_2012",
@@ -19082,7 +19082,7 @@
   {
     "id": "la_pomersbach_pbks_2008_2012",
     "playerId": "la_pomersbach",
-    "name": "LA Pomersbach",
+    "name": "Luke Pomersbach",
     "role": "Batter",
     "team": "PBKS",
     "era": "2008-2012",
@@ -19092,7 +19092,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.22,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "iqbal_abdulla_kkr_2008_2012",
@@ -19122,7 +19122,7 @@
     "bowling_econ": 7.71,
     "wickets": 1.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "younis_khan_rr_2008_2012",
@@ -19137,7 +19137,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rr_powar_pbks_2008_2012",
@@ -19182,7 +19182,7 @@
     "bowling_econ": 14.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "h_das_dec_2008_2012",
@@ -19232,7 +19232,7 @@
   {
     "id": "baw_mendis_kkr_2008_2012",
     "playerId": "baw_mendis",
-    "name": "BAW Mendis",
+    "name": "Ajantha Mendis",
     "role": "Bowler",
     "team": "KKR",
     "era": "2008-2012",
@@ -19242,7 +19242,7 @@
     "bowling_econ": 7.85,
     "wickets": 0.86,
     "dismissals": 0.14,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "t_thushara_csk_2008_2012",
@@ -19257,7 +19257,7 @@
     "bowling_econ": 7.16,
     "wickets": 1.33,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_flintoff_csk_2008_2012",
@@ -19272,7 +19272,7 @@
     "bowling_econ": 9.55,
     "wickets": 0.67,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shikhar_dhawan_mi_2008_2012",
@@ -19302,7 +19302,7 @@
     "bowling_econ": 5.65,
     "wickets": 0.25,
     "dismissals": 0.35,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "zaheer_khan_mi_2008_2012",
@@ -19332,12 +19332,12 @@
     "bowling_econ": 6.36,
     "wickets": 1.48,
     "dismissals": 0.18,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jd_ryder_rcb_2008_2012",
     "playerId": "jd_ryder",
-    "name": "JD Ryder",
+    "name": "Jesse Ryder",
     "role": "Bowler",
     "team": "RCB",
     "era": "2008-2012",
@@ -19347,7 +19347,7 @@
     "bowling_econ": 6.76,
     "wickets": 0.6,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kevin_pietersen_rcb_2008_2012",
@@ -19362,7 +19362,7 @@
     "bowling_econ": 7.04,
     "wickets": 0.54,
     "dismissals": 0.46,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "robin_uthappa_rcb_2008_2012",
@@ -19422,12 +19422,12 @@
     "bowling_econ": 9.21,
     "wickets": 0.33,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dp_nannes_dc_2008_2012",
     "playerId": "dp_nannes",
-    "name": "DP Nannes",
+    "name": "Dirk Nannes",
     "role": "Bowler",
     "team": "DC",
     "era": "2008-2012",
@@ -19437,7 +19437,7 @@
     "bowling_econ": 7.11,
     "wickets": 1,
     "dismissals": 0.18,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "am_salvi_dc_2008_2012",
@@ -19487,7 +19487,7 @@
   {
     "id": "fh_edwards_dec_2008_2012",
     "playerId": "fh_edwards",
-    "name": "FH Edwards",
+    "name": "Fidel Edwards",
     "role": "Bowler",
     "team": "DEC",
     "era": "2008-2012",
@@ -19497,7 +19497,7 @@
     "bowling_econ": 6.6,
     "wickets": 0.83,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_gayle_kkr_2008_2012",
@@ -19637,7 +19637,7 @@
   {
     "id": "rj_quiney_rr_2008_2012",
     "playerId": "rj_quiney",
-    "name": "RJ Quiney",
+    "name": "Rob Quiney",
     "role": "Batter",
     "team": "RR",
     "era": "2008-2012",
@@ -19647,7 +19647,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "as_raut_rr_2008_2012",
@@ -19827,7 +19827,7 @@
     "bowling_econ": 7.24,
     "wickets": 1,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "morne_van_wyk_kkr_2008_2012",
@@ -19842,7 +19842,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manish_pandey_rcb_2008_2012",
@@ -19892,7 +19892,7 @@
   {
     "id": "gr_napier_mi_2008_2012",
     "playerId": "gr_napier",
-    "name": "GR Napier",
+    "name": "Graham Napier",
     "role": "Bowler",
     "team": "MI",
     "era": "2008-2012",
@@ -19902,7 +19902,7 @@
     "bowling_econ": 6.75,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sm_harwood_rr_2008_2012",
@@ -20007,12 +20007,12 @@
     "bowling_econ": 8,
     "wickets": 2,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rj_harris_dec_2008_2012",
     "playerId": "rj_harris",
-    "name": "RJ Harris",
+    "name": "Ryan Harris",
     "role": "Bowler",
     "team": "DEC",
     "era": "2008-2012",
@@ -20022,7 +20022,7 @@
     "bowling_econ": 7.51,
     "wickets": 1.25,
     "dismissals": 0.56,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_singh_rr_2008_2012",
@@ -20042,7 +20042,7 @@
   {
     "id": "m_morkel_rr_2008_2012",
     "playerId": "m_morkel",
-    "name": "M Morkel",
+    "name": "Morne Morkel",
     "role": "Bowler",
     "team": "RR",
     "era": "2008-2012",
@@ -20052,7 +20052,7 @@
     "bowling_econ": 7.57,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_mithun_rcb_2008_2012",
@@ -20112,7 +20112,7 @@
     "bowling_econ": 8.66,
     "wickets": 0.53,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sd_chitnis_rr_2008_2012",
@@ -20142,7 +20142,7 @@
     "bowling_econ": 6.85,
     "wickets": 0.79,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mashrafe_mortaza_kkr_2008_2012",
@@ -20157,7 +20157,7 @@
     "bowling_econ": 14.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "george_bailey_csk_2008_2012",
@@ -20172,7 +20172,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_mcdonald_dc_2008_2012",
@@ -20187,7 +20187,7 @@
     "bowling_econ": 9.63,
     "wickets": 0.83,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "y_nagar_dc_2008_2012",
@@ -20217,7 +20217,7 @@
     "bowling_econ": 6.87,
     "wickets": 2,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ss_shaikh_kkr_2008_2012",
@@ -20262,7 +20262,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ra_shaikh_mi_2008_2012",
@@ -20337,7 +20337,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "anirudh_singh_dec_2008_2012",
@@ -20357,7 +20357,7 @@
   {
     "id": "sw_tait_rr_2008_2012",
     "playerId": "sw_tait",
-    "name": "SW Tait",
+    "name": "Shaun Tait",
     "role": "Bowler",
     "team": "RR",
     "era": "2008-2012",
@@ -20367,7 +20367,7 @@
     "bowling_econ": 7.87,
     "wickets": 1.22,
     "dismissals": 0.28,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_uniyal_rr_2008_2012",
@@ -20447,7 +20447,7 @@
   {
     "id": "r_mclaren_mi_2008_2012",
     "playerId": "r_mclaren",
-    "name": "R McLaren",
+    "name": "Ryan McLaren",
     "role": "All-Rounder",
     "team": "MI",
     "era": "2008-2012",
@@ -20457,7 +20457,7 @@
     "bowling_econ": 7.94,
     "wickets": 0.4,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ali_murtaza_mi_2008_2012",
@@ -20507,7 +20507,7 @@
   {
     "id": "m_kaif_pbks_2008_2012",
     "playerId": "m_kaif",
-    "name": "M Kaif",
+    "name": "Mohammad Kaif",
     "role": "Batter",
     "team": "PBKS",
     "era": "2008-2012",
@@ -20562,7 +20562,7 @@
     "bowling_econ": 7.36,
     "wickets": 0.6,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_ladda_dc_2008_2012",
@@ -20607,7 +20607,7 @@
     "bowling_econ": 7.23,
     "wickets": 1.12,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kieron_pollard_mi_2008_2012",
@@ -20637,12 +20637,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.36,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dr_martyn_rr_2008_2012",
     "playerId": "dr_martyn",
-    "name": "DR Martyn",
+    "name": "Damien Martyn",
     "role": "Batter",
     "team": "RR",
     "era": "2008-2012",
@@ -20652,7 +20652,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_narwal_rr_2008_2012",
@@ -20742,7 +20742,7 @@
     "bowling_econ": 8.44,
     "wickets": 0,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "md_mishra_dec_2008_2012",
@@ -20817,7 +20817,7 @@
     "bowling_econ": 19,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mandeep_singh_kkr_2008_2012",
@@ -20867,7 +20867,7 @@
   {
     "id": "kaj_roach_dec_2008_2012",
     "playerId": "kaj_roach",
-    "name": "KAJ Roach",
+    "name": "Kemar Roach",
     "role": "Bowler",
     "team": "DEC",
     "era": "2008-2012",
@@ -20877,12 +20877,12 @@
     "bowling_econ": 10,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "pd_collingwood_dc_2008_2012",
     "playerId": "pd_collingwood",
-    "name": "PD Collingwood",
+    "name": "Paul Collingwood",
     "role": "Batter",
     "team": "DC",
     "era": "2008-2012",
@@ -20892,7 +20892,7 @@
     "bowling_econ": 6.81,
     "wickets": 0.62,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "c_ganapathy_csk_2008_2012",
@@ -20927,7 +20927,7 @@
   {
     "id": "sb_wagh_rr_2008_2012",
     "playerId": "sb_wagh",
-    "name": "SB Wagh",
+    "name": "Shrikant Wagh",
     "role": "Batter",
     "team": "RR",
     "era": "2008-2012",
@@ -20942,7 +20942,7 @@
   {
     "id": "de_bollinger_csk_2008_2012",
     "playerId": "de_bollinger",
-    "name": "DE Bollinger",
+    "name": "Doug Bollinger",
     "role": "All-Rounder",
     "team": "CSK",
     "era": "2008-2012",
@@ -20952,7 +20952,7 @@
     "bowling_econ": 7.22,
     "wickets": 1.37,
     "dismissals": 0.22,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jaydev_unadkat_kkr_2008_2012",
@@ -21012,7 +21012,7 @@
     "bowling_econ": 8.8,
     "wickets": 0.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "l_ablish_pbks_2008_2012",
@@ -21237,7 +21237,7 @@
     "bowling_econ": 13,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manvinder_bisla_kkr_2008_2012",
@@ -21332,8 +21332,8 @@
   {
     "id": "jdp_oram_rr_2008_2012",
     "playerId": "jdp_oram",
-    "name": "JDP Oram",
-    "role": "Batter",
+    "name": "Jacob Oram",
+    "role": "All-Rounder",
     "team": "RR",
     "era": "2008-2012",
     "matches": 2,
@@ -21372,7 +21372,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "b_chipli_dec_2008_2012",
@@ -21402,7 +21402,7 @@
     "bowling_econ": 8.23,
     "wickets": 0.26,
     "dismissals": 0.37,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dan_christian_dec_2008_2012",
@@ -21447,7 +21447,7 @@
     "bowling_econ": 6.34,
     "wickets": 1.33,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "stuart_binny_rr_2008_2012",
@@ -21522,7 +21522,7 @@
     "bowling_econ": 11,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "brendon_mccullum_ktk_2008_2012",
@@ -21557,7 +21557,7 @@
   {
     "id": "dp_nannes_rcb_2008_2012",
     "playerId": "dp_nannes",
-    "name": "DP Nannes",
+    "name": "Dirk Nannes",
     "role": "Batter",
     "team": "RCB",
     "era": "2008-2012",
@@ -21567,7 +21567,7 @@
     "bowling_econ": 7.75,
     "wickets": 1,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "daniel_vettori_rcb_2008_2012",
@@ -21597,7 +21597,7 @@
     "bowling_econ": 9.74,
     "wickets": 0.05,
     "dismissals": 0.26,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mahela_jayawardene_ktk_2008_2012",
@@ -21612,7 +21612,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.46,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "brad_hodge_ktk_2008_2012",
@@ -21627,7 +21627,7 @@
     "bowling_econ": 7,
     "wickets": 0.5,
     "dismissals": 0.07,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "auk_pathan_rcb_2008_2012",
@@ -21762,7 +21762,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.55,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "muttiah_muralitharan_ktk_2008_2012",
@@ -21882,7 +21882,7 @@
     "bowling_econ": 8.74,
     "wickets": 0.45,
     "dismissals": 0.3,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "irfan_pathan_dc_2008_2012",
@@ -21912,7 +21912,7 @@
     "bowling_econ": 6.12,
     "wickets": 1,
     "dismissals": 0.43,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "m_morkel_dc_2008_2012",
@@ -21927,7 +21927,7 @@
     "bowling_econ": 7.34,
     "wickets": 1.41,
     "dismissals": 0.07,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ashoke_dinda_dc_2008_2012",
@@ -21957,7 +21957,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.57,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rohit_sharma_mi_2008_2012",
@@ -21987,7 +21987,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.81,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ac_thomas_pwi_2008_2012",
@@ -22002,7 +22002,7 @@
     "bowling_econ": 7.73,
     "wickets": 0.93,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "paul_valthaty_pbks_2008_2012",
@@ -22082,7 +22082,7 @@
   {
     "id": "wd_parnell_pwi_2008_2012",
     "playerId": "wd_parnell",
-    "name": "WD Parnell",
+    "name": "Wayne Parnell",
     "role": "Bowler",
     "team": "PWI",
     "era": "2008-2012",
@@ -22112,7 +22112,7 @@
   {
     "id": "jd_ryder_pwi_2008_2012",
     "playerId": "jd_ryder",
-    "name": "JD Ryder",
+    "name": "Jesse Ryder",
     "role": "Batter",
     "team": "PWI",
     "era": "2008-2012",
@@ -22122,12 +22122,12 @@
     "bowling_econ": 8.42,
     "wickets": 0.21,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "r_mclaren_pbks_2008_2012",
     "playerId": "r_mclaren",
-    "name": "R McLaren",
+    "name": "Ryan McLaren",
     "role": "All-Rounder",
     "team": "PBKS",
     "era": "2008-2012",
@@ -22137,7 +22137,7 @@
     "bowling_econ": 9.89,
     "wickets": 0.83,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "m_manhas_pwi_2008_2012",
@@ -22187,7 +22187,7 @@
   {
     "id": "nj_rimmington_pbks_2008_2012",
     "playerId": "nj_rimmington",
-    "name": "NJ Rimmington",
+    "name": "Nathan Rimmington",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2008-2012",
@@ -22197,7 +22197,7 @@
     "bowling_econ": 6.33,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "graeme_smith_pwi_2008_2012",
@@ -22212,7 +22212,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "robin_uthappa_pwi_2008_2012",
@@ -22257,7 +22257,7 @@
     "bowling_econ": 7.75,
     "wickets": 0.11,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shahbaz_nadeem_dc_2008_2012",
@@ -22292,7 +22292,7 @@
   {
     "id": "rj_harris_pbks_2008_2012",
     "playerId": "rj_harris",
-    "name": "RJ Harris",
+    "name": "Ryan Harris",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2008-2012",
@@ -22302,7 +22302,7 @@
     "bowling_econ": 7.88,
     "wickets": 1.33,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ba_bhatt_pbks_2008_2012",
@@ -22437,7 +22437,7 @@
     "bowling_econ": 7.64,
     "wickets": 0.55,
     "dismissals": 0.14,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shakib_al_hasan_kkr_2008_2012",
@@ -22452,7 +22452,7 @@
     "bowling_econ": 6.67,
     "wickets": 1.53,
     "dismissals": 0.07,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nd_doshi_rr_2008_2012",
@@ -22482,7 +22482,7 @@
     "bowling_econ": 7.93,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rr_powar_ktk_2008_2012",
@@ -22512,7 +22512,7 @@
     "bowling_econ": 8.5,
     "wickets": 0.7,
     "dismissals": 0.3,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aa_jhunjhunwala_pwi_2008_2012",
@@ -22562,7 +22562,7 @@
   {
     "id": "td_paine_pwi_2008_2012",
     "playerId": "td_paine",
-    "name": "TD Paine",
+    "name": "Tim Paine",
     "role": "Batter",
     "team": "PWI",
     "era": "2008-2012",
@@ -22572,7 +22572,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_symonds_mi_2008_2012",
@@ -22587,7 +22587,7 @@
     "bowling_econ": 10.25,
     "wickets": 0.09,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kedar_jadhav_ktk_2008_2012",
@@ -22632,7 +22632,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "j_syed_mohammad_rcb_2008_2012",
@@ -22722,12 +22722,12 @@
     "bowling_econ": 6.8,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "je_taylor_pwi_2008_2012",
     "playerId": "je_taylor",
-    "name": "JE Taylor",
+    "name": "Jerome Taylor",
     "role": "Bowler",
     "team": "PWI",
     "era": "2008-2012",
@@ -22737,7 +22737,7 @@
     "bowling_econ": 8.05,
     "wickets": 1.2,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manish_pandey_pwi_2008_2012",
@@ -22767,7 +22767,7 @@
     "bowling_econ": 7.06,
     "wickets": 1,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mitchell_marsh_pwi_2008_2012",
@@ -22782,7 +22782,7 @@
     "bowling_econ": 6.99,
     "wickets": 1.4,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shreevats_goswami_kkr_2008_2012",
@@ -22832,7 +22832,7 @@
   {
     "id": "m_kaif_rcb_2008_2012",
     "playerId": "m_kaif",
-    "name": "M Kaif",
+    "name": "Mohammad Kaif",
     "role": "Batter",
     "team": "RCB",
     "era": "2008-2012",
@@ -22877,7 +22877,7 @@
   {
     "id": "m_klinger_ktk_2008_2012",
     "playerId": "m_klinger",
-    "name": "M Klinger",
+    "name": "Michael Klinger",
     "role": "Batter",
     "team": "KTK",
     "era": "2008-2012",
@@ -22887,7 +22887,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tl_suman_mi_2008_2012",
@@ -22922,7 +22922,7 @@
   {
     "id": "ac_blizzard_mi_2008_2012",
     "playerId": "ac_blizzard",
-    "name": "AC Blizzard",
+    "name": "Aiden Blizzard",
     "role": "Batter",
     "team": "MI",
     "era": "2008-2012",
@@ -22932,7 +22932,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.57,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mark_boucher_kkr_2008_2012",
@@ -22947,7 +22947,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "i_malhotra_dec_2008_2012",
@@ -23037,7 +23037,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.22,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dwayne_bravo_csk_2008_2012",
@@ -23052,7 +23052,7 @@
     "bowling_econ": 7.97,
     "wickets": 0.88,
     "dismissals": 0.46,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sourav_ganguly_pwi_2008_2012",
@@ -23082,7 +23082,7 @@
     "bowling_econ": 7.64,
     "wickets": 1.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aa_kazi_rcb_2008_2012",
@@ -23112,12 +23112,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "la_pomersbach_rcb_2008_2012",
     "playerId": "la_pomersbach",
-    "name": "LA Pomersbach",
+    "name": "Luke Pomersbach",
     "role": "Batter",
     "team": "RCB",
     "era": "2008-2012",
@@ -23127,7 +23127,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.8,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kb_arun_karthik_rcb_2008_2012",
@@ -23157,7 +23157,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "anand_rajan_dec_2008_2012",
@@ -23292,7 +23292,7 @@
     "bowling_econ": 4.5,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ss_mundhe_pwi_2008_2012",
@@ -23312,7 +23312,7 @@
   {
     "id": "rw_price_mi_2008_2012",
     "playerId": "rw_price",
-    "name": "RW Price",
+    "name": "Ray Price",
     "role": "Bowler",
     "team": "MI",
     "era": "2008-2012",
@@ -23322,7 +23322,7 @@
     "bowling_econ": 11,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "faf_du_plessis_csk_2008_2012",
@@ -23382,7 +23382,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "glenn_maxwell_dc_2008_2012",
@@ -23412,7 +23412,7 @@
     "bowling_econ": 10.7,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "steve_smith_pwi_2008_2012",
@@ -23502,7 +23502,7 @@
     "bowling_econ": 9,
     "wickets": 1.5,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harmeet_singh_pbks_2008_2012",
@@ -23532,7 +23532,7 @@
     "bowling_econ": 10.5,
     "wickets": 0.08,
     "dismissals": 0.58,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "owais_shah_rr_2008_2012",
@@ -23547,12 +23547,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kk_cooper_rr_2008_2012",
     "playerId": "kk_cooper",
-    "name": "KK Cooper",
+    "name": "Kevon Cooper",
     "role": "Bowler",
     "team": "RR",
     "era": "2008-2012",
@@ -23562,7 +23562,7 @@
     "bowling_econ": 7.25,
     "wickets": 1.67,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "andrew_mcdonald_rcb_2008_2012",
@@ -23577,12 +23577,12 @@
     "bowling_econ": 6.1,
     "wickets": 1.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "daj_bracewell_dc_2008_2012",
     "playerId": "daj_bracewell",
-    "name": "DAJ Bracewell",
+    "name": "Doug Bracewell",
     "role": "Bowler",
     "team": "DC",
     "era": "2008-2012",
@@ -23592,7 +23592,7 @@
     "bowling_econ": 8,
     "wickets": 3,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harshal_patel_rcb_2008_2012",
@@ -23703,7 +23703,7 @@
     "id": "sunil_narine_kkr_2008_2012",
     "playerId": "sunil_narine",
     "name": "Sunil Narine",
-    "role": "Bowler",
+    "role": "All-Rounder",
     "team": "KKR",
     "era": "2008-2012",
     "matches": 15,
@@ -23727,7 +23727,7 @@
     "bowling_econ": 6.56,
     "wickets": 1.75,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ashish_nehra_pwi_2008_2012",
@@ -23757,7 +23757,7 @@
     "bowling_econ": 8.83,
     "wickets": 0,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mahela_jayawardene_dc_2008_2012",
@@ -23772,12 +23772,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.31,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gb_hogg_rr_2008_2012",
     "playerId": "gb_hogg",
-    "name": "GB Hogg",
+    "name": "Brad Hogg",
     "role": "Bowler",
     "team": "RR",
     "era": "2008-2012",
@@ -23787,7 +23787,7 @@
     "bowling_econ": 7.03,
     "wickets": 1.11,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rr_bhatkal_rcb_2008_2012",
@@ -23832,7 +23832,7 @@
     "bowling_econ": 7.38,
     "wickets": 0.78,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aa_jhunjhunwala_dec_2008_2012",
@@ -23877,7 +23877,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "yo_mahesh_csk_2008_2012",
@@ -23922,7 +23922,7 @@
     "bowling_econ": 8.57,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rudra_pratap_singh_mi_2008_2012",
@@ -24012,7 +24012,7 @@
     "bowling_econ": 7.71,
     "wickets": 1.27,
     "dismissals": 0.55,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "pawan_negi_dc_2008_2012",
@@ -24042,7 +24042,7 @@
     "bowling_econ": 10.8,
     "wickets": 0,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_chandila_rr_2008_2012",
@@ -24062,7 +24062,7 @@
   {
     "id": "lj_wright_pwi_2008_2012",
     "playerId": "lj_wright",
-    "name": "LJ Wright",
+    "name": "Luke Wright",
     "role": "Batter",
     "team": "PWI",
     "era": "2008-2012",
@@ -24072,7 +24072,7 @@
     "bowling_econ": 12,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "robin_peterson_mi_2008_2012",
@@ -24087,7 +24087,7 @@
     "bowling_econ": 8.75,
     "wickets": 0.6,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "j_theron_dec_2008_2012",
@@ -24137,7 +24137,7 @@
   {
     "id": "mj_clarke_pwi_2008_2012",
     "playerId": "mj_clarke",
-    "name": "MJ Clarke",
+    "name": "Michael Clarke",
     "role": "Batter",
     "team": "PWI",
     "era": "2008-2012",
@@ -24147,7 +24147,7 @@
     "bowling_econ": 6.09,
     "wickets": 0.33,
     "dismissals": 0.17,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ben_hilfenhaus_csk_2008_2012",
@@ -24162,7 +24162,7 @@
     "bowling_econ": 6.85,
     "wickets": 1.56,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gurkeerat_singh_mann_pbks_2008_2012",
@@ -24267,7 +24267,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_lynn_dec_2008_2012",
@@ -24342,7 +24342,7 @@
     "bowling_econ": 7.17,
     "wickets": 1.33,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mahela_jayawardene_dc_2013_2017",
@@ -24357,7 +24357,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "david_warner_dc_2013_2017",
@@ -24462,7 +24462,7 @@
     "bowling_econ": 6.54,
     "wickets": 0.83,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "laxmi_ratan_shukla_kkr_2013_2017",
@@ -24597,7 +24597,7 @@
     "bowling_econ": 10,
     "wickets": 0,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "munaf_patel_mi_2013_2017",
@@ -24632,7 +24632,7 @@
   {
     "id": "jdp_oram_mi_2013_2017",
     "playerId": "jdp_oram",
-    "name": "JDP Oram",
+    "name": "Jacob Oram",
     "role": "Bowler",
     "team": "MI",
     "era": "2013-2017",
@@ -24882,7 +24882,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "angelo_mathews_pwi_2013_2017",
@@ -24897,7 +24897,7 @@
     "bowling_econ": 7.74,
     "wickets": 0.45,
     "dismissals": 0.45,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "r_sharma_pwi_2013_2017",
@@ -24957,7 +24957,7 @@
     "bowling_econ": 8.01,
     "wickets": 1.19,
     "dismissals": 0.31,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "hanuma_vihari_srh_2013_2017",
@@ -25032,7 +25032,7 @@
     "bowling_econ": 6.95,
     "wickets": 0.89,
     "dismissals": 0.32,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "manish_pandey_pwi_2013_2017",
@@ -25092,7 +25092,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "abhishek_nayar_pwi_2013_2017",
@@ -25122,7 +25122,7 @@
     "bowling_econ": 9.41,
     "wickets": 0.78,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kusal_perera_rr_2013_2017",
@@ -25137,7 +25137,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ajinkya_rahane_rr_2013_2017",
@@ -25197,7 +25197,7 @@
     "bowling_econ": 3,
     "wickets": 0,
     "dismissals": 0.38,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ankit_laxman_menaria_rr_2013_2017",
@@ -25217,7 +25217,7 @@
   {
     "id": "kk_cooper_rr_2013_2017",
     "playerId": "kk_cooper",
-    "name": "KK Cooper",
+    "name": "Kevon Cooper",
     "role": "Bowler",
     "team": "RR",
     "era": "2013-2017",
@@ -25227,7 +25227,7 @@
     "bowling_econ": 8.1,
     "wickets": 1.21,
     "dismissals": 0.47,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "r_shukla_rr_2013_2017",
@@ -25257,7 +25257,7 @@
     "bowling_econ": 8.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "santhakumaran_sreesanth_rr_2013_2017",
@@ -25292,7 +25292,7 @@
   {
     "id": "dp_nannes_csk_2013_2017",
     "playerId": "dp_nannes",
-    "name": "DP Nannes",
+    "name": "Dirk Nannes",
     "role": "Bowler",
     "team": "CSK",
     "era": "2013-2017",
@@ -25302,7 +25302,7 @@
     "bowling_econ": 7.97,
     "wickets": 0.8,
     "dismissals": 0.6,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ankit_rajpoot_csk_2013_2017",
@@ -25332,7 +25332,7 @@
     "bowling_econ": 8.04,
     "wickets": 1.61,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ben_laughlin_csk_2013_2017",
@@ -25407,7 +25407,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.52,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "murali_vijay_csk_2013_2017",
@@ -25502,7 +25502,7 @@
   {
     "id": "rj_harris_pbks_2013_2017",
     "playerId": "rj_harris",
-    "name": "RJ Harris",
+    "name": "Ryan Harris",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2013-2017",
@@ -25512,7 +25512,7 @@
     "bowling_econ": 6,
     "wickets": 0.33,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tl_suman_pwi_2013_2017",
@@ -25542,7 +25542,7 @@
     "bowling_econ": 7.53,
     "wickets": 1.36,
     "dismissals": 0.09,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "p_awana_pbks_2013_2017",
@@ -25587,7 +25587,7 @@
     "bowling_econ": 0,
     "wickets": 0.08,
     "dismissals": 0.85,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "mandeep_singh_pbks_2013_2017",
@@ -25697,7 +25697,7 @@
   {
     "id": "sw_tait_rr_2013_2017",
     "playerId": "sw_tait",
-    "name": "SW Tait",
+    "name": "Shaun Tait",
     "role": "Bowler",
     "team": "RR",
     "era": "2013-2017",
@@ -25707,12 +25707,12 @@
     "bowling_econ": 9.8,
     "wickets": 0.33,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "m_morkel_dc_2013_2017",
     "playerId": "m_morkel",
-    "name": "M Morkel",
+    "name": "Morne Morkel",
     "role": "Bowler",
     "team": "DC",
     "era": "2013-2017",
@@ -25722,7 +25722,7 @@
     "bowling_econ": 8.38,
     "wickets": 0.7,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "balapuwaduge_manukulasuriya_arachchige_jeevan_mendis_dc_2013_2017",
@@ -25737,7 +25737,7 @@
     "bowling_econ": 7.2,
     "wickets": 0.33,
     "dismissals": 0.67,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kedar_jadhav_dc_2013_2017",
@@ -25817,7 +25817,7 @@
   {
     "id": "r_mclaren_kkr_2013_2017",
     "playerId": "r_mclaren",
-    "name": "R McLaren",
+    "name": "Ryan McLaren",
     "role": "Bowler",
     "team": "KKR",
     "era": "2013-2017",
@@ -25827,7 +25827,7 @@
     "bowling_econ": 13.43,
     "wickets": 1.5,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "pradeep_sangwan_kkr_2013_2017",
@@ -25857,7 +25857,7 @@
     "bowling_econ": 8.42,
     "wickets": 1.12,
     "dismissals": 0.21,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "harmeet_singh_(2)_rr_2013_2017",
@@ -25967,7 +25967,7 @@
   {
     "id": "r_rampaul_rcb_2013_2017",
     "playerId": "r_rampaul",
-    "name": "R Rampaul",
+    "name": "Ravi Rampaul",
     "role": "Bowler",
     "team": "RCB",
     "era": "2013-2017",
@@ -25977,7 +25977,7 @@
     "bowling_econ": 6.92,
     "wickets": 1.33,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "j_syed_mohammad_rcb_2013_2017",
@@ -26022,7 +26022,7 @@
     "bowling_econ": 6.53,
     "wickets": 1.12,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_chandila_rr_2013_2017",
@@ -26142,7 +26142,7 @@
     "bowling_econ": 8.5,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "beau_rohrer_dc_2013_2017",
@@ -26262,7 +26262,7 @@
     "bowling_econ": 6.25,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "saurabh_tiwary_rcb_2013_2017",
@@ -26292,12 +26292,12 @@
     "bowling_econ": 6.45,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "lj_wright_pwi_2013_2017",
     "playerId": "lj_wright",
-    "name": "LJ Wright",
+    "name": "Luke Wright",
     "role": "Batter",
     "team": "PWI",
     "era": "2013-2017",
@@ -26307,12 +26307,12 @@
     "bowling_econ": 10.17,
     "wickets": 0.33,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "baw_mendis_pwi_2013_2017",
     "playerId": "baw_mendis",
-    "name": "BAW Mendis",
+    "name": "Ajantha Mendis",
     "role": "Bowler",
     "team": "PWI",
     "era": "2013-2017",
@@ -26322,7 +26322,7 @@
     "bowling_econ": 6.5,
     "wickets": 0.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jason_holder_csk_2013_2017",
@@ -26402,7 +26402,7 @@
   {
     "id": "ys_chahal_mi_2013_2017",
     "playerId": "ys_chahal",
-    "name": "YS Chahal",
+    "name": "Yuzvendra Chahal",
     "role": "Bowler",
     "team": "MI",
     "era": "2013-2017",
@@ -26457,7 +26457,7 @@
     "bowling_econ": 8.94,
     "wickets": 0.55,
     "dismissals": 0.4,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_ladda_kkr_2013_2017",
@@ -26552,7 +26552,7 @@
   {
     "id": "kw_richardson_pwi_2013_2017",
     "playerId": "kw_richardson",
-    "name": "KW Richardson",
+    "name": "Kane Richardson",
     "role": "Bowler",
     "team": "PWI",
     "era": "2013-2017",
@@ -26562,7 +26562,7 @@
     "bowling_econ": 8.54,
     "wickets": 0.67,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "a_mukund_rcb_2013_2017",
@@ -26592,7 +26592,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_narwal_kkr_2013_2017",
@@ -26612,7 +26612,7 @@
   {
     "id": "la_pomersbach_pbks_2013_2017",
     "playerId": "la_pomersbach",
-    "name": "LA Pomersbach",
+    "name": "Luke Pomersbach",
     "role": "Batter",
     "team": "PBKS",
     "era": "2013-2017",
@@ -26622,12 +26622,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gb_hogg_rr_2013_2017",
     "playerId": "gb_hogg",
-    "name": "GB Hogg",
+    "name": "Brad Hogg",
     "role": "Bowler",
     "team": "RR",
     "era": "2013-2017",
@@ -26637,7 +26637,7 @@
     "bowling_econ": 9.3,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "cheteshwar_pujara_rcb_2013_2017",
@@ -26702,7 +26702,7 @@
   {
     "id": "wd_parnell_pwi_2013_2017",
     "playerId": "wd_parnell",
-    "name": "WD Parnell",
+    "name": "Wayne Parnell",
     "role": "Bowler",
     "team": "PWI",
     "era": "2013-2017",
@@ -26802,7 +26802,7 @@
     "bowling_econ": 7,
     "wickets": 0.05,
     "dismissals": 0.2,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ua_birla_pwi_2013_2017",
@@ -26912,7 +26912,7 @@
   {
     "id": "mg_neser_pbks_2013_2017",
     "playerId": "mg_neser",
-    "name": "MG Neser",
+    "name": "Michael Neser",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2013-2017",
@@ -26922,7 +26922,7 @@
     "bowling_econ": 15.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sachin_baby_rr_2013_2017",
@@ -27027,7 +27027,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "vinay_kumar_kkr_2013_2017",
@@ -27047,7 +27047,7 @@
   {
     "id": "m_morkel_kkr_2013_2017",
     "playerId": "m_morkel",
-    "name": "M Morkel",
+    "name": "Morne Morkel",
     "role": "Bowler",
     "team": "KKR",
     "era": "2013-2017",
@@ -27057,7 +27057,7 @@
     "bowling_econ": 7.8,
     "wickets": 1.1,
     "dismissals": 0.24,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chidhambaram_gautam_mi_2013_2017",
@@ -27102,7 +27102,7 @@
     "bowling_econ": 7.17,
     "wickets": 1.26,
     "dismissals": 0.59,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "murali_vijay_dc_2013_2017",
@@ -27192,7 +27192,7 @@
     "bowling_econ": 7.39,
     "wickets": 0.34,
     "dismissals": 0.32,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ross_taylor_dc_2013_2017",
@@ -27207,7 +27207,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "ashoke_dinda_rcb_2013_2017",
@@ -27267,12 +27267,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "wd_parnell_dc_2013_2017",
     "playerId": "wd_parnell",
-    "name": "WD Parnell",
+    "name": "Wayne Parnell",
     "role": "Bowler",
     "team": "DC",
     "era": "2013-2017",
@@ -27312,7 +27312,7 @@
     "bowling_econ": 10.11,
     "wickets": 0.25,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dwayne_smith_csk_2013_2017",
@@ -27462,7 +27462,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "aaron_finch_srh_2013_2017",
@@ -27497,7 +27497,7 @@
   {
     "id": "kw_richardson_rr_2013_2017",
     "playerId": "kw_richardson",
-    "name": "KW Richardson",
+    "name": "Kane Richardson",
     "role": "Bowler",
     "team": "RR",
     "era": "2013-2017",
@@ -27507,7 +27507,7 @@
     "bowling_econ": 7.63,
     "wickets": 1.29,
     "dismissals": 0.29,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rajat_bhatia_rr_2013_2017",
@@ -27687,7 +27687,7 @@
     "bowling_econ": 8.79,
     "wickets": 1,
     "dismissals": 0.12,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "irfan_pathan_srh_2013_2017",
@@ -27777,7 +27777,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.09,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "s_rana_rcb_2013_2017",
@@ -27942,7 +27942,7 @@
     "bowling_econ": 6.93,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "praveen_kumar_mi_2013_2017",
@@ -28067,7 +28067,7 @@
   {
     "id": "k_santokie_mi_2013_2017",
     "playerId": "k_santokie",
-    "name": "K Santokie",
+    "name": "Krishmar Santokie",
     "role": "Bowler",
     "team": "MI",
     "era": "2013-2017",
@@ -28077,7 +28077,7 @@
     "bowling_econ": 11.25,
     "wickets": 1.5,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "shreyas_gopal_mi_2013_2017",
@@ -28097,7 +28097,7 @@
   {
     "id": "be_hendricks_pbks_2013_2017",
     "playerId": "be_hendricks",
-    "name": "BE Hendricks",
+    "name": "Beuran Hendricks",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2013-2017",
@@ -28107,7 +28107,7 @@
     "bowling_econ": 9.4,
     "wickets": 1.29,
     "dismissals": 0.43,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "parvez_rasool_srh_2013_2017",
@@ -28167,7 +28167,7 @@
     "bowling_econ": 7.75,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "karanveer_singh_pbks_2013_2017",
@@ -28362,7 +28362,7 @@
     "bowling_econ": 8,
     "wickets": 0.67,
     "dismissals": 0.11,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sean_abbott_rcb_2013_2017",
@@ -28377,7 +28377,7 @@
     "bowling_econ": 11.4,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "daren_sammy_rcb_2013_2017",
@@ -28392,7 +28392,7 @@
     "bowling_econ": 8.33,
     "wickets": 0,
     "dismissals": 0.5,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dinesh_karthik_rcb_2013_2017",
@@ -28472,7 +28472,7 @@
   {
     "id": "gb_hogg_kkr_2013_2017",
     "playerId": "gb_hogg",
-    "name": "GB Hogg",
+    "name": "Brad Hogg",
     "role": "Bowler",
     "team": "KKR",
     "era": "2013-2017",
@@ -28482,7 +28482,7 @@
     "bowling_econ": 7.73,
     "wickets": 1.18,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "rg_more_csk_2013_2017",
@@ -28527,7 +28527,7 @@
     "bowling_econ": 9.17,
     "wickets": 0.5,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "david_wiese_rcb_2013_2017",
@@ -28572,7 +28572,7 @@
     "bowling_econ": 8.1,
     "wickets": 0.25,
     "dismissals": 1,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sarfaraz_khan_rcb_2013_2017",
@@ -28662,7 +28662,7 @@
     "bowling_econ": 13.67,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "barinder_sran_rr_2013_2017",
@@ -28722,7 +28722,7 @@
     "bowling_econ": 5,
     "wickets": 1.33,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "murugan_ashwin_rpsg_2013_2017",
@@ -28767,7 +28767,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "jw_hastings_kkr_2013_2017",
@@ -28827,7 +28827,7 @@
     "bowling_econ": 8.82,
     "wickets": 1.13,
     "dismissals": 0.27,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "p_sahu_pbks_2013_2017",
@@ -28887,7 +28887,7 @@
     "bowling_econ": 11.06,
     "wickets": 0.4,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "thisara_perera_rpsg_2013_2017",
@@ -28902,7 +28902,7 @@
     "bowling_econ": 9.83,
     "wickets": 0.75,
     "dismissals": 0.42,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "irfan_pathan_rpsg_2013_2017",
@@ -28932,12 +28932,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "kw_richardson_rcb_2013_2017",
     "playerId": "kw_richardson",
-    "name": "KW Richardson",
+    "name": "Kane Richardson",
     "role": "Bowler",
     "team": "RCB",
     "era": "2013-2017",
@@ -28947,7 +28947,7 @@
     "bowling_econ": 9.71,
     "wickets": 1.75,
     "dismissals": 0.25,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "dale_steyn_gl_2013_2017",
@@ -28962,7 +28962,7 @@
     "bowling_econ": 8.5,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "tabraiz_shamsi_rcb_2013_2017",
@@ -28977,7 +28977,7 @@
     "bowling_econ": 9.19,
     "wickets": 0.75,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "nikhil_naik_pbks_2013_2017",
@@ -29097,12 +29097,12 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "sm_boland_rpsg_2013_2017",
     "playerId": "sm_boland",
-    "name": "SM Boland",
+    "name": "Scott Boland",
     "role": "Bowler",
     "team": "RPSG",
     "era": "2013-2017",
@@ -29112,7 +29112,7 @@
     "bowling_econ": 7.71,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "usman_khawaja_rpsg_2013_2017",
@@ -29127,7 +29127,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.17,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "chris_jordan_rcb_2013_2017",
@@ -29142,7 +29142,7 @@
     "bowling_econ": 9.21,
     "wickets": 1.22,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "george_bailey_rpsg_2013_2017",
@@ -29157,7 +29157,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "farhaan_behardien_pbks_2013_2017",
@@ -29172,7 +29172,7 @@
     "bowling_econ": 0,
     "wickets": 0,
     "dismissals": 0.33,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "er_dwivedi_gl_2013_2017",

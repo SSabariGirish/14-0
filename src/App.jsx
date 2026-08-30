@@ -72,6 +72,39 @@ const FIELD_POSITIONS = [
   { key: 'bowl4', title: 'BOWL 4', label: 'Deep Long-On', top: '88%', left: '50%', type: 'Bowler' }
 ];
 
+// Soft-compresses a raw 0-100+ rating so that scores above 85 get
+// progressively harder to reach — a 99 should mean "genuinely elite top-5",
+// not just "drafted a handful of recognizable names". Below 85 the raw
+// score passes through untouched.
+const compressRating = (raw) => {
+  const compressed = raw <= 85 ? raw : 85 + (raw - 85) * 0.4;
+  return Math.max(20, Math.min(99, Math.round(compressed)));
+};
+
+// Small canvas-drawing helper (manual, so it works even on browsers
+// without native ctx.roundRect support).
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+const STORAGE_KEY = 'ipl140_engine_save_v1';
+
+const loadSavedCampaign = () => {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+};
+
 const getTournamentTier = (wins) => {
   if (wins === 14) return { grade: 'S+', title: 'Undisputed Champions', color: '#10B981' };
   if (wins >= 12)  return { grade: 'S',  title: 'Dynasty Apex Squad', color: '#3B82F6' };
@@ -84,22 +117,33 @@ const getTournamentTier = (wins) => {
 };
 
 export default function App() {
-  const [roster, setRoster] = useState([]);
-  const [currentOptions, setCurrentOptions] = useState([]);
-  const [spinResult, setSpinResult] = useState(null);
-  const [seasonResult, setSeasonResult] = useState(null);
-  const [hasSpun, setHasSpun] = useState(false);
+  const initialSave = useRef(loadSavedCampaign()).current;
+  const [resumedBanner, setResumedBanner] = useState(
+    !!(initialSave && (initialSave.roster?.length > 0 || initialSave.seasonResult))
+  );
+
+  const [roster, setRoster] = useState(initialSave?.roster || []);
+  const [currentOptions, setCurrentOptions] = useState(initialSave?.currentOptions || []);
+  const [spinResult, setSpinResult] = useState(initialSave?.spinResult || null);
+  const [seasonResult, setSeasonResult] = useState(initialSave?.seasonResult || null);
+  const [hasSpun, setHasSpun] = useState(initialSave?.hasSpun || false);
 
   const [isSpinning, setIsSpinning] = useState(false);
-  const [displayTeam, setDisplayTeam] = useState('RCB');
-  const [displayEra, setDisplayEra] = useState('2023-2026');
+  const [displayTeam, setDisplayTeam] = useState(initialSave?.displayTeam || 'RCB');
+  const [displayEra, setDisplayEra] = useState(initialSave?.displayEra || '2023-2026');
 
-  const [teamRerollAvailable, setTeamRerollAvailable] = useState(true);
-  const [eraRerollAvailable, setEraRerollAvailable] = useState(true);
+  const [teamRerollAvailable, setTeamRerollAvailable] = useState(
+    initialSave?.teamRerollAvailable ?? true
+  );
+  const [eraRerollAvailable, setEraRerollAvailable] = useState(
+    initialSave?.eraRerollAvailable ?? true
+  );
 
   const [searchQuery, setSearchQuery] = useState('');
   const [roleFilter, setRoleFilter] = useState('All');
   const [sortBy, setSortBy] = useState('matches');
+  const [shareStatus, setShareStatus] = useState('idle'); // idle | working | done
+  const [fallbackNotice, setFallbackNotice] = useState(false);
 
   const tickerRef = useRef(null);
 
@@ -108,6 +152,28 @@ export default function App() {
       if (tickerRef.current) clearInterval(tickerRef.current);
     };
   }, []);
+
+  // Persist the in-progress (or concluded) campaign so a refresh doesn't
+  // wipe out a 12-round draft. Best-effort: if localStorage is unavailable
+  // (private browsing, quota exceeded) the game still works normally.
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        roster,
+        currentOptions,
+        spinResult,
+        seasonResult,
+        hasSpun,
+        displayTeam,
+        displayEra,
+        teamRerollAvailable,
+        eraRerollAvailable
+      }));
+    } catch {
+      // ignore — persistence is a nice-to-have, not a hard requirement
+    }
+  }, [roster, currentOptions, spinResult, seasonResult, hasSpun,
+      displayTeam, displayEra, teamRerollAvailable, eraRerollAvailable]);
 
   const currentCounts = useMemo(() => {
     const counts = { Batter: 0, Wicketkeeper: 0, Bowler: 0, 'All-Rounder': 0 };
@@ -147,40 +213,61 @@ export default function App() {
     );
   };
 
+  // Every team+era combination, in random order. Used instead of capped
+  // random sampling so a search either truly exhausts every option or
+  // finds one — no more "sometimes" misses from bad luck within N tries.
+  const shuffledCombos = () => {
+    const combos = [];
+    TEAMS.forEach((team) => ERAS.forEach((era) => combos.push({ team, era })));
+    for (let i = combos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [combos[i], combos[j]] = [combos[j], combos[i]];
+    }
+    return combos;
+  };
+
+  // Exhaustively searches every allowed combo for one with an eligible
+  // undrafted player. If nothing satisfies the strict role requirement
+  // anywhere in the dataset (e.g. every All-Rounder has already been
+  // drafted), falls back to any undrafted player from that combo rather
+  // than leaving the caller with nothing — this is what stops a thin role
+  // from ever hard-locking or wiping the campaign.
+  const findExhaustiveCombo = (comboFilter) => {
+    const combos = shuffledCombos().filter(comboFilter);
+
+    for (const combo of combos) {
+      const pool = findValidPool(combo.team, combo.era);
+      if (pool.length > 0) return { ...combo, pool, relaxed: false };
+    }
+    for (const combo of combos) {
+      const pool = playersData.filter((p) =>
+        p.era === combo.era &&
+        p.team === combo.team &&
+        !roster.find((drafted) => drafted.playerId === p.playerId)
+      );
+      if (pool.length > 0) return { ...combo, pool, relaxed: true };
+    }
+    return null;
+  };
+
   const handleSpin = () => {
-    if (isSpinning) return;
-    
+    if (isSpinning || hasSpun) return;
+
     setIsSpinning(true);
     setHasSpun(true);
     setSpinResult(null);
+    setFallbackNotice(false);
 
-    let validCombinationFound = false;
-    let targetTeam = '';
-    let targetEra = '';
-    let filteredPool = [];
-    let attempts = 0;
-    const MAX_ATTEMPTS = 250;
+    const found = findExhaustiveCombo(() => true);
 
-    while (!validCombinationFound && attempts < MAX_ATTEMPTS) {
-      attempts++;
-      const candidateEra = ERAS[Math.floor(Math.random() * ERAS.length)];
-      const candidateTeam = TEAMS[Math.floor(Math.random() * TEAMS.length)];
-
-      filteredPool = findValidPool(candidateTeam, candidateEra);
-
-      if (filteredPool.length > 0) {
-        targetTeam = candidateTeam;
-        targetEra = candidateEra;
-        validCombinationFound = true;
-      }
-    }
-
-    if (!validCombinationFound) {
-      alert("No valid combinations remain. Resetting draft matrix.");
-      resetGame();
+    if (!found) {
+      alert("No undrafted players remain anywhere in the dataset — your campaign is effectively complete as-is.");
       setIsSpinning(false);
+      setHasSpun(false);
       return;
     }
+
+    const { team: targetTeam, era: targetEra, pool: filteredPool, relaxed } = found;
 
     let ticks = 0;
     const totalTicks = 18;
@@ -196,6 +283,7 @@ export default function App() {
         setDisplayEra(targetEra);
         setSpinResult({ era: targetEra, team: targetTeam });
         setCurrentOptions(filteredPool);
+        setFallbackNotice(relaxed);
         setIsSpinning(false);
         setSearchQuery('');
         setRoleFilter('All');
@@ -207,28 +295,15 @@ export default function App() {
     if (!teamRerollAvailable || isSpinning || !hasSpun) return;
     setTeamRerollAvailable(false);
 
-    let newTeam = '';
-    let filteredPool = [];
-    let attempts = 0;
+    const found = findExhaustiveCombo((c) => c.era === displayEra && c.team !== displayTeam);
 
-    while (attempts < 100) {
-      attempts++;
-      const candTeam = TEAMS[Math.floor(Math.random() * TEAMS.length)];
-      if (candTeam !== displayTeam) {
-        filteredPool = findValidPool(candTeam, displayEra);
-        if (filteredPool.length > 0) {
-          newTeam = candTeam;
-          break;
-        }
-      }
-    }
-
-    if (newTeam) {
-      setDisplayTeam(newTeam);
-      setCurrentOptions(filteredPool);
-      setSpinResult({ era: displayEra, team: newTeam });
+    if (found) {
+      setDisplayTeam(found.team);
+      setCurrentOptions(found.pool);
+      setSpinResult({ era: displayEra, team: found.team });
+      setFallbackNotice(found.relaxed);
     } else {
-      alert("No alternative team had valid players for this era. Re-roll refunded.");
+      alert("No alternative team has undrafted players for this era. Re-roll refunded.");
       setTeamRerollAvailable(true);
     }
   };
@@ -237,28 +312,15 @@ export default function App() {
     if (!eraRerollAvailable || isSpinning || !hasSpun) return;
     setEraRerollAvailable(false);
 
-    let newEra = '';
-    let filteredPool = [];
-    let attempts = 0;
+    const found = findExhaustiveCombo((c) => c.team === displayTeam && c.era !== displayEra);
 
-    while (attempts < 100) {
-      attempts++;
-      const candEra = ERAS[Math.floor(Math.random() * ERAS.length)];
-      if (candEra !== displayEra) {
-        filteredPool = findValidPool(displayTeam, candEra);
-        if (filteredPool.length > 0) {
-          newEra = candEra;
-          break;
-        }
-      }
-    }
-
-    if (newEra) {
-      setDisplayEra(newEra);
-      setCurrentOptions(filteredPool);
-      setSpinResult({ era: newEra, team: displayTeam });
+    if (found) {
+      setDisplayEra(found.era);
+      setCurrentOptions(found.pool);
+      setSpinResult({ era: found.era, team: displayTeam });
+      setFallbackNotice(found.relaxed);
     } else {
-      alert("No alternative era had valid players for this team. Re-roll refunded.");
+      alert("No alternative era has undrafted players for this team. Re-roll refunded.");
       setEraRerollAvailable(true);
     }
   };
@@ -305,7 +367,7 @@ export default function App() {
       .sort((a, b) => b - a);
 
     const top5BattingScore = topBatters.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const battingRating = Math.max(20, Math.min(99, Math.round((top5BattingScore / 240) * 100)));
+    const battingRating = compressRating((top5BattingScore / 300) * 100);
 
     let bowlingUnits = squad
       .filter(p => p.role === 'Bowler' || p.role === 'All-Rounder')
@@ -319,10 +381,28 @@ export default function App() {
       .sort((a, b) => b - a);
 
     const top5BowlingScore = bowlingUnits.slice(0, 5).reduce((acc, val) => acc + val, 0);
-    const bowlingRating = Math.max(20, Math.min(99, Math.round((top5BowlingScore / 220) * 100)));
+    const bowlingRating = compressRating((top5BowlingScore / 270) * 100);
 
-    const unprovenCount = squad.filter(p => (p.matches || 1) < 10).length;
-    const balancePenalty = unprovenCount * 5.0;
+    // A player with under 10 IPL matches is only a real "liability" if their
+    // per-match output was also weak. A star having a short, brilliant
+    // cameo (a 3-match overseas import who smashed every game) shouldn't
+    // cost the squad the same as a bowler who played once and got taken
+    // apart. Penalty is capped so a couple of unproven picks can't tank an
+    // otherwise strong draft.
+    const liabilityPenalty = squad.reduce((sum, p) => {
+      const matches = p.matches || 1;
+      if (matches >= 10) return sum;
+      const battingQuality = p.batting_avg > 0
+        ? (p.batting_avg * (p.batting_sr / 100)) / 55
+        : 0;
+      const bowlingQuality = p.wickets > 0
+        ? (((p.wickets * 35) + (8.0 - (p.bowling_econ || 9.0)) * 16)) / 55
+        : 0;
+      const quality = Math.max(battingQuality, bowlingQuality);
+      const perPlayerPenalty = quality >= 1 ? 1.0 : 2.5;
+      return sum + perPlayerPenalty;
+    }, 0);
+    const balancePenalty = Math.min(25, liabilityPenalty);
     const balanceRating = Math.max(15, Math.min(99, Math.round(((battingRating + bowlingRating) / 2) - balancePenalty)));
 
     const overallSquadPower = (battingRating * 0.40) + (bowlingRating * 0.40) + (balanceRating * 0.20);
@@ -389,6 +469,7 @@ export default function App() {
     setCurrentOptions([]);
     setSpinResult(null);
     setHasSpun(false);
+    setFallbackNotice(false);
 
     if (updatedRoster.length === 12) {
       const results = runTournamentSimulation(updatedRoster);
@@ -398,6 +479,10 @@ export default function App() {
 
   const resetGame = () => {
     if (tickerRef.current) clearInterval(tickerRef.current);
+    try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    setResumedBanner(false);
+    setShareStatus('idle');
+    setFallbackNotice(false);
     setRoster([]);
     setCurrentOptions([]);
     setSpinResult(null);
@@ -433,6 +518,140 @@ export default function App() {
   }, [roster]);
 
   const currentTier = seasonResult ? getTournamentTier(seasonResult.wins) : null;
+
+  // Renders the final result as a shareable PNG (portrait, social-friendly)
+  // and either opens the native share sheet (mobile) or downloads the file.
+  const handleShareResult = async () => {
+    if (!seasonResult || !currentTier) return;
+    setShareStatus('working');
+
+    const W = 1080, H = 1350;
+    const canvas = document.createElement('canvas');
+    canvas.width = W;
+    canvas.height = H;
+    const ctx = canvas.getContext('2d');
+
+    const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+    bgGrad.addColorStop(0, '#050914');
+    bgGrad.addColorStop(1, '#0B1220');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, W, H);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.035)';
+    for (let x = 0; x < W; x += 36) {
+      for (let y = 0; y < H; y += 36) ctx.fillRect(x, y, 1.4, 1.4);
+    }
+
+    ctx.fillStyle = '#F8FAFC';
+    ctx.font = '900 42px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText('IPL 14-0 ENGINE', 60, 96);
+
+    ctx.fillStyle = currentTier.color;
+    roundRect(ctx, 60, 128, 460, 56, 10);
+    ctx.fill();
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = '800 25px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText(`${currentTier.grade} · ${currentTier.title}`, 80, 165);
+
+    ctx.fillStyle = '#F8FAFC';
+    ctx.font = '900 100px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText(`${seasonResult.wins}W – ${seasonResult.losses}L`, 60, 305);
+
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '600 24px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText(`Tournament Index: ${seasonResult.overallSquadPower}/100`, 60, 344);
+
+    const bars = [
+      { label: 'Batting Execution', value: seasonResult.battingRating, color: '#F97316' },
+      { label: 'Bowling Defense', value: seasonResult.bowlingRating, color: '#3B82F6' },
+      { label: 'Squad Balance & Depth', value: seasonResult.balanceRating, color: '#10B981' }
+    ];
+    let barY = 400;
+    bars.forEach((b) => {
+      ctx.fillStyle = '#CBD5E1';
+      ctx.font = '600 22px -apple-system, "Segoe UI", sans-serif';
+      ctx.fillText(b.label, 60, barY);
+      ctx.fillStyle = '#F8FAFC';
+      ctx.font = '800 22px -apple-system, "Segoe UI", sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText(`${b.value}/100`, W - 60, barY);
+      ctx.textAlign = 'left';
+
+      ctx.fillStyle = '#1E293B';
+      roundRect(ctx, 60, barY + 14, W - 120, 14, 7);
+      ctx.fill();
+      ctx.fillStyle = b.color;
+      roundRect(ctx, 60, barY + 14, (W - 120) * (b.value / 100), 14, 7);
+      ctx.fill();
+      barY += 72;
+    });
+
+    ctx.fillStyle = '#94A3B8';
+    ctx.font = '800 20px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText('FINAL 12-MAN SQUAD', 60, barY + 26);
+
+    const gridTop = barY + 56;
+    const colW = (W - 120) / 2;
+    onFieldAssignments.forEach((slot, i) => {
+      const col = i % 2;
+      const row = Math.floor(i / 2);
+      const x = 60 + col * colW;
+      const y = gridTop + row * 66;
+      const teamTheme = slot.assigned ? TEAM_COLORS[slot.assigned.team] : null;
+
+      ctx.fillStyle = '#0D1322';
+      roundRect(ctx, x, y, colW - 16, 54, 8);
+      ctx.fill();
+      ctx.strokeStyle = teamTheme ? teamTheme.border : '#334155';
+      ctx.lineWidth = 2;
+      roundRect(ctx, x, y, colW - 16, 54, 8);
+      ctx.stroke();
+
+      ctx.fillStyle = teamTheme ? teamTheme.text : '#94A3B8';
+      ctx.font = '800 13px -apple-system, "Segoe UI", sans-serif';
+      ctx.fillText(slot.title, x + 16, y + 22);
+
+      ctx.fillStyle = '#F8FAFC';
+      ctx.font = '700 20px -apple-system, "Segoe UI", sans-serif';
+      ctx.fillText(slot.assigned ? slot.assigned.name : 'EMPTY', x + 16, y + 43);
+    });
+
+    const impactY = gridTop + 6 * 66 + 22;
+    if (impactPlayer) {
+      ctx.fillStyle = '#94A3B8';
+      ctx.font = '700 18px -apple-system, "Segoe UI", sans-serif';
+      ctx.fillText(`IMPACT SUB: ${impactPlayer.name} (${impactPlayer.team})`, 60, impactY);
+    }
+
+    ctx.fillStyle = '#475569';
+    ctx.font = '600 17px -apple-system, "Segoe UI", sans-serif';
+    ctx.fillText('Built with the IPL 14-0 Engine', 60, H - 40);
+
+    canvas.toBlob(async (blob) => {
+      if (!blob) { setShareStatus('idle'); return; }
+      const file = new File([blob], 'ipl-14-0-result.png', { type: 'image/png' });
+
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({ files: [file], title: 'My IPL 14-0 Engine result' });
+          setShareStatus('done');
+          setTimeout(() => setShareStatus('idle'), 1800);
+          return;
+        } catch {
+          // user cancelled the native share sheet — fall through to download
+        }
+      }
+
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ipl-14-0-result.png';
+      a.click();
+      URL.revokeObjectURL(url);
+      setShareStatus('done');
+      setTimeout(() => setShareStatus('idle'), 1800);
+    }, 'image/png');
+  };
 
   return (
     <div style={styles.appCanvas}>
@@ -579,23 +798,46 @@ export default function App() {
 
             <button 
               onClick={handleSpin} 
-              disabled={isSpinning}
+              disabled={isSpinning || hasSpun}
               className={!isSpinning && !hasSpun ? "spin-pulse-btn" : ""}
               style={{
                 ...styles.thickSpinButton,
-                opacity: isSpinning ? 0.7 : 1,
-                cursor: isSpinning ? 'not-allowed' : 'pointer'
+                opacity: isSpinning ? 0.7 : hasSpun ? 0.55 : 1,
+                cursor: (isSpinning || hasSpun) ? 'not-allowed' : 'pointer'
               }}
             >
               {isSpinning ? 'SPINNING...' : hasSpun ? 'LOCKED' : 'SPIN'}
             </button>
           </div>
         ) : (
-          <button onClick={resetGame} className="spin-pulse-btn" style={styles.thickSpinButton}>
-            NEW CAMPAIGN
-          </button>
+          <div style={{ display: 'flex', gap: '0.6rem' }}>
+            <button
+              onClick={handleShareResult}
+              disabled={shareStatus === 'working'}
+              style={{
+                ...styles.thickSpinButton,
+                backgroundColor: '#0F1830',
+                color: '#F8FAFC',
+                border: '1px solid #334155',
+                boxShadow: 'none',
+                opacity: shareStatus === 'working' ? 0.7 : 1,
+                cursor: shareStatus === 'working' ? 'not-allowed' : 'pointer'
+              }}
+            >
+              {shareStatus === 'working' ? 'RENDERING…' : shareStatus === 'done' ? 'SHARED ✓' : '📤 SHARE RESULT'}
+            </button>
+            <button onClick={resetGame} className="spin-pulse-btn" style={styles.thickSpinButton}>
+              NEW CAMPAIGN
+            </button>
+          </div>
         )}
       </header>
+
+      {resumedBanner && (
+        <div style={styles.resumedBannerPill} onClick={() => setResumedBanner(false)}>
+          ↺ Resumed your in-progress campaign — click to dismiss
+        </div>
+      )}
 
       {/* MAIN VIEWPORT-LOCKED WORKSPACE GRID */}
       <div style={styles.mainLayoutGrid}>
@@ -648,6 +890,13 @@ export default function App() {
             <div style={styles.availableCounterText}>
               {isSpinning ? "Cycling indexes..." : `${processedOptions.length} players available · Click card to draft`}
             </div>
+
+            {fallbackNotice && !isSpinning && (
+              <div style={styles.fallbackNoticeBanner}>
+                ⚠️ No dedicated match for the role you still need was left anywhere in the dataset —
+                showing every undrafted player from this franchise/era instead so you can keep going.
+              </div>
+            )}
 
             <div style={styles.playerStreamViewport}>
               {!hasSpun && !isSpinning ? (
@@ -942,6 +1191,19 @@ const styles = {
     letterSpacing: '0.02em',
     transition: 'all 0.3s ease'
   },
+  resumedBannerPill: {
+    fontSize: '0.7rem',
+    fontWeight: '700',
+    color: '#94A3B8',
+    backgroundColor: '#0D1322',
+    border: '1px solid #1E293B',
+    borderRadius: '8px',
+    padding: '0.4rem 0.85rem',
+    marginBottom: '0.75rem',
+    cursor: 'pointer',
+    flexShrink: 0,
+    width: 'fit-content'
+  },
   spinControlsHub: {
     display: 'flex',
     alignItems: 'center',
@@ -1083,6 +1345,18 @@ const styles = {
     marginBottom: '0.5rem',
     paddingLeft: '0.2rem',
     flexShrink: 0
+  },
+  fallbackNoticeBanner: {
+    fontSize: '0.72rem',
+    fontWeight: '600',
+    color: '#FCD34D',
+    backgroundColor: 'rgba(245, 158, 11, 0.12)',
+    border: '1px solid rgba(245, 158, 11, 0.35)',
+    borderRadius: '8px',
+    padding: '0.5rem 0.75rem',
+    marginBottom: '0.6rem',
+    flexShrink: 0,
+    lineHeight: 1.4
   },
   playerStreamViewport: {
     flex: 1,

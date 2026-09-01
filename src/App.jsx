@@ -40,6 +40,10 @@ const SLOTS_CONFIG = {
   'Impact Player': 1
 };
 
+
+const FONT_DISPLAY = "'Chakra Petch', 'Segoe UI', sans-serif";
+const FONT_BODY = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
+
 const TEAM_COLORS = {
   CSK:  { bg: '#1E293B', border: '#EAB308', text: '#FACC15', glow: 'rgba(234, 179, 8, 0.45)', tag: 'CSK' },
   MI:   { bg: '#1E293B', border: '#3B82F6', text: '#60A5FA', glow: 'rgba(59, 130, 246, 0.45)', tag: 'MI' },
@@ -144,12 +148,13 @@ export default function App() {
   const [sortBy, setSortBy] = useState('matches');
   const [shareStatus, setShareStatus] = useState('idle'); // idle | working | done
   const [fallbackNotice, setFallbackNotice] = useState(false);
+  const [justLocked, setJustLocked] = useState(false);
 
   const tickerRef = useRef(null);
 
   useEffect(() => {
     return () => {
-      if (tickerRef.current) clearInterval(tickerRef.current);
+      if (tickerRef.current) clearTimeout(tickerRef.current);
     };
   }, []);
 
@@ -269,16 +274,14 @@ export default function App() {
 
     const { team: targetTeam, era: targetEra, pool: filteredPool, relaxed } = found;
 
-    let ticks = 0;
-    const totalTicks = 18;
-    
-    tickerRef.current = setInterval(() => {
-      setDisplayTeam(TEAMS[Math.floor(Math.random() * TEAMS.length)]);
-      setDisplayEra(ERAS[Math.floor(Math.random() * ERAS.length)]);
-      ticks++;
+    // A real slot-machine reel decelerates before it lands rather than
+    // ticking at a flat rate — this is the one signature "big" motion
+    // moment in the game, so it's worth the extra care.
+    const totalTicks = 16;
+    let tick = 0;
 
-      if (ticks >= totalTicks) {
-        clearInterval(tickerRef.current);
+    const runTick = () => {
+      if (tick >= totalTicks) {
         setDisplayTeam(targetTeam);
         setDisplayEra(targetEra);
         setSpinResult({ era: targetEra, team: targetTeam });
@@ -287,8 +290,26 @@ export default function App() {
         setIsSpinning(false);
         setSearchQuery('');
         setRoleFilter('All');
+        setJustLocked(true);
+        setTimeout(() => setJustLocked(false), 550);
+        return;
       }
-    }, 70);
+      const progress = tick / totalTicks;
+      // In the final stretch, bias the reel toward the real target so the
+      // last few frames already look like they're converging — the lock
+      // then reads as "it settled here" rather than a 1-frame swap.
+      const convergeChance = Math.max(0, (progress - 0.55) / 0.45);
+      const showsTarget = Math.random() < convergeChance;
+      setDisplayTeam(showsTarget ? targetTeam : TEAMS[Math.floor(Math.random() * TEAMS.length)]);
+      setDisplayEra(showsTarget ? targetEra : ERAS[Math.floor(Math.random() * ERAS.length)]);
+      tick++;
+      // eases from a fast 45ms shuffle up to a slow ~190ms settle
+      const nextProgress = tick / totalTicks;
+      const delay = 45 + Math.pow(nextProgress, 2.2) * 145;
+      tickerRef.current = setTimeout(runTick, delay);
+    };
+
+    runTick();
   };
 
   const handleRerollTeam = () => {
@@ -478,7 +499,7 @@ export default function App() {
   };
 
   const resetGame = () => {
-    if (tickerRef.current) clearInterval(tickerRef.current);
+    if (tickerRef.current) clearTimeout(tickerRef.current);
     try { window.localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
     setResumedBanner(false);
     setShareStatus('idle');
@@ -657,6 +678,8 @@ export default function App() {
     <div style={styles.appCanvas}>
       {/* FULL VIEWPORT STYLES */}
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
         html, body, #root {
           background-color: #050914 !important;
           margin: 0 !important;
@@ -709,7 +732,59 @@ export default function App() {
           background-color: rgba(249, 115, 22, 0.25) !important;
           border-color: #F97316 !important;
         }
+
+        .hud-badge-lock {
+          animation: hudLockFlash 0.5s ease-out;
+        }
+        @keyframes hudLockFlash {
+          0%   { box-shadow: 0 0 0 0 rgba(255,255,255,0.9); }
+          35%  { box-shadow: 0 0 26px 6px rgba(255,255,255,0.55); }
+          100% { box-shadow: 0 0 22px var(--hud-glow, rgba(239,68,68,0.55)); }
+        }
+
+        .stadium-floodlight {
+          position: fixed;
+          top: -25vh;
+          left: 50%;
+          width: 90vw;
+          height: 55vh;
+          transform: translateX(-50%);
+          background: radial-gradient(ellipse at center, rgba(249, 115, 22, 0.10) 0%, rgba(249, 115, 22, 0) 62%);
+          pointer-events: none;
+          z-index: -1;
+        }
+        .stadium-grain {
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: -1;
+          opacity: 0.05;
+          mix-blend-mode: overlay;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        @keyframes barFillIn {
+          from { width: 0%; }
+        }
+        .rating-bar-fill {
+          animation: barFillIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+        @keyframes tierPunchIn {
+          0%   { transform: scale(0.85); opacity: 0; }
+          60%  { transform: scale(1.04); opacity: 1; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        .tier-badge-reveal {
+          animation: tierPunchIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+        }
+        @keyframes fixtureFadeIn {
+          from { opacity: 0; transform: translateY(4px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
+
+      <div className="stadium-floodlight" />
+      <div className="stadium-grain" />
 
       {/* HEADER BAR */}
       <header style={styles.headerBar}>
@@ -743,11 +818,15 @@ export default function App() {
             <div style={styles.marqueeBadgesCluster}>
               
               <div style={styles.hudWrapperWithReroll}>
-                <div style={{
-                  ...styles.thickBezelHUDBox,
-                  borderColor: TEAM_COLORS[displayTeam]?.border || '#EF4444',
-                  boxShadow: `0 0 22px ${TEAM_COLORS[displayTeam]?.glow || 'rgba(239, 68, 68, 0.55)'}`
-                }}>
+                <div
+                  className={justLocked && !isSpinning ? "hud-badge-lock" : ""}
+                  style={{
+                    ...styles.thickBezelHUDBox,
+                    borderColor: TEAM_COLORS[displayTeam]?.border || '#EF4444',
+                    boxShadow: `0 0 22px ${TEAM_COLORS[displayTeam]?.glow || 'rgba(239, 68, 68, 0.55)'}`,
+                    '--hud-glow': TEAM_COLORS[displayTeam]?.glow || 'rgba(239, 68, 68, 0.55)'
+                  }}
+                >
                   <span style={styles.hudBoxLabel}>TEAM</span>
                   <span style={styles.hudBoxValue}>{displayTeam}</span>
                 </div>
@@ -769,11 +848,15 @@ export default function App() {
               </div>
               
               <div style={styles.hudWrapperWithReroll}>
-                <div style={{
-                  ...styles.thickBezelHUDBox,
-                  borderColor: '#9333EA',
-                  boxShadow: '0 0 22px rgba(147, 51, 234, 0.55)'
-                }}>
+                <div
+                  className={justLocked && !isSpinning ? "hud-badge-lock" : ""}
+                  style={{
+                    ...styles.thickBezelHUDBox,
+                    borderColor: '#9333EA',
+                    boxShadow: '0 0 22px rgba(147, 51, 234, 0.55)',
+                    '--hud-glow': 'rgba(147, 51, 234, 0.55)'
+                  }}
+                >
                   <span style={styles.hudBoxLabel}>ERA</span>
                   <span style={styles.hudBoxValue}>{displayEra}</span>
                 </div>
@@ -979,10 +1062,10 @@ export default function App() {
           </div>
         ) : (
           /* TOURNAMENT SUMMARY DASHBOARD WITH CUSTOM TIERS */
-          <div style={styles.leftSummaryDashboard}>
+          <div style={{ ...styles.leftSummaryDashboard, borderTopColor: currentTier.color }}>
             <div style={styles.summaryTopBannerCard}>
               <div style={styles.badgeRowVerdict}>
-                <span style={{
+                <span className="tier-badge-reveal" style={{
                   ...styles.statusPillBadge,
                   backgroundColor: currentTier.color
                 }}>
@@ -1003,7 +1086,10 @@ export default function App() {
                   <strong style={styles.metricPercentText}>{seasonResult.battingRating}/100</strong>
                 </div>
                 <div style={styles.progressTrack}>
-                  <div style={{ ...styles.progressFill, width: `${seasonResult.battingRating}%`, backgroundColor: '#F97316' }} />
+                  <div
+                    className="rating-bar-fill"
+                    style={{ ...styles.progressFill, width: `${seasonResult.battingRating}%`, backgroundColor: '#F97316', animationDelay: '0.05s' }}
+                  />
                 </div>
               </div>
 
@@ -1013,7 +1099,10 @@ export default function App() {
                   <strong style={styles.metricPercentText}>{seasonResult.bowlingRating}/100</strong>
                 </div>
                 <div style={styles.progressTrack}>
-                  <div style={{ ...styles.progressFill, width: `${seasonResult.bowlingRating}%`, backgroundColor: '#3B82F6' }} />
+                  <div
+                    className="rating-bar-fill"
+                    style={{ ...styles.progressFill, width: `${seasonResult.bowlingRating}%`, backgroundColor: '#3B82F6', animationDelay: '0.2s' }}
+                  />
                 </div>
               </div>
 
@@ -1023,20 +1112,25 @@ export default function App() {
                   <strong style={styles.metricPercentText}>{seasonResult.balanceRating}/100</strong>
                 </div>
                 <div style={styles.progressTrack}>
-                  <div style={{ ...styles.progressFill, width: `${seasonResult.balanceRating}%`, backgroundColor: '#10B981' }} />
+                  <div
+                    className="rating-bar-fill"
+                    style={{ ...styles.progressFill, width: `${seasonResult.balanceRating}%`, backgroundColor: '#10B981', animationDelay: '0.35s' }}
+                  />
                 </div>
               </div>
             </div>
 
-            <div style={styles.fixturesSectionHeader}>14-MATCH LEAGUE RESULTS LOG</div>
+            <div style={styles.fixturesSectionHeader}>14-Match League Results Log</div>
             <div style={styles.fixturesTimelineGrid}>
-              {seasonResult.matchLogs.map(m => (
+              {seasonResult.matchLogs.map((m, i) => (
                 <div 
                   key={m.id} 
                   style={{
                     ...styles.matchFixtureCard,
                     borderColor: m.result === 'W' ? '#065F46' : '#991B1B',
-                    backgroundColor: m.result === 'W' ? '#064E3B' : '#7F1D1D'
+                    backgroundColor: m.result === 'W' ? '#064E3B' : '#7F1D1D',
+                    animation: `fixtureFadeIn 0.3s ease-out both`,
+                    animationDelay: `${0.4 + i * 0.035}s`
                   }}
                 >
                   <div style={styles.matchVsText}>M{m.id} vs {m.vs}</div>
@@ -1136,11 +1230,13 @@ const styles = {
     width: '100%',
     margin: 0,
     padding: '0.85rem 1.5rem',
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+    fontFamily: FONT_BODY,
     boxSizing: 'border-box',
     display: 'flex',
     flexDirection: 'column',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    position: 'relative',
+    zIndex: 0
   },
   headerBar: {
     display: 'flex',
@@ -1163,10 +1259,11 @@ const styles = {
   },
   brandLogo: {
     fontSize: '1.05rem',
-    fontWeight: '900',
+    fontWeight: '700',
     letterSpacing: '0.04em',
     color: '#F8FAFC',
-    margin: 0
+    margin: 0,
+    fontFamily: FONT_DISPLAY
   },
   roundTrackerPill: {
     fontSize: '0.7rem',
@@ -1240,33 +1337,37 @@ const styles = {
     backgroundColor: '#070B17',
     border: '5px solid',
     borderRadius: '10px',
-    padding: '0.2rem 0.5rem',
-    width: '135px',
-    minWidth: '135px',
+    padding: '0.25rem 1.1rem',
+    width: 'auto',
+    minWidth: '190px',
     height: '56px',
     boxSizing: 'border-box',
     transition: 'all 0.15s ease-in-out'
   },
   hudBoxLabel: {
     fontSize: '0.55rem',
-    fontWeight: '900',
+    fontWeight: '700',
     color: '#FF6B00',
     letterSpacing: '0.08em',
     lineHeight: '1.1',
-    marginBottom: '0.1rem'
+    marginBottom: '0.15rem',
+    whiteSpace: 'nowrap',
+    fontFamily: FONT_DISPLAY
   },
   hudBoxValue: {
     fontSize: '1.05rem',
-    fontWeight: '900',
+    fontWeight: '700',
     color: '#FFFFFF',
-    letterSpacing: '0.02em',
-    lineHeight: '1.1'
+    letterSpacing: '0.01em',
+    lineHeight: '1.1',
+    whiteSpace: 'nowrap',
+    fontFamily: FONT_DISPLAY
   },
   thickSpinButton: {
     backgroundColor: '#F97316',
     color: '#FFFFFF',
     fontSize: '0.85rem',
-    fontWeight: '900',
+    fontWeight: '700',
     border: 'none',
     padding: '0.65rem 1.75rem',
     borderRadius: '10px',
@@ -1274,7 +1375,8 @@ const styles = {
     height: '56px',
     boxSizing: 'border-box',
     boxShadow: '0 4px 15px rgba(249, 115, 22, 0.45)',
-    transition: 'all 0.15s'
+    transition: 'all 0.15s',
+    fontFamily: FONT_DISPLAY
   },
 
   mainLayoutGrid: {
@@ -1289,7 +1391,10 @@ const styles = {
     flex: '1 1 54%',
     backgroundColor: '#0D1322',
     borderRadius: '10px',
-    border: '1px solid #1E293B',
+    borderTop: '2px solid #F97316',
+    borderLeft: '1px solid #1E293B',
+    borderRight: '1px solid #1E293B',
+    borderBottom: '1px solid #1E293B',
     padding: '1rem',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
     boxSizing: 'border-box',
@@ -1423,10 +1528,11 @@ const styles = {
     width: '40px'
   },
   statNumberPrimary: {
-    fontSize: '0.8rem',
-    fontWeight: '800',
+    fontSize: '0.85rem',
+    fontWeight: '700',
     color: '#F8FAFC',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontFamily: FONT_DISPLAY
   },
   statLabelMuted: {
     fontSize: '0.45rem',
@@ -1442,7 +1548,10 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
-    border: '1px solid #1E293B',
+    borderTop: '2px solid #10B981',
+    borderLeft: '1px solid #1E293B',
+    borderRight: '1px solid #1E293B',
+    borderBottom: '1px solid #1E293B',
     boxSizing: 'border-box',
     minHeight: 0
   },
@@ -1487,13 +1596,15 @@ const styles = {
   },
   nodeRoleTag: {
     fontSize: '0.45rem',
-    fontWeight: '800',
-    letterSpacing: '0.04em'
+    fontWeight: '700',
+    letterSpacing: '0.04em',
+    fontFamily: FONT_DISPLAY
   },
   nodePlayerName: {
-    fontSize: '0.65rem',
-    fontWeight: '800',
-    color: '#FFFFFF'
+    fontSize: '0.68rem',
+    fontWeight: '600',
+    color: '#FFFFFF',
+    fontFamily: FONT_DISPLAY
   },
   nodePlaceholderLabel: {
     fontSize: '0.45rem',
@@ -1532,7 +1643,10 @@ const styles = {
     flex: '1 1 54%',
     backgroundColor: '#0D1322',
     borderRadius: '10px',
-    border: '1px solid #1E293B',
+    borderTop: '2px solid #1E293B',
+    borderLeft: '1px solid #1E293B',
+    borderRight: '1px solid #1E293B',
+    borderBottom: '1px solid #1E293B',
     padding: '1.25rem',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.4)',
     display: 'flex',
@@ -1553,12 +1667,13 @@ const styles = {
     marginBottom: '0.5rem'
   },
   statusPillBadge: {
-    fontSize: '0.7rem',
-    fontWeight: '800',
+    fontSize: '0.72rem',
+    fontWeight: '700',
     color: '#FFFFFF',
     padding: '0.3rem 0.75rem',
     borderRadius: '4px',
-    letterSpacing: '0.04em'
+    letterSpacing: '0.04em',
+    fontFamily: FONT_DISPLAY
   },
   squadScoreHeader: {
     fontSize: '0.8rem',
@@ -1570,11 +1685,12 @@ const styles = {
     alignItems: 'baseline'
   },
   bigScoreNumbers: {
-    fontSize: '3rem',
-    fontWeight: '900',
+    fontSize: '3.2rem',
+    fontWeight: '700',
     color: '#F8FAFC',
-    letterSpacing: '-0.03em',
-    lineHeight: '1.1'
+    letterSpacing: '-0.01em',
+    lineHeight: '1.1',
+    fontFamily: FONT_DISPLAY
   },
   ratingsCardGroup: {
     display: 'flex',
@@ -1644,9 +1760,10 @@ const styles = {
     color: '#CBD5E1'
   },
   matchResultBadge: {
-    fontSize: '0.85rem',
-    fontWeight: '900',
-    margin: '0.05rem 0'
+    fontSize: '0.9rem',
+    fontWeight: '700',
+    margin: '0.05rem 0',
+    fontFamily: FONT_DISPLAY
   },
   matchMarginText: {
     fontSize: '0.5rem',

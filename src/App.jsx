@@ -149,6 +149,7 @@ export default function App() {
   const [shareStatus, setShareStatus] = useState('idle'); // idle | working | done
   const [fallbackNotice, setFallbackNotice] = useState(false);
   const [justLocked, setJustLocked] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(null);
 
   const tickerRef = useRef(null);
 
@@ -214,7 +215,8 @@ export default function App() {
       p.era === targetEra && 
       p.team === targetTeam && 
       isRoleAllowed(p.role, currentCounts, roster.length) &&
-      !roster.find(drafted => drafted.playerId === p.playerId)
+      !roster.find(drafted => drafted.playerId === p.playerId) &&
+      !(p.is_overseas && overseasCount >= 4)
     );
   };
 
@@ -231,12 +233,14 @@ export default function App() {
     return combos;
   };
 
-  // Exhaustively searches every allowed combo for one with an eligible
-  // undrafted player. If nothing satisfies the strict role requirement
+  // Exhaustively searches every allowed combo for one with an eligible,
+  // actually-selectable undrafted player (role-valid AND not blocked by the
+  // 4-overseas cap). If nothing satisfies the strict role requirement
   // anywhere in the dataset (e.g. every All-Rounder has already been
-  // drafted), falls back to any undrafted player from that combo rather
-  // than leaving the caller with nothing — this is what stops a thin role
-  // from ever hard-locking or wiping the campaign.
+  // drafted), falls back to any undrafted, non-overseas-capped player from
+  // that combo rather than leaving the caller with nothing — this is what
+  // stops a thin role (or a maxed-out overseas quota) from ever presenting
+  // a "locked in" combo whose only candidate can't actually be clicked.
   const findExhaustiveCombo = (comboFilter) => {
     const combos = shuffledCombos().filter(comboFilter);
 
@@ -248,7 +252,8 @@ export default function App() {
       const pool = playersData.filter((p) =>
         p.era === combo.era &&
         p.team === combo.team &&
-        !roster.find((drafted) => drafted.playerId === p.playerId)
+        !roster.find((drafted) => drafted.playerId === p.playerId) &&
+        !(p.is_overseas && overseasCount >= 4)
       );
       if (pool.length > 0) return { ...combo, pool, relaxed: true };
     }
@@ -262,11 +267,16 @@ export default function App() {
     setHasSpun(true);
     setSpinResult(null);
     setFallbackNotice(false);
+    setStatusMessage(null);
 
     const found = findExhaustiveCombo(() => true);
 
     if (!found) {
-      alert("No undrafted players remain anywhere in the dataset — your campaign is effectively complete as-is.");
+      setStatusMessage(
+        overseasCount >= 4
+          ? "No selectable players remain anywhere — every undrafted player left is overseas and your quota (4/4) is full. Your campaign is effectively complete as-is."
+          : "No undrafted players remain anywhere in the dataset — your campaign is effectively complete as-is."
+      );
       setIsSpinning(false);
       setHasSpun(false);
       return;
@@ -315,6 +325,7 @@ export default function App() {
   const handleRerollTeam = () => {
     if (!teamRerollAvailable || isSpinning || !hasSpun) return;
     setTeamRerollAvailable(false);
+    setStatusMessage(null);
 
     const found = findExhaustiveCombo((c) => c.era === displayEra && c.team !== displayTeam);
 
@@ -324,7 +335,7 @@ export default function App() {
       setSpinResult({ era: displayEra, team: found.team });
       setFallbackNotice(found.relaxed);
     } else {
-      alert("No alternative team has undrafted players for this era. Re-roll refunded.");
+      setStatusMessage("No alternative team has a selectable player for this era. Re-roll refunded — your current options are unaffected.");
       setTeamRerollAvailable(true);
     }
   };
@@ -332,6 +343,7 @@ export default function App() {
   const handleRerollEra = () => {
     if (!eraRerollAvailable || isSpinning || !hasSpun) return;
     setEraRerollAvailable(false);
+    setStatusMessage(null);
 
     const found = findExhaustiveCombo((c) => c.team === displayTeam && c.era !== displayEra);
 
@@ -341,7 +353,7 @@ export default function App() {
       setSpinResult({ era: found.era, team: displayTeam });
       setFallbackNotice(found.relaxed);
     } else {
-      alert("No alternative era has undrafted players for this team. Re-roll refunded.");
+      setStatusMessage("No alternative era has a selectable player for this team. Re-roll refunded — your current options are unaffected.");
       setEraRerollAvailable(true);
     }
   };
@@ -491,6 +503,7 @@ export default function App() {
     setSpinResult(null);
     setHasSpun(false);
     setFallbackNotice(false);
+    setStatusMessage(null);
 
     if (updatedRoster.length === 12) {
       const results = runTournamentSimulation(updatedRoster);
@@ -504,6 +517,7 @@ export default function App() {
     setResumedBanner(false);
     setShareStatus('idle');
     setFallbackNotice(false);
+    setStatusMessage(null);
     setRoster([]);
     setCurrentOptions([]);
     setSpinResult(null);
@@ -981,12 +995,24 @@ export default function App() {
               </div>
             )}
 
+            {statusMessage && !isSpinning && (
+              <div style={styles.statusMessageBanner}>
+                🔁 {statusMessage}
+              </div>
+            )}
+
             <div style={styles.playerStreamViewport}>
               {!hasSpun && !isSpinning ? (
                 <div style={styles.emptyPromptState}>
-                  <p style={{ margin: 0, fontWeight: '600', color: '#94A3B8' }}>
-                    Press <strong>SPIN</strong> above to generate available franchise candidates.
-                  </p>
+                  {statusMessage ? (
+                    <p style={{ margin: 0, fontWeight: '600', color: '#94A3B8' }}>
+                      No available options right now — press <strong>SPIN</strong> again to keep searching.
+                    </p>
+                  ) : (
+                    <p style={{ margin: 0, fontWeight: '600', color: '#94A3B8' }}>
+                      Press <strong>SPIN</strong> above to generate available franchise candidates.
+                    </p>
+                  )}
                 </div>
               ) : (
                 processedOptions.map(player => {
@@ -1457,6 +1483,18 @@ const styles = {
     color: '#FCD34D',
     backgroundColor: 'rgba(245, 158, 11, 0.12)',
     border: '1px solid rgba(245, 158, 11, 0.35)',
+    borderRadius: '8px',
+    padding: '0.5rem 0.75rem',
+    marginBottom: '0.6rem',
+    flexShrink: 0,
+    lineHeight: 1.4
+  },
+  statusMessageBanner: {
+    fontSize: '0.72rem',
+    fontWeight: '600',
+    color: '#93C5FD',
+    backgroundColor: 'rgba(59, 130, 246, 0.12)',
+    border: '1px solid rgba(59, 130, 246, 0.35)',
     borderRadius: '8px',
     padding: '0.5rem 0.75rem',
     marginBottom: '0.6rem',

@@ -44,6 +44,74 @@ const SLOTS_CONFIG = {
 const FONT_DISPLAY = "'Chakra Petch', 'Segoe UI', sans-serif";
 const FONT_BODY = "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
+// ==============================================================================
+// 2B. START SCREEN — GAME MODE SELECT
+// ==============================================================================
+const GAME_MODES = [
+  {
+    id: 'classic',
+    title: 'CLASSIC',
+    icon: '📋',
+    tagline: 'Full stats, informed drafting',
+    description: "Draft with complete visibility. All averages, strike rates, wickets, and economy stats are visible upfront.",
+    accent: '#3B82F6'
+  },
+  {
+    id: 'blind',
+    title: 'BALL KNOWLEDGE',
+    icon: '🧠',
+    tagline: 'Names and roles only',
+    description: "Draft on pure instinct. Zero stats. You get a name, a role, and an era—the true numbers stay hidden until the simulation begins.",
+    accent: '#F97316'
+  }
+];
+
+function StartScreen({ onSelect }) {
+  const [hovered, setHovered] = useState(null);
+
+  return (
+    <div style={startScreenStyles.wrap}>
+      <div style={startScreenStyles.brand}>
+        <GameIcon size={40} style={{ border: '2px solid #334155', borderRadius: '10px', padding: '6px' }} />
+        <h1 style={startScreenStyles.title}>IPL 14-0 ENGINE</h1>
+      </div>
+      <p style={startScreenStyles.subtitle}>Choose your draft mode to begin the campaign</p>
+
+      <div style={startScreenStyles.modeGrid}>
+        {GAME_MODES.map((mode) => {
+          const isHovered = hovered === mode.id;
+          return (
+            <button
+              key={mode.id}
+              onClick={() => onSelect(mode.id)}
+              onMouseEnter={() => setHovered(mode.id)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                ...startScreenStyles.modeCard,
+                borderColor: isHovered ? mode.accent : '#1E293B',
+                boxShadow: isHovered ? `0 0 30px ${mode.accent}4D` : '0 4px 15px rgba(0,0,0,0.4)',
+                transform: isHovered ? 'translateY(-4px)' : 'translateY(0)'
+              }}
+            >
+              <div style={startScreenStyles.modeIcon}>{mode.icon}</div>
+              <div style={{ ...startScreenStyles.modeTitle, color: mode.accent }}>{mode.title}</div>
+              <div style={startScreenStyles.modeTagline}>{mode.tagline}</div>
+              <div style={startScreenStyles.modeDesc}>{mode.description}</div>
+              <div style={{ ...startScreenStyles.modeCta, backgroundColor: mode.accent }}>
+                START {mode.title}
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <div style={startScreenStyles.footNote}>
+        12-round draft · 4-overseas quota · 14-match season simulation
+      </div>
+    </div>
+  );
+}
+
 const TEAM_COLORS = {
   CSK:  { bg: '#1E293B', border: '#EAB308', text: '#FACC15', glow: 'rgba(234, 179, 8, 0.45)', tag: 'CSK' },
   MI:   { bg: '#1E293B', border: '#3B82F6', text: '#60A5FA', glow: 'rgba(59, 130, 246, 0.45)', tag: 'MI' },
@@ -126,6 +194,7 @@ export default function App() {
     !!(initialSave && (initialSave.roster?.length > 0 || initialSave.seasonResult))
   );
 
+  const [gameMode, setGameMode] = useState(initialSave?.gameMode || null); // null | 'classic' | 'blind'
   const [roster, setRoster] = useState(initialSave?.roster || []);
   const [currentOptions, setCurrentOptions] = useState(initialSave?.currentOptions || []);
   const [spinResult, setSpinResult] = useState(initialSave?.spinResult || null);
@@ -165,6 +234,7 @@ export default function App() {
   useEffect(() => {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        gameMode,
         roster,
         currentOptions,
         spinResult,
@@ -178,7 +248,7 @@ export default function App() {
     } catch {
       // ignore — persistence is a nice-to-have, not a hard requirement
     }
-  }, [roster, currentOptions, spinResult, seasonResult, hasSpun,
+  }, [gameMode, roster, currentOptions, spinResult, seasonResult, hasSpun,
       displayTeam, displayEra, teamRerollAvailable, eraRerollAvailable]);
 
   const currentCounts = useMemo(() => {
@@ -192,6 +262,8 @@ export default function App() {
   const overseasCount = useMemo(() => {
     return roster.filter(p => p.is_overseas).length;
   }, [roster]);
+
+  const isBlind = gameMode === 'blind';
 
   const isRoleAllowed = (role, counts, rosterLength) => {
     const baseSlotsFull = 
@@ -373,20 +445,27 @@ export default function App() {
       list = list.filter(p => p.role === queryRole);
     }
 
-    list.sort((a, b) => {
-      if (sortBy === 'matches') return (b.matches || 1) - (a.matches || 1);
-      if (sortBy === 'batting_avg') return (b.batting_avg || 0) - (a.batting_avg || 0);
-      if (sortBy === 'batting_sr') return (b.batting_sr || 0) - (a.batting_sr || 0);
-      if (sortBy === 'wickets') return (b.wickets || 0) - (a.wickets || 0);
-      if (sortBy === 'bowling_econ') {
-        const econA = a.bowling_econ === 0 ? 99 : a.bowling_econ;
-        const econB = b.bowling_econ === 0 ? 99 : b.bowling_econ;
-        return econA - econB;
-      }
-      return 0;
-    });
+    if (isBlind) {
+      // Never sort by an underlying stat in blind mode — even with the
+      // dropdown hidden, sorting by matches/avg/etc. would leak information
+      // through card *order* alone. Alphabetical keeps it truly blind.
+      list.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      list.sort((a, b) => {
+        if (sortBy === 'matches') return (b.matches || 1) - (a.matches || 1);
+        if (sortBy === 'batting_avg') return (b.batting_avg || 0) - (a.batting_avg || 0);
+        if (sortBy === 'batting_sr') return (b.batting_sr || 0) - (a.batting_sr || 0);
+        if (sortBy === 'wickets') return (b.wickets || 0) - (a.wickets || 0);
+        if (sortBy === 'bowling_econ') {
+          const econA = a.bowling_econ === 0 ? 99 : a.bowling_econ;
+          const econB = b.bowling_econ === 0 ? 99 : b.bowling_econ;
+          return econA - econB;
+        }
+        return 0;
+      });
+    }
     return list;
-  }, [currentOptions, searchQuery, roleFilter, sortBy]);
+  }, [currentOptions, searchQuery, roleFilter, sortBy, isBlind]);
 
   const runTournamentSimulation = (squad) => {
     let topBatters = squad
@@ -518,6 +597,26 @@ export default function App() {
     setShareStatus('idle');
     setFallbackNotice(false);
     setStatusMessage(null);
+    setGameMode(null);
+    setRoster([]);
+    setCurrentOptions([]);
+    setSpinResult(null);
+    setSeasonResult(null);
+    setHasSpun(false);
+    setIsSpinning(false);
+    setDisplayTeam('RCB');
+    setDisplayEra('2023-2026');
+    setTeamRerollAvailable(true);
+    setEraRerollAvailable(true);
+  };
+
+  const startCampaign = (mode) => {
+    if (tickerRef.current) clearTimeout(tickerRef.current);
+    setResumedBanner(false);
+    setShareStatus('idle');
+    setFallbackNotice(false);
+    setStatusMessage(null);
+    setGameMode(mode);
     setRoster([]);
     setCurrentOptions([]);
     setSpinResult(null);
@@ -800,6 +899,8 @@ export default function App() {
       <div className="stadium-floodlight" />
       <div className="stadium-grain" />
 
+      {gameMode ? (
+      <>
       {/* HEADER BAR */}
       <header style={styles.headerBar}>
         <div style={styles.brandTitleGroup}>
@@ -810,6 +911,15 @@ export default function App() {
           
           <span style={styles.roundTrackerPill}>
             {seasonResult ? 'CAMPAIGN CONCLUDED' : `Round ${Math.min(12, roster.length + 1)} / 12`}
+          </span>
+
+          <span style={{
+            ...styles.modeTrackerPill,
+            color: isBlind ? '#FDBA74' : '#93C5FD',
+            backgroundColor: isBlind ? 'rgba(249, 115, 22, 0.12)' : 'rgba(59, 130, 246, 0.12)',
+            borderColor: isBlind ? 'rgba(249, 115, 22, 0.35)' : 'rgba(59, 130, 246, 0.35)'
+          }}>
+            {isBlind ? '🧠 BALL KNOWLEDGE' : '📊 CLASSIC'}
           </span>
 
           {/* DYNAMIC OVERSEAS TRACKER PILL (SHADED GREEN -> RED WARNING) */}
@@ -974,7 +1084,7 @@ export default function App() {
                 value={sortBy} 
                 disabled={isSpinning} 
                 onChange={(e) => setSortBy(e.target.value)} 
-                style={styles.sortDropdownControl}
+                style={{ ...styles.sortDropdownControl, visibility: isBlind ? 'hidden' : 'visible' }}
               >
                 <option value="matches">MATCHES</option>
                 <option value="batting_avg">AVG</option>
@@ -1055,31 +1165,39 @@ export default function App() {
                           {player.name} {player.is_overseas && "✈️"}
                         </div>
                         <div style={styles.playerRoleSubTag}>
-                          {player.role.toUpperCase()} · <span style={{ color: '#F8FAFC', fontWeight: '800' }}>{player.matches || 1}M</span>
+                          {player.role.toUpperCase()}
+                          {!isBlind && <>{' · '}<span style={{ color: '#F8FAFC', fontWeight: '800' }}>{player.matches || 1}M</span></>}
                         </div>
                       </div>
 
-                      <div style={styles.metricsClusterRight}>
-                        <div style={styles.statColumnCell}>
-                          <span style={styles.statNumberPrimary}>{avgDisplay}</span>
-                          <span style={styles.statLabelMuted}>AVG</span>
+                      {isBlind ? (
+                        <div style={styles.blindPickTag}>
+                          <span style={{ fontSize: '1rem' }}>🧠</span>
+                          <span>KNOWLEDGE&nbsp;CHECK</span>
                         </div>
+                      ) : (
+                        <div style={styles.metricsClusterRight}>
+                          <div style={styles.statColumnCell}>
+                            <span style={styles.statNumberPrimary}>{avgDisplay}</span>
+                            <span style={styles.statLabelMuted}>AVG</span>
+                          </div>
 
-                        <div style={styles.statColumnCell}>
-                          <span style={styles.statNumberPrimary}>{srDisplay}</span>
-                          <span style={styles.statLabelMuted}>SR</span>
-                        </div>
+                          <div style={styles.statColumnCell}>
+                            <span style={styles.statNumberPrimary}>{srDisplay}</span>
+                            <span style={styles.statLabelMuted}>SR</span>
+                          </div>
 
-                        <div style={styles.statColumnCell}>
-                          <span style={styles.statNumberPrimary}>{wktDisplay}</span>
-                          <span style={styles.statLabelMuted}>WKT</span>
-                        </div>
+                          <div style={styles.statColumnCell}>
+                            <span style={styles.statNumberPrimary}>{wktDisplay}</span>
+                            <span style={styles.statLabelMuted}>WKT</span>
+                          </div>
 
-                        <div style={styles.statColumnCell}>
-                          <span style={styles.statNumberPrimary}>{ecnDisplay}</span>
-                          <span style={styles.statLabelMuted}>ECN</span>
+                          <div style={styles.statColumnCell}>
+                            <span style={styles.statNumberPrimary}>{ecnDisplay}</span>
+                            <span style={styles.statLabelMuted}>ECN</span>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   );
                 })
@@ -1241,6 +1359,10 @@ export default function App() {
         </div>
 
       </div>
+      </>
+      ) : (
+        <StartScreen onSelect={startCampaign} />
+      )}
     </div>
   );
 }
@@ -1248,6 +1370,102 @@ export default function App() {
 // ==============================================================================
 // 4. STYLES
 // ==============================================================================
+const startScreenStyles = {
+  wrap: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '2rem',
+    position: 'relative',
+    zIndex: 1,
+    textAlign: 'center'
+  },
+  brand: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.85rem',
+    marginBottom: '0.6rem'
+  },
+  title: {
+    fontFamily: FONT_DISPLAY,
+    fontSize: '2rem',
+    fontWeight: '700',
+    letterSpacing: '0.04em',
+    color: '#F8FAFC',
+    margin: 0
+  },
+  subtitle: {
+    fontFamily: FONT_BODY,
+    fontSize: '0.95rem',
+    color: '#94A3B8',
+    marginBottom: '2.5rem'
+  },
+  modeGrid: {
+    display: 'flex',
+    gap: '1.5rem',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    maxWidth: '860px'
+  },
+  modeCard: {
+    width: '340px',
+    backgroundColor: '#0D1322',
+    border: '2px solid #1E293B',
+    borderRadius: '14px',
+    padding: '1.75rem 1.5rem',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    cursor: 'pointer',
+    transition: 'all 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+    fontFamily: FONT_BODY
+  },
+  modeIcon: {
+    fontSize: '2.4rem',
+    marginBottom: '0.75rem'
+  },
+  modeTitle: {
+    fontFamily: FONT_DISPLAY,
+    fontSize: '1.15rem',
+    fontWeight: '700',
+    letterSpacing: '0.05em',
+    marginBottom: '0.3rem'
+  },
+  modeTagline: {
+    fontSize: '0.78rem',
+    fontWeight: '700',
+    color: '#CBD5E1',
+    marginBottom: '0.85rem'
+  },
+  modeDesc: {
+    fontSize: '0.8rem',
+    color: '#94A3B8',
+    lineHeight: 1.55,
+    marginBottom: '1.5rem',
+    minHeight: '95px'
+  },
+  modeCta: {
+    fontFamily: FONT_DISPLAY,
+    fontSize: '0.78rem',
+    fontWeight: '700',
+    letterSpacing: '0.06em',
+    color: '#0A0A0A',
+    padding: '0.6rem 1.25rem',
+    borderRadius: '8px',
+    width: '100%',
+    boxSizing: 'border-box'
+  },
+  footNote: {
+    marginTop: '2.5rem',
+    fontSize: '0.7rem',
+    color: '#475569',
+    fontFamily: FONT_BODY,
+    letterSpacing: '0.03em'
+  }
+};
+
 const styles = {
   appCanvas: {
     backgroundColor: '#050914',
@@ -1299,6 +1517,16 @@ const styles = {
     padding: '0.25rem 0.65rem',
     borderRadius: '20px',
     border: '1px solid #1E293B'
+  },
+  modeTrackerPill: {
+    fontSize: '0.65rem',
+    fontWeight: '700',
+    letterSpacing: '0.04em',
+    padding: '0.25rem 0.65rem',
+    borderRadius: '20px',
+    border: '1px solid',
+    fontFamily: FONT_DISPLAY,
+    whiteSpace: 'nowrap'
   },
   overseasTrackerPill: {
     fontSize: '0.7rem',
@@ -1557,6 +1785,21 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'end',
     flexShrink: 0
+  },
+  blindPickTag: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.4rem',
+    flexShrink: 0,
+    fontSize: '0.6rem',
+    fontWeight: '700',
+    letterSpacing: '0.06em',
+    color: '#FDBA74',
+    backgroundColor: 'rgba(249, 115, 22, 0.10)',
+    border: '1px solid rgba(249, 115, 22, 0.3)',
+    borderRadius: '6px',
+    padding: '0.35rem 0.6rem',
+    fontFamily: FONT_DISPLAY
   },
   statColumnCell: {
     display: 'flex',

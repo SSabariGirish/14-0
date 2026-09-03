@@ -20792,7 +20792,7 @@
   {
     "id": "j_theron_pbks_2008_2012",
     "playerId": "j_theron",
-    "name": "J Theron",
+    "name": "Rusty Theron",
     "role": "Bowler",
     "team": "PBKS",
     "era": "2008-2012",
@@ -20802,7 +20802,7 @@
     "bowling_econ": 7.89,
     "wickets": 1.14,
     "dismissals": 0.14,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "thisara_perera_csk_2008_2012",
@@ -24092,7 +24092,7 @@
   {
     "id": "j_theron_dec_2008_2012",
     "playerId": "j_theron",
-    "name": "J Theron",
+    "name": "Rusty Theron",
     "role": "Bowler",
     "team": "DEC",
     "era": "2008-2012",
@@ -24102,7 +24102,7 @@
     "bowling_econ": 8.25,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "r_shukla_mi_2008_2012",
@@ -28142,7 +28142,7 @@
   {
     "id": "jw_hastings_csk_2013_2017",
     "playerId": "jw_hastings",
-    "name": "JW Hastings",
+    "name": "John Hastings",
     "role": "Bowler",
     "team": "CSK",
     "era": "2013-2017",
@@ -28152,12 +28152,12 @@
     "bowling_econ": 9.67,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "m_de_lange_mi_2013_2017",
     "playerId": "m_de_lange",
-    "name": "M de Lange",
+    "name": "Merchant de Lange",
     "role": "Bowler",
     "team": "MI",
     "era": "2013-2017",
@@ -28622,7 +28622,7 @@
   {
     "id": "j_theron_rr_2013_2017",
     "playerId": "j_theron",
-    "name": "J Theron",
+    "name": "Rusty Theron",
     "role": "Bowler",
     "team": "RR",
     "era": "2013-2017",
@@ -28632,7 +28632,7 @@
     "bowling_econ": 10,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "gs_sandhu_dc_2013_2017",
@@ -28772,7 +28772,7 @@
   {
     "id": "jw_hastings_kkr_2013_2017",
     "playerId": "jw_hastings",
-    "name": "JW Hastings",
+    "name": "John Hastings",
     "role": "Bowler",
     "team": "KKR",
     "era": "2013-2017",
@@ -28782,7 +28782,7 @@
     "bowling_econ": 5.55,
     "wickets": 1,
     "dismissals": 0,
-    "is_overseas": false
+    "is_overseas": true
   },
   {
     "id": "colin_munro_kkr_2013_2017",

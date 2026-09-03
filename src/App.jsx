@@ -1,30 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import playersData from './data/players.json';
-
-// ==============================================================================
-// 1. EMBEDDED GEOMETRIC VECTOR ICON
-// ==============================================================================
-function GameIcon({ size = 24, style, ...props }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ display: 'inline-block', verticalAlign: 'middle', ...style }}
-      {...props}
-    >
-      <rect width="24" height="24" rx="6" fill="#0F172A" />
-      <circle cx="12" cy="12" r="9" stroke="#334155" strokeWidth="0.75" strokeDasharray="2 2" />
-      <rect x="8.5" y="7.5" width="1.25" height="9" rx="0.5" fill="#9CA3AF" />
-      <rect x="11.35" y="6.5" width="1.3" height="10" rx="0.5" fill="#E5E7EB" />
-      <rect x="14.25" y="7.5" width="1.25" height="9" rx="0.5" fill="#9CA3AF" />
-      <path d="M4.5 16.5C7.5 13.5 11.5 10.5 19.5 7.5" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" />
-      <circle cx="11.5" cy="11.5" r="1.25" fill="#F97316" />
-    </svg>
-  );
-}
+import icon140 from './assets/140icon.jpeg';
+import background140 from './assets/140background.jpeg';
 
 // ==============================================================================
 // 2. CONFIGURATION & FRANCHISE BRAND TOKENS
@@ -66,47 +43,82 @@ const GAME_MODES = [
   }
 ];
 
+// Real photographic backdrop (user-supplied). Rendered as a plain <img>,
+// not a CSS background-image, so it scales predictably via object-fit
+// without the aspect-ratio cropping problems the old illustrated SVG had.
+// Faded via a layered dark gradient overlay so it reads as translucent
+// atmosphere behind the hero copy, same idea as 82-0's court photo.
+function StadiumBackdrop() {
+  return (
+    <>
+      <img
+        src={background140}
+        alt=""
+        aria-hidden="true"
+        style={startScreenStyles.backdropPhoto}
+      />
+      <div style={startScreenStyles.backdropOverlay} />
+    </>
+  );
+}
+
 function StartScreen({ onSelect }) {
   const [hovered, setHovered] = useState(null);
 
   return (
     <div style={startScreenStyles.wrap}>
-      <div style={startScreenStyles.brand}>
-        <GameIcon size={40} style={{ border: '2px solid #334155', borderRadius: '10px', padding: '6px' }} />
-        <h1 style={startScreenStyles.title}>IPL 14-0 ENGINE</h1>
-      </div>
-      <p style={startScreenStyles.subtitle}>Choose your draft mode to begin the campaign</p>
+      <StadiumBackdrop />
 
-      <div style={startScreenStyles.modeGrid}>
-        {GAME_MODES.map((mode) => {
-          const isHovered = hovered === mode.id;
-          return (
-            <button
-              key={mode.id}
-              onClick={() => onSelect(mode.id)}
-              onMouseEnter={() => setHovered(mode.id)}
-              onMouseLeave={() => setHovered(null)}
-              style={{
-                ...startScreenStyles.modeCard,
-                borderColor: isHovered ? mode.accent : '#1E293B',
-                boxShadow: isHovered ? `0 0 30px ${mode.accent}4D` : '0 4px 15px rgba(0,0,0,0.4)',
-                transform: isHovered ? 'translateY(-4px)' : 'translateY(0)'
-              }}
-            >
-              <div style={startScreenStyles.modeIcon}>{mode.icon}</div>
-              <div style={{ ...startScreenStyles.modeTitle, color: mode.accent }}>{mode.title}</div>
-              <div style={startScreenStyles.modeTagline}>{mode.tagline}</div>
-              <div style={startScreenStyles.modeDesc}>{mode.description}</div>
-              <div style={{ ...startScreenStyles.modeCta, backgroundColor: mode.accent }}>
-                START {mode.title}
-              </div>
-            </button>
-          );
-        })}
-      </div>
+      <div style={startScreenStyles.content}>
+        <div style={startScreenStyles.emblemWrap}>
+          <img
+            src={icon140}
+            alt="14-0 badge"
+            style={startScreenStyles.emblemImg}
+          />
+        </div>
 
-      <div style={startScreenStyles.footNote}>
-        12-round draft · 4-overseas quota · 14-match season simulation
+        <h1 style={startScreenStyles.heroTitle}>
+          Can You Go <span style={{ color: '#F97316' }}>14-0</span> ?
+        </h1>
+        <p style={startScreenStyles.heroSubtitle}>How do you want to build your all-time squad?</p>
+
+        <div style={startScreenStyles.eyebrowWrap}>
+          <span style={startScreenStyles.eyebrowText}>CHOOSE YOUR MODE</span>
+          <div style={startScreenStyles.eyebrowUnderline} />
+        </div>
+
+        <div style={startScreenStyles.modeGrid}>
+          {GAME_MODES.map((mode) => {
+            const isHovered = hovered === mode.id;
+            return (
+              <button
+                key={mode.id}
+                onClick={() => onSelect(mode.id)}
+                onMouseEnter={() => setHovered(mode.id)}
+                onMouseLeave={() => setHovered(null)}
+                style={{
+                  ...startScreenStyles.modeCard,
+                  borderColor: isHovered ? mode.accent : '#1E293B',
+                  boxShadow: isHovered ? `0 0 30px ${mode.accent}4D` : '0 4px 15px rgba(0,0,0,0.4)',
+                  transform: isHovered ? 'translateY(-4px)' : 'translateY(0)'
+                }}
+              >
+                <div style={startScreenStyles.modeIcon}>{mode.icon}</div>
+                <div style={{ ...startScreenStyles.modeTitle, color: mode.accent }}>{mode.title}</div>
+                <div style={startScreenStyles.modeTagline}>{mode.tagline}</div>
+                <div style={startScreenStyles.modeDesc}>{mode.description}</div>
+                <div style={{ ...startScreenStyles.modeCta, backgroundColor: mode.accent }}>
+                  START {mode.title}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={startScreenStyles.footNote}>
+          12-round draft · 4-overseas quota · 14-match season simulation
+        </div>
       </div>
     </div>
   );
@@ -905,7 +917,11 @@ export default function App() {
       <header style={styles.headerBar}>
         <div style={styles.brandTitleGroup}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <GameIcon size={24} style={{ border: '1px solid #334155', borderRadius: '5px' }} />
+            <img
+              src={icon140}
+              alt="14-0 badge"
+              style={{ width: '34px', height: '34px', objectFit: 'contain', flexShrink: 0 }}
+            />
             <h1 style={styles.brandLogo}>IPL 14-0 ENGINE</h1>
           </div>
           
@@ -1376,31 +1392,91 @@ const startScreenStyles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: '2rem',
+    // Removed justifyContent: 'center' to prevent top-cropping on short screens
+    padding: '1rem',
     position: 'relative',
     zIndex: 1,
-    textAlign: 'center'
+    textAlign: 'center',
+    overflowY: 'auto', // Safely allows scrolling if the screen is very short
+    overflowX: 'hidden'
   },
-  brand: {
+  backdropPhoto: {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center 55%',
+    opacity: 0.4,
+    zIndex: 0,
+    pointerEvents: 'none'
+  },
+  backdropOverlay: {
+    position: 'absolute',
+    inset: 0,
+    zIndex: 0,
+    pointerEvents: 'none',
+    background: `
+      radial-gradient(ellipse at 50% 38%, rgba(5,9,20,0.35) 0%, rgba(5,9,20,0.85) 68%, #050914 100%),
+      linear-gradient(to bottom, #050914 0%, rgba(5,9,20,0) 22%, rgba(5,9,20,0) 68%, #050914 100%)
+    `
+  },
+  content: {
+    position: 'relative',
+    zIndex: 1,
     display: 'flex',
+    flexDirection: 'column',
     alignItems: 'center',
-    gap: '0.85rem',
-    marginBottom: '0.6rem'
+    margin: 'auto 0', // The "Safe Centering" trick. Centers when tall enough, sticks to top when short.
+    paddingTop: '2rem',
+    paddingBottom: '2rem'
   },
-  title: {
+  emblemWrap: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: '2.25rem'
+  },
+  emblemImg: {
+    width: '128px',
+    height: 'auto',
+    filter: 'drop-shadow(0 6px 18px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 22px rgba(249, 115, 22, 0.3))'
+  },
+  heroTitle: {
     fontFamily: FONT_DISPLAY,
-    fontSize: '2rem',
+    fontSize: '2.75rem',
     fontWeight: '700',
-    letterSpacing: '0.04em',
+    letterSpacing: '0.01em',
     color: '#F8FAFC',
-    margin: 0
+    margin: '0 0 1.2rem 0',
+    textShadow: '0 0 40px rgba(249, 115, 22, 0.25)'
   },
-  subtitle: {
+  heroSubtitle: {
     fontFamily: FONT_BODY,
     fontSize: '0.95rem',
     color: '#94A3B8',
-    marginBottom: '2.5rem'
+    marginBottom: '1.75rem'
+  },
+  eyebrowWrap: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: '2.25rem'
+  },
+  eyebrowText: {
+    fontFamily: FONT_DISPLAY,
+    fontSize: '0.7rem',
+    fontWeight: '700',
+    letterSpacing: '0.16em',
+    color: '#F97316'
+  },
+  eyebrowUnderline: {
+    width: '46px',
+    height: '2px',
+    backgroundColor: '#F97316',
+    borderRadius: '2px',
+    marginTop: '0.5rem',
+    opacity: 0.6
   },
   modeGrid: {
     display: 'flex',
@@ -1411,7 +1487,8 @@ const startScreenStyles = {
   },
   modeCard: {
     width: '340px',
-    backgroundColor: '#0D1322',
+    backgroundColor: 'rgba(13, 19, 34, 0.88)',
+    backdropFilter: 'blur(6px)',
     border: '2px solid #1E293B',
     borderRadius: '14px',
     padding: '1.75rem 1.5rem',
@@ -1448,13 +1525,14 @@ const startScreenStyles = {
   },
   modeCta: {
     fontFamily: FONT_DISPLAY,
-    fontSize: '0.78rem',
+    fontSize: '0.65rem',
     fontWeight: '700',
-    letterSpacing: '0.06em',
+    letterSpacing: '0.05em',
     color: '#0A0A0A',
-    padding: '0.6rem 1.25rem',
-    borderRadius: '8px',
-    width: '100%',
+    padding: '0.4rem 1rem',
+    borderRadius: '7px',
+    width: 'auto',
+    minWidth: '150px',
     boxSizing: 'border-box'
   },
   footNote: {
